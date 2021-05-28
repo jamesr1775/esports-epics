@@ -1,59 +1,139 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+#     <div align="center"><img src="/assets/images/sorting-visualiser-logo.png" alt="Site Mock ups"></div>
+[Esports Epics](https://jamesr1775.github.io/Sorting-Visualiser/.) is a website to share the most nail biting, clutch and incredible competitive moments that occur in a variety of different genres of video games. When your opponents back is against the wall, they are forced to pull off epic feats to turn the odds back in their favour. Esports Epics is a place to capture these feats so that myself and you can learn and enjoy the best moments esports has to offer.
 
-Welcome USER_NAME,
+## Table of Contents
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+1. [**UX**](#ux)
+    - [**Project Goals**](#project-goals)
+    - [**User Stories**](#user-stories)
+    - [**Wireframe mock-ups**](#wireframe-mock-ups)
+2. [**Features**](#features)
+    - [**Home Page**](#home-page)
+    - [**Source Code**](#source-code)
+    - [**Existing Features**](#existing-features)
+3. [**Technologies Used**](#technologies-used)
+4. [**Testing**](#testing)
+5. [**Deployment**](#deployment)
+6. [**Bugs and Issues Resolved**](#bugs-and-issues-resolved)
+7. [**Credits**](#credits)
+    - [**Media**](#media)
+    - [**Acknowledgements**](#acknowledgements)
+    
+## UX
+### Project Goals
+- The primary goal of this project is to create a hub/library where fans of Esports across a variety of games can submit their favorite Esports moments, browse other submissions and 
+watch epic comebacks, clutch moments and impossible plays.
+- The website will allow fans to search/browse all the submissions by different categories such as which game, genre, notable player etc.
+- Users will be able to create posts and provide context and information to readers who click into the post, so they can understand what makes this moment special.
+- Esports fans can view upcoming events in various games so they can view and submit the most recent clips when they watch currently running tournaments.
+- This Website will:
+    * Be responsive on multiple platforms such as desktops, tablets and smartphones
+    * Allow users to add, edit and delete their posts using CRUD operations so they can contribute to the site.
+    * Allow users to browse new and old posts so they can view epic moments for enjoyment or to learn from so they can also get better in that game.
 
-## Gitpod Reminders
+### Business & Developer Goals
+* Create a esports website that allows visitors to view or contribute incredible esports clips and videos for learning and entertainment purposes.
+* This website will be for users who enjoy playing video games, who enjoy watching competitive matches in their favorite video games and want a place they can watch recent tournaments highlights and epic moments .
+* Get esports fans traffic to the website for advertisements or merchandise sales for revenue.
+* As a developer I would like to 
+    - Learn Flask, noSQL using MongoDB and designing a database by creating an exciting project visitors would like to interact with.
+    - A challenging project for the developer but also one that I have a passion for. I have followed Esports for over 10 years.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### User Stories
+As a video game or Esports enthusiast I would like:
+1. To be able to navigate the website efficiently and intuitively so that I can find posts that capture my interest or make a new post myself.
+2. A place / library of the best esports moments so that I can view them for enjoyment and share them with others. 
+3. Read the context behind the clip or moment so that I can understand why it is an amazing play.
+4. The ability to add clips / competitive moments so I can contribute to the collections of great esports moments so others can view them.
+5. Be able to edit or delete esports posts that I added incase I made a mistake or the post already exists.
+6. To be able to filter all the moments by intuitive categories such as game, genre or date so I can quickly navigate to games / clips that interest me.
+7. View upcoming esports tournaments that so I know when they will be live in order to watch them.
+8. Add upcoming esports tournaments so that other users can benefit from knowing when tournaments are live.
+9. Be able to edit or delete tournament posts that I have added to keep the information reliable and up to date.
+10. The ability to favorite other esports moments posts so that I collect all of my favorite clips for my own enjoyment or be able to share/find them easily.
+11. Find the contact information and social media links easily so I can keep up to date with the website and posts.
 
-`python3 -m http.server`
+### Wireframe mock-ups
+- [Home Page](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/home.png)
+- [Create Account](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/create-account.png)
+- [Log In](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/log-in.png)
+- [Profile](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/profile.png)
+- [Add Esports Moment](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/add-esports-moment.png)
+- [Add Event](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/add-event.png)
+- [Browse](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/browse.png)
 
-A blue button should appear to click: _Make Public_,
+### Database Design
+This project required the use of NoSQL and seems fine for the type of data that will be collected the users. There are 3 collections that are required and they are:
+1. User Account information
+2. Esports Posts Information/Content
+3. Upcoming Esports Events & Tournaments
 
-Another blue button should appear to click: _Open Browser_.
+The type of data for each of these collections are detailed below.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+#### User Account information
 
-A blue button should appear to click: _Make Public_,
+Data Base Key | Data Type | Description
+:----:|:-----------:|:-------:
+_id | ObjectId | MongoDB generated
+username | String | Account login username.
+email | String | The email for this account.
+password | String | Users password.
+submittedPosts | Array | User submitted esports posts.
+submittedEvents | Array | User submitted esports events/tournaments.
+favoritePosts | Array | User favorited esports posts.
 
-Another blue button should appear to click: _Open Browser_.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+#### Esports Posts Information/Content
 
-To log into the Heroku toolbelt CLI:
+Data Base Key | Data Type | Description
+:----:|:-----------:|:-------:
+_id | ObjectId | MongoDB generated
+username | String | User who created post.
+postTitle | String | Title to be displayed for post.
+game | String | Name of the video game.
+gameCategory | String | Game genre. (FPS, Moba, Fighting etc.)
+featuredPlayer | String | Name of the pro player in the clip.
+description | String | Descriptive text for other readers for context.
+shortDescription | String | Shorter Descriptive text for mobile users.
+tournamentName | String | Name of the tournament.
+tournamentDate | TimeStamp | Date the esports game occured.
+video | String | Link to the video or clip to embed in post.
+postImage | String | Image to go with description for post.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Features
+### Home Page
+### Existing Features
+### Features to implement in the future
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
 
-## Updates Since The Instructional Video
+## Technologies Used
+The Technologies used in this project are the following:
+1. [Balsamiq:](https://balsamiq.com/)
+    - Balsamiq was used to create the wireframes.
+2. [GitPod:](https://gitpod.io/)
+    - GitPod was used as my Editor/ Development Environment.
+3. [GitHub:](https://github.com/)
+    - GitHub is used to store the projects code with version control.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Testing
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Deployment
+### GitHub Pages
+Follow the steps below to deploy my project:
+1. Go to [GitHub](https://github.com). 
+2. Click on your projects repository and then click the settings tab.
+3. Locate the GitHub pages sections in the settings page
+4. Select the branch you want to deploy your code from under the source drop down tab.
+5. Now if you go back to the GitHub pages section your project should be deployed and you should see the link it was deployed to.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Creating your own local copy
+1. To get a copy of this repo, go to [Esports Epics Repo](https://github.com/jamesr1775/esports-epics), make sure your logged in. 
+2. In the top right hand corner, click the fork button which will create a copy of the repo into your account.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Bugs and Issues Resolved
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Credits
+### Media
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
----
-
-Happy coding!
+### Acknowledgements

@@ -100,6 +100,20 @@ tournamentDate | TimeStamp | Date the esports game occured.
 video | String | Link to the video or clip to embed in post.
 postImage | String | Image to go with description for post.
 
+#### Upcoming Esports Events & Tournaments
+
+Data Base Key | Data Type | Description
+:----:|:-----------:|:-------:
+_id | ObjectId | MongoDB generated
+username | String | User who created event.
+eventTitle | String | Event title to be displayed.
+game | String | Name of the video game.
+startDate | TimeStamp | Starting date of the tournament.
+endDate | TimeStamp | Ending date of the tournament.
+broadcastStartTime | TimeStamp | Starting time of the live broadcast.
+tournamentsURL | String | Link to the tournaments website.
+tournamentsImage | String | Image to go with event title.
+
 ## Features
 ### Home Page
 ### Existing Features

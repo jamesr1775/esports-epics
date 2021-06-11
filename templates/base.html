@@ -8,10 +8,40 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
-    <title>Esports Epics</title>
+    <title>Esports Legends</title>
 </head>
 <body>
-    
+    <header> 
+        <!-- Tablet and desktop nav bar -->        
+        <nav class="nav-extended">            
+            <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Esports Epics</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Browse</a></li>
+                <li><a href="#">Add Event</a></li>
+                <li><a href="#">Submit Epic</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Log In</a></li>
+                <li><a href="#">Log Out</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+            </div>
+        </nav>
+        <!-- Tablet and desktop nav bar -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align">Esports Epics</h4></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Browse</a></li>
+            <li><a href="#">Add Event</a></li>
+            <li><a href="#">Submit Epic</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+    </header>
     <main class="container">
         <h1>Base Page</h1>
         {% block content %}

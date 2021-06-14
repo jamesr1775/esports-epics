@@ -151,3 +151,4 @@ Follow the steps below to deploy my project:
 ### Media
 
 ### Acknowledgements
+-[1] Obtained the javascript for confirming the passwords match from [jsfiddle](http://jsfiddle.net/SirusDoma/ayf832td/).

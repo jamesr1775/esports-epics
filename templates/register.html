@@ -8,25 +8,27 @@
                 <div class="row">
 					<div class="input-field col s12">
                         <i class="material-icons prefix">person</i>
-						<input id="username" name="username" type="text" class="validate">
-						<label for="username">Username</label>
+						<input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="username">Username</label>
+                        <span class="helper-text" data-error="A username should consist of letters and/or numbers and be between 5-15 characters long." data-success=""></span>
 					</div>
                 </div>
                 <!-- email -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>
-                        <input id="email" name="email" type="email" class="validate">
+                        <input id="email" name="email" type="email" minlength="5" maxlength="100" class="validate" required>
                         <label for="email">Email</label>
-                        <span class="helper-text" data-error="Please use a valid email address." data-success="">e.g john.doe@gmail.com</span>
+                        <span class="helper-text" data-error="Please use a valid email address. e.g john.doe@gmail.com" data-success=""></span>
                     </div>
                 </div>
                 <!-- password -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
-                        <input id="password" name="password" type="password" class="validate">
-                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" minlength="8" maxlength="20" class="validate" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$" required>
+                        <label for="password" data-error="A password must include atleast one letter, symbol, number and be 8-20 characters long.">Password</label>
+                        <span class="helper-text" data-error="A password must include atleast one letter, symbol, number and be 8-20 characters long." data-success=""></span>
                     </div>
                 </div>
 
@@ -34,8 +36,9 @@
                 <div class="row">
                     <div class="input-field col s12">
 						<i class="material-icons prefix">enhanced_encryption</i>
-                        <input id="pwconfirm" name="pwconfirm" type="password" class="validate">
+                        <input id="pwconfirm" name="pwconfirm" type="password" minlength="8" maxlength="20" class="validate" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$" required>
                         <label for="pwconfirm">Confirm Password</label>
+                        <span class="helper-text" data-error="Passwords must match!" data-success=""></span>
                     </div>
                 </div>
                 <!-- register -->

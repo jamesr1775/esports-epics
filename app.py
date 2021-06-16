@@ -83,7 +83,9 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-
+@app.route("/submit_epic")
+def submit_epic():
+    return render_template("submit_epic.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

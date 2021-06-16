@@ -152,3 +152,4 @@ Follow the steps below to deploy my project:
 
 ### Acknowledgements
 -[1] Obtained the javascript for confirming the passwords match from [jsfiddle](http://jsfiddle.net/SirusDoma/ayf832td/).
+-[2] Needed a larger input box for the description field for submitting an event. Got information from [w3schools](https://www.w3schools.com/tags/tag_textarea.asp).

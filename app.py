@@ -72,7 +72,6 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    username = mongo.db.users.find_one({"username": session["user"]})["username"]
     if session["user"]:
         return render_template("profile.html", username=username)
     return redirect(url_for("login"))
@@ -83,9 +82,27 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-@app.route("/submit_epic")
+@app.route("/submit_epic", methods=["GET", "POST"])
 def submit_epic():
-    return render_template("submit_epic.html")
+    if request.method == "POST":
+        epic_info = {
+            "username": session['user'],
+            "title": request.form.get("title"),
+            "game": request.form.get("game"),
+            "game_category": request.form.get("game_category"),
+            "featured_player": request.form.get("featured_player"),
+            "description": request.form.get("description"),
+            "short_description": request.form.get("short_description"),
+            "tournament": request.form.get("tournament"),
+            "tournament_year": request.form.get("tournament_year"),
+            "video": request.form.get("video"),
+            "image": request.form.get("image"),
+        }
+        mongo.db.epics.insert_one(epic_info)
+        flash("Submission Successful!")
+        return redirect(url_for("profile", username=session['user']))
+    else:
+        return render_template("submit_epic.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

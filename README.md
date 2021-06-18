@@ -153,3 +153,4 @@ Follow the steps below to deploy my project:
 ### Acknowledgements
 -[1] Obtained the javascript for confirming the passwords match from [jsfiddle](http://jsfiddle.net/SirusDoma/ayf832td/).
 -[2] Needed a larger input box for the description field for submitting an event. Got information from [w3schools](https://www.w3schools.com/tags/tag_textarea.asp).
+-[3] Wanted to have a youtube video in a modal using bootstrap. Bootstrap documentation pointed to [stackoverflow](https://stackoverflow.com/questions/18622508/bootstrap-3-and-youtube-in-modal)

@@ -73,7 +73,8 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     if session["user"]:
-        return render_template("profile.html", username=username)
+        epics = list(mongo.db.epics.find())
+        return render_template("profile.html", username=username, epics=epics)
     return redirect(url_for("login"))
 
 @app.route("/logout")

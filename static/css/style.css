@@ -15,3 +15,12 @@ body{
 .epic-form-icon{
     font-size: 1.2rem !important;
 }
+
+.epic-image{
+    height: 300px;
+    width: 100%;
+    border-radius: 10%;
+}
+.max-width-auto{
+    max-width: 100% !important;
+}

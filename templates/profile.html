@@ -25,15 +25,44 @@
     </div>
     <div class="row">
         <h3 class="center-align">My Esports Posts</h3>
-        <div class="col s12">
-            <div class="card-panel">
+        {% if epics|length > 0 %}
+            {% for epic in epics %}
+                <div class="col s12 m6 l4">
+                    <div class="card-panel">
+                        <!-- Modal Trigger -->
+                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#videoModal" data-theVideo="{{ epic.video|replace('watch?v=', 'embed/')}}" >{{ epic.title }}</a>
+                        <p>{{ epic.description }}</p>                        
+                        <img src="{{ epic.image }}" alt="{{ epic.short_description }}" class="epic-image">
+                        <p><em>submitted by: {{ epic.username }}</em></p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col s12">
+                <div class="card-panel">
+                    <h3 class="text-darken-4 center-align">You have no posts.</h3>
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
     <div class="row">
         <h3 class="center-align">Favourites</h3>
         <div class="col s12">
             <div class="card-panel">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Code obtained from [3] in Readme-->
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+        <div class="modal-dialog max-width-auto">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close close-btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    <div>
+                        <iframe width="100%" height="500px" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

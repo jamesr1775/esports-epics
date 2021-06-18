@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3 class="center-align">Create an Esports Epic</h3>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('submit_epic') }}">
+            <div class="card-panel">
+                <div class="row">
+                    <!-- title -->
+					<div class="input-field col s12 m6">
+                        <i class="material-icons prefix">title</i>
+						<input id="title" name="title" type="text" minlength="5" maxlength="50" class="validate" required>
+                        <label for="title">Title</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-50 characters long." data-success=""></span>
+					</div>
+                    <!-- game -->
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">videogame_asset</i>
+                        <input id="game" name="game" type="text" minlength="5" maxlength="50" class="validate" required>
+                        <label for="game">Game</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-50 characters long." data-success=""></span>
+                    </div>
+                    <!-- game category -->
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">youtube_searched_for</i>
+                        <input id="game_category" name="game_category" type="text" minlength="3" maxlength="30" class="validate" required>
+                        <label for="game_category">Game Category</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 3-30 characters long." data-success=""></span>
+                    </div>
+                    <!-- featured player -->
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">person</i>
+                        <input id="featured_player" name="featured_player" type="text" minlength="5" maxlength="30" class="validate" required>
+                        <label for="featured_player">Featured Player</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-30 characters long." data-success=""></span>
+                    </div>
+                    <!-- description -->
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">description</i>
+                        <textarea id="description" name="description" rows="5" minlength="50" maxlength="500" class="materialize-textarea validate" required></textarea>
+                        <label for="description">Description</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 50-500 characters long." data-success=""></span>
+                    </div>
+                    <!-- short description -->
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">description</i>
+                        <input id="short_description" name="short_description" type="text" minlength="5" maxlength="50" class="validate" required>
+                        <label for="short_description">Short Description</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-50 characters long." data-success=""></span>
+                    </div>
+                    <!-- tournament -->
+					<div class="input-field col s12 m6">
+                        <i class="fas fa-trophy prefix"></i>
+						<input id="tournament" name="tournament" type="text" minlength="5" maxlength="30" class="validate" required>
+                        <label for="tournament">Tournament Name</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-30 characters long." data-success=""></span>
+                    </div>
+                    <!-- tournament year -->
+					<div class="input-field col s12 m6">
+                        <i class="material-icons prefix">date_range</i>
+						<input id="tournament_year" name="tournament_year" type="text" minlength="4" maxlength="4" pattern="^[0-9]{4,4}$" class="validate" required>
+                        <label for="tournament_year">Year of Tournament</label>
+                        <span class="helper-text" data-error="Year incorrect." data-success=""></span>
+                    </div>
+                    <!-- video link -->
+					<div class="input-field col s12 m6">
+                        <i class="fas fa-video prefix"></i>
+						<input id="video" name="video" type="text" minlength="5" maxlength="100" class="validate" required>
+                        <label for="video">Video of Epic</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-100 characters long." data-success=""></span>
+                    </div>
+                    <!-- image post -->
+					<div class="input-field col s12 m6">
+                        <i class="fas fa-image prefix"></i>
+						<input id="image" name="image" type="text" minlength="5" maxlength="100" class="validate" required>
+                        <label for="image">Post Image</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-100 characters long." data-success=""></span>
+                    </div>
+                </div>
+                <!-- submit -->
+                <div class="row">
+                    <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow epic-form-btn">
+                        Cancel <i class="fas fa-window-close epic-form-icon"></i>
+                    </button>
+                    <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow epic-form-btn">
+                        Submit <i class="fas fa-sign-in-alt epic-form-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

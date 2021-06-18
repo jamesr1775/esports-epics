@@ -1,0 +1,26 @@
+/*********************** Colors Section ***********************/
+body{
+    background-color: #A9CEE8;
+}
+.bg-navbar{
+    background-color: #003AA4;
+}
+
+.epic-form-btn{
+    width: 49% !important;
+    margin: 0 0.5% !important;
+    font-weight: 700;
+}
+
+.epic-form-icon{
+    font-size: 1.2rem !important;
+}
+
+.epic-image{
+    height: 300px;
+    width: 100%;
+    border-radius: 10%;
+}
+.max-width-auto{
+    max-width: 100% !important;
+}

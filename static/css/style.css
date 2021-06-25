@@ -1,26 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Roboto:100,200,300,400,500,600,700');
+
 /*********************** Colors Section ***********************/
 body{
-    background-color: #A9CEE8;
+    background-color: #ECF1F2;
 }
 .bg-navbar{
-    background-color: #003AA4;
+    background: linear-gradient(to bottom right, #171b22 40%, #FFCA29 80%);
 }
 
+/*********************** General ***********************/
+.max-width-auto{
+    max-width: 100% !important;
+}
+
+/*********************** Navbar ***********************/
+.company-logo{
+    min-height: 75px;
+    margin: 5px 0;
+    height: 75px !important;
+    width: 140px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+
+nav li a{
+    height: auto !important;
+    line-height: normal !important;
+    margin-top: 45px;
+    font-size: 22px !important;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+}
+
+nav {
+    height: 80px !important;
+}
+
+/*********************** esports forms and posts ***********************/
 .epic-form-btn{
     width: 49% !important;
     margin: 0 0.5% !important;
     font-weight: 700;
 }
-
 .epic-form-icon{
     font-size: 1.2rem !important;
 }
-
 .epic-image{
     height: 300px;
     width: 100%;
     border-radius: 10%;
 }
-.max-width-auto{
-    max-width: 100% !important;
+
+
+/*********** Smart Phones Only ***********/
+@media screen and (max-width:767px){
+    .company-logo{
+        margin-left: calc(50% - 70px);
+    }
 }

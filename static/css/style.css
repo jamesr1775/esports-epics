@@ -52,6 +52,19 @@ nav {
     height: 80px !important;
 }
 
+.hero-image{
+    min-height: 400px;
+    width: 100%;
+    display: block;
+    background-image: url("../images/hero-image.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 2s ease-in;
+    -moz-transition: all 1.5s ease-in;
+    -webkit-transition: all 1.5s ease-in; 
+}
+
 /*********************** esports forms and posts ***********************/
 .epic-form-btn{
     width: 49% !important;

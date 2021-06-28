@@ -5,7 +5,11 @@ body{
     background-color: #ECF1F2;
 }
 .bg-navbar{
-    background: linear-gradient(to bottom right, #171b22 40%, #FFCA29 80%);
+    /* background: linear-gradient(to bottom right, #171b22 40%, #FFCA29 80%); */
+    background: linear-gradient(to bottom right, #FFCA29 30%, #171b22 70%);
+}
+.bg-footer{
+    background: linear-gradient(to bottom right, #171b22 80%, #FFCA29 90%);
 }
 
 /*********************** General ***********************/
@@ -13,6 +17,17 @@ body{
     max-width: 100% !important;
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+.text-center{
+    text-align: center;
+}
 /*********************** Navbar ***********************/
 .company-logo{
     min-height: 75px;
@@ -52,7 +67,39 @@ nav {
     border-radius: 10%;
 }
 
+/*********************** Footer ***********************/
 
+.social-media-links{
+    margin: 0;
+    text-align: center;
+}
+.social-media-links li a i{
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    color: snow;
+    padding: 8px 0 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.301);
+}
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+}
+.list-inline > li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.social-media-block{
+    margin-left: 20px;
+    font-size: 20px !important;
+}
+.copyright-info-block{
+    min-height: 25px !important;
+    margin-left: 10px;
+}
 /*********** Smart Phones Only ***********/
 @media screen and (max-width:767px){
     .company-logo{

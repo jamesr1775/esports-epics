@@ -23,7 +23,7 @@ $("#pwconfirm").on("keyup", function (e) {
 // function that will open the youtube video in the modal and autoplay it. The setting src of the iframe was used from [3] in readme file.
 $('.modal-trigger').on("click", function() { 
     var theModal = $(this).data( "target" ),
-    videoSRC = $(this).attr( "data-theVideo" ), 
+    videoSRC = $(this).attr( "data-video" ), 
     videoSRCauto = videoSRC+"?autoplay=1" ;
     $('#' +theModal+' iframe').attr('src', videoSRCauto);
     $('#' +theModal+' .modal-close').click(function () {

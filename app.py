@@ -86,16 +86,6 @@ def logout():
 @app.route("/submit_epic", methods=["GET", "POST"])
 def submit_epic():
     if request.method == "POST":
-        # mongo.db.epics.insert_one(epic_info)
-        flash("Submission Successful!")
-        return redirect(url_for("profile", username=session['user']))
-    else:
-        return render_template("submit_epic.html")
-
-
-@app.route("/submit_event", methods=["GET", "POST"])
-def submit_event():
-    if request.method == "POST":
         epic_info = {
             "username": session['user'],
             "title": request.form.get("title"),
@@ -110,6 +100,27 @@ def submit_event():
             "image": request.form.get("image"),
         }
         mongo.db.epics.insert_one(epic_info)
+        flash("Submission Successful!")
+        return redirect(url_for("profile", username=session['user']))
+    else:
+        return render_template("submit_epic.html")
+
+@app.route("/submit_event", methods=["GET", "POST"])
+def submit_event():
+    if request.method == "POST":
+        event_info = {
+            "username": session['user'],
+            "title": request.form.get("title"),
+            "game": request.form.get("game"),
+            "description": request.form.get("description"),
+            "start_date": request.form.get("start_date"),
+            "start_time": request.form.get("start_time"),
+            "end_date": request.form.get("end_date"),
+            "location": request.form.get("location"),
+            "event_website": request.form.get("event_website"),
+            "event_image": request.form.get("event_image"),
+        }
+        mongo.db.events.insert_one(event_info)
         flash("Submission Successful!")
         return redirect(url_for("home"))
     else:

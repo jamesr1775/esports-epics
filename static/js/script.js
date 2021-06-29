@@ -6,6 +6,7 @@ $(document).ready(function(){
         minDate: oneWeekAgo
     });
     $('.timepicker').timepicker();
+    $("#flash-message-block").delay(2000).slideUp(300);
 });
 
 

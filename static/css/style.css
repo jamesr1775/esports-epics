@@ -65,6 +65,14 @@ nav {
     -webkit-transition: all 1.5s ease-in; 
 }
 
+/*********************** Recently Added Carousel ***********************/
+.carousel{
+    height: 600px !important;
+}
+.carousel-item{
+    width: 300px !important;
+    height: auto !important;
+}
 /*********************** esports forms and posts ***********************/
 .epic-form-btn{
     width: 49% !important;

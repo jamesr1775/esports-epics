@@ -86,6 +86,16 @@ def logout():
 @app.route("/submit_epic", methods=["GET", "POST"])
 def submit_epic():
     if request.method == "POST":
+        # mongo.db.epics.insert_one(epic_info)
+        flash("Submission Successful!")
+        return redirect(url_for("profile", username=session['user']))
+    else:
+        return render_template("submit_epic.html")
+
+
+@app.route("/submit_event", methods=["GET", "POST"])
+def submit_event():
+    if request.method == "POST":
         epic_info = {
             "username": session['user'],
             "title": request.form.get("title"),
@@ -101,9 +111,10 @@ def submit_epic():
         }
         mongo.db.epics.insert_one(epic_info)
         flash("Submission Successful!")
-        return redirect(url_for("profile", username=session['user']))
+        return redirect(url_for("home"))
     else:
-        return render_template("submit_epic.html")
+        return render_template("submit_event.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

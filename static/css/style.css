@@ -28,6 +28,13 @@ main {
 .text-center{
     text-align: center;
 }
+.section-header{
+    margin-left: 5%;
+}
+.divider{
+    height: 2px;
+    background-color: #171b22;   
+}
 /*********************** Navbar ***********************/
 .company-logo{
     min-height: 75px;
@@ -66,12 +73,37 @@ nav {
 }
 
 /*********************** Recently Added Carousel ***********************/
-.carousel{
-    height: 600px !important;
+.recent-post-carousel{
+    height: 420px !important;
+    bottom: 25px !important;
 }
-.carousel-item{
-    width: 300px !important;
+.recent-post-carousel-item{
+    width: 350px !important;
     height: auto !important;
+    min-height: 100px !important;
+    border: 2px solid #171b22;
+    background-image: linear-gradient(to bottom right, #171b22 80%, #FFCA29 90%);;
+    top: -20px !important;
+}
+.recent-post-carousel .indicator-item{
+    background-color: #171b22 !important;
+    margin: 15px 4px !important;
+}
+.recent-post-carousel .indicator-item.active{
+    background-color: #FFCA29 !important;
+}
+.recent-post-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+.recent-post-description{
+    font-size: 20px;
+    font-weight: 500;
+}
+.recent-post-info{
+    font-size: 30px;
+    position: relative;
+    top: -15px;
 }
 /*********************** esports forms and posts ***********************/
 .epic-form-btn{
@@ -83,7 +115,7 @@ nav {
     font-size: 1.2rem !important;
 }
 .epic-image{
-    height: 300px;
+    height: 200px;
     width: 100%;
     border-radius: 10%;
 }

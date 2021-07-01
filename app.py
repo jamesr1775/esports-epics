@@ -21,7 +21,8 @@ mongo = PyMongo(app)
 
 @app.route("/home")
 def home():
-    return render_template("index.html")
+    epics = list(mongo.db.epics.find())
+    return render_template("index.html", epics=epics)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -122,7 +123,8 @@ def submit_event():
         }
         mongo.db.events.insert_one(event_info)
         flash("Submission Successful!")
-        return redirect(url_for("home"))
+        epics = list(mongo.db.epics.find())
+        return redirect(url_for("home", epics=epics))
     else:
         return render_template("submit_event.html")
 

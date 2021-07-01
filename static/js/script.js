@@ -2,6 +2,9 @@ $(document).ready(function(){
     var oneWeekAgo = new Date();
     oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
     $('.sidenav').sidenav( {edge: "right"});
+    $('.carousel').carousel({
+        indicators: true,
+    });
     $('.datepicker').datepicker({
         minDate: oneWeekAgo
     });

@@ -10,6 +10,8 @@ $(document).ready(function(){
     });
     $('.timepicker').timepicker();
     $("#flash-message-block").delay(2000).slideUp(300);
+    $('.collapsible').collapsible();
+
 });
 
 

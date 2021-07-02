@@ -22,7 +22,8 @@ mongo = PyMongo(app)
 @app.route("/home")
 def home():
     epics = list(mongo.db.epics.find())
-    return render_template("index.html", epics=epics)
+    events = list(mongo.db.events.find())
+    return render_template("index.html", epics=epics, events=events)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():

@@ -120,12 +120,17 @@ nav {
     border: none;
 }
 .event-image{
-    height: 50px !important;
-    width: 50px !important;
+    height: 70px !important;
+    width: 20% !important;
     /* border-radius: 10%; */
 }
 .event-title-text{
-    margin:10px 10px;
+    margin:20px 5px 0px;
+    width: 40%;
+}
+.event-date-text{
+    margin:20px 5px 0px;
+    width: 40%;
 }
 /*********************** esports forms and posts ***********************/
 .epic-form-btn{
@@ -141,9 +146,7 @@ nav {
     width: 100%;
     border-radius: 10%;
 }
-.event-date-text{
-    float:right
-}
+
 /*********************** Footer ***********************/
 
 .social-media-links{
@@ -181,5 +184,20 @@ nav {
 @media screen and (max-width:767px){
     .company-logo{
         margin-left: calc(50% - 70px);
+    }
+    .event-title-text{
+        margin:5px 5px 5px;
+        font-size: 14px;
+        line-height: normal;
+    }
+    .event-date-text{
+        margin:5px 5px 5px;
+        font-size: 12px;
+        line-height: normal;
+    }
+    .event-image{
+        height: 45px !important;
+        width: 45px !important;
+        border-radius: 50%;
     }
 }

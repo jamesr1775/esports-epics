@@ -35,6 +35,9 @@ main {
     height: 2px;
     background-color: #171b22;   
 }
+.no-padding{
+    padding: none !important;
+}
 /*********************** Navbar ***********************/
 .company-logo{
     min-height: 75px;
@@ -82,7 +85,7 @@ nav {
     height: auto !important;
     min-height: 100px !important;
     border: 2px solid #171b22;
-    background-image: linear-gradient(to bottom right, #171b22 80%, #FFCA29 90%);;
+    background-image: linear-gradient(to bottom right, #171b22 80%, #FFCA29 90%);
     top: -20px !important;
 }
 .recent-post-carousel .indicator-item{
@@ -104,6 +107,30 @@ nav {
     font-size: 30px;
     position: relative;
     top: -15px;
+}
+/*********************** current events ***********************/
+.current-events-header{
+    background-image: linear-gradient(to bottom, #171b22 80%, #FFCA29 100%);
+    margin: 0;
+    height: 40px;
+    color: #fff;
+}
+.current-events-list{
+    margin: 0;
+    border: none;
+}
+.event-image{
+    height: 70px !important;
+    width: 20% !important;
+    /* border-radius: 10%; */
+}
+.event-title-text{
+    margin:20px 5px 0px;
+    width: 40%;
+}
+.event-date-text{
+    margin:20px 5px 0px;
+    width: 40%;
 }
 /*********************** esports forms and posts ***********************/
 .epic-form-btn{
@@ -157,5 +184,20 @@ nav {
 @media screen and (max-width:767px){
     .company-logo{
         margin-left: calc(50% - 70px);
+    }
+    .event-title-text{
+        margin:5px 5px 5px;
+        font-size: 14px;
+        line-height: normal;
+    }
+    .event-date-text{
+        margin:5px 5px 5px;
+        font-size: 12px;
+        line-height: normal;
+    }
+    .event-image{
+        height: 45px !important;
+        width: 45px !important;
+        border-radius: 50%;
     }
 }

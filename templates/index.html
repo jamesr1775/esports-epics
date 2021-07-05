@@ -58,7 +58,7 @@
                 <ul class="collapsible current-events-list">
                     {% if events|length > 0 %}
                         {% for event in events %}
-                            <li class="hoverable pulse">
+                            <li class="hoverable">
                                 <div class="collapsible-header no-padding">
                                     <img src="{{ event.event_image }}" alt="{{ event.title }}" class="event-image">
                                     <h6 class="event-title-text">{{ event.title}}</h6>

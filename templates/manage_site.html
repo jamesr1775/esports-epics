@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <h3 class="center-align">Profile</h3>
+        <div class="col s12">
+            <div class="card-panel">
+                <h3 class="center">Account Information</h3>
+                <div class="row">
+                    <div class="col s6">
+                        <p class="center">Username</p>
+                        <p class="center">{{ username }}</p>
+                        <p class="center">Email</p>
+                        <p class="center">{{ username }}</p>
+                        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                            Delete Account
+                            <i class="fas fa-user-slash"></i>
+                        </button>
+                    </div>
+                    <div class="col s6">
+                        <img src="" alt="Profile Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h3 class="center-align">Users</h3>
+            {% if users|length > 0 %}
+                <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('manage_user', username=session['user']) }}">
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>Username</th>
+                              <th>Journalist</th>
+                          </tr>
+                        </thead>
+                        {% for user in users %}
+                            <tbody>
+                                <tr>
+                                    <td><em>{{ user.username }}</em></td>
+                                    <td>
+                                        <label class="journalist-status">
+                                            {% if user.is_journalist %}
+                                                <input name="{{ user._id }}" type="checkbox" checked="checked"/>
+                                            {% else %}
+                                                <input name="{{ user._id }}" type="checkbox"/>
+                                            {% endif %}
+                                            <span>Journalist Status</span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                    <!-- update -->
+                    <div class="row">
+                        <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow epic-form-btn">
+                            Cancel <i class="fas fa-window-close epic-form-icon"></i>
+                        </button>
+                        <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow epic-form-btn">
+                            Update <i class="fas fa-sign-in-alt epic-form-icon"></i>
+                        </button>
+                    </div>
+                </form>
+            {% else %}
+                <div class="col s12">
+                    <div class="card-panel">
+                        <h3 class="text-darken-4 center-align">No Users.</h3>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

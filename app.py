@@ -39,7 +39,8 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "email": request.form.get("email")
+            "email": request.form.get("email"),
+            "is_journalist": False
         }
         mongo.db.users.insert_one(register)
         session["user"] = request.form.get("username").lower()
@@ -128,6 +129,29 @@ def submit_event():
         return redirect(url_for("home", epics=epics))
     else:
         return render_template("submit_event.html")
+
+@app.route("/manage_site/<username>", methods=["GET", "POST"])
+def manage_site(username):
+    if session["user"]:
+        epics = list(mongo.db.epics.find())
+        users = list(mongo.db.users.find())
+        return render_template("manage_site.html", username=username, epics=epics, users=users)
+    return redirect(url_for("login"))
+
+@app.route("/manage_user/<username>", methods=["GET", "POST"])
+def manage_user(username):
+    epics = list(mongo.db.epics.find())
+    users = list(mongo.db.users.find())
+    if request.method == "POST":
+        data = request.form.to_dict()
+        for user in users:
+            if str(user["_id"]) in data.keys():
+                mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist" : True}})
+            else:
+                mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist" : False}})
+        flash("Journalists Successfully Updated")
+    users = list(mongo.db.users.find())
+    return render_template("manage_site.html", username=username, epics=epics, users=users)
 
 
 if __name__ == "__main__":

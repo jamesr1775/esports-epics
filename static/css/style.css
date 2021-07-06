@@ -147,6 +147,10 @@ nav {
     border-radius: 10%;
 }
 
+/*********************** manage site ***********************/
+.journalist-status{
+    margin-left: 10px;
+}
 /*********************** Footer ***********************/
 
 .social-media-links{

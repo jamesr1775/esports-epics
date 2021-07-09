@@ -60,13 +60,13 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
+                session["is_journalist"] = mongo.db.users.find_one({"username": request.form.get("username").lower()})["is_journalist"]
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect( url_for("profile", username=session["user"] ))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
@@ -84,6 +84,7 @@ def profile(username):
 def logout():
     flash("You have successfully logged out.")
     session.pop("user")
+    session.pop("is_journalist")
     return redirect(url_for("login"))
 
 @app.route("/submit_epic", methods=["GET", "POST"])
@@ -129,6 +130,22 @@ def submit_event():
         return redirect(url_for("home", epics=epics))
     else:
         return render_template("submit_event.html")
+
+@app.route("/submit_news", methods=["GET", "POST"])
+def submit_news(username):
+    if request.method == "POST":
+        post_info = {
+            "username": session['user'],
+            "title": request.form.get("title"),
+            "game": request.form.get("game"),
+            "description": request.form.get("description"),
+            "event_image": request.form.get("event_image"),
+        }
+        mongo.db.news.insert_one(post_info)
+        flash("Submission Successful!")
+        return redirect(url_for("home"))
+    else:
+        return render_template("submit_news.html")
 
 @app.route("/manage_site/<username>", methods=["GET", "POST"])
 def manage_site(username):

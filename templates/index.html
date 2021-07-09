@@ -46,37 +46,61 @@
 
     <!-- Latest News & Events -->
     <div class="container">
-    <div class="row">
-        <div class="col s12 m6 xl7">
-            <div class="card">
-                <h4>Latest News</h4>
+        <div class="row">
+            <div class="col s12 m6 xl7">
+                <div class="card">
+                    <h4 class="current-events-header center-align">Latest News</h4>
+                    <ul class="collapsible current-events-list popout">
+                        {% if news|length > 0 %}
+                            {% for story in news %}
+                                <li class="hoverable">
+                                    <div class="collapsible-header no-padding news-div">
+                                        <div class="float-left">
+                                            <h6 class="news-title">{{ story.title}}</h6>
+                                            <p class="author-text">written by: {{ story.username }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body latest-news-card">
+                                        <span>
+                                            <img src="{{ story.post_image }}" alt="{{ story.title }}" class="news-image">
+                                            <div class="pre-wrap">{{ story.post_body }}</div>
+                                        </span>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <div class="card-panel ">
+                                <h3 class="text-darken-4 center-align">No Upcoming Events</h3>
+                            </div>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="col s12 m6 xl5">
-            <div class="card">
-                <h4 class="current-events-header center-align">Current Events</h4>
-                <ul class="collapsible current-events-list">
-                    {% if events|length > 0 %}
-                        {% for event in events %}
-                            <li class="hoverable">
-                                <div class="collapsible-header no-padding">
-                                    <img src="{{ event.event_image }}" alt="{{ event.title }}" class="event-image">
-                                    <h6 class="event-title-text">{{ event.title}}</h6>
-                                    <p class="event-date-text">{{ event.start_date|replace(', 2021', '') }} - {{ event.end_date|replace(', 2021', ' 2021') }}</p>
-                                </div>
-                                <div class="collapsible-body"><span>{{ event.description }}</span></div>
-                            </li>
-                        {% endfor %}
-                    {% else %}
-                        <div class="card-panel ">
-                            <h3 class="text-darken-4 center-align">No Upcoming Events</h3>
-                        </div>
-                    {% endif %}
-                </ul>
+            <div class="col s12 m6 xl5">
+                <div class="card">
+                    <h4 class="current-events-header center-align">Current Events</h4>
+                    <ul class="collapsible current-events-list">
+                        {% if events|length > 0 %}
+                            {% for event in events %}
+                                <li class="hoverable">
+                                    <div class="collapsible-header no-padding">
+                                        <img src="{{ event.event_image }}" alt="{{ event.title }}" class="event-image">
+                                        <h6 class="event-title-text">{{ event.title}}</h6>
+                                        <p class="event-date-text">{{ event.start_date|replace(', 2021', '') }} - {{ event.end_date|replace(', 2021', ' 2021') }}</p>
+                                    </div>
+                                    <div class="collapsible-body"><span>{{ event.description }}</span></div>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <div class="card-panel ">
+                                <h3 class="text-darken-4 center-align">No Upcoming Events</h3>
+                            </div>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
     <!-- Modal Code obtained from [3] in Readme-->
     <div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
         <div class="modal-content">
@@ -86,4 +110,12 @@
             <button type="button" class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
         </div>
     </div>
+    <!-- News Modal-->
+    <!-- <div class="modal" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModal" aria-hidden="true">
+        <div class="modal-content">
+            <div class="container">
+            </div>
+            <button type="button" class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+        </div>
+    </div> -->
 {% endblock %}

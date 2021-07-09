@@ -23,7 +23,8 @@ mongo = PyMongo(app)
 def home():
     epics = list(mongo.db.epics.find())
     events = list(mongo.db.events.find())
-    return render_template("index.html", epics=epics, events=events)
+    news = list(mongo.db.news.find())
+    return render_template("index.html", epics=epics, events=events, news=news)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -132,7 +133,7 @@ def submit_event():
         return render_template("submit_event.html")
 
 @app.route("/submit_news", methods=["GET", "POST"])
-def submit_news(username):
+def submit_news():
     if request.method == "POST":
         post_info = {
             "username": session['user'],

@@ -16,7 +16,6 @@ body{
 .max-width-auto{
     max-width: 100% !important;
 }
-
 body {
     display: flex;
     min-height: 100vh;
@@ -37,6 +36,12 @@ main {
 }
 .no-padding{
     padding: none !important;
+}
+.float-left{
+    float: left;
+}
+.pre-wrap{
+    white-space: pre-wrap;
 }
 /*********************** Navbar ***********************/
 .company-logo{
@@ -132,6 +137,54 @@ nav {
     margin:20px 5px 0px;
     width: 40%;
 }
+/*********************** latest news ***********************/
+.news-image{
+    height: 400px !important;
+    width: 100% !important;
+    /* border-radius: 10%; */
+}
+.news-div{
+    flex-direction: column;
+    width: 100%;
+}
+.author-text{
+    margin:10px 5px 0px;
+    float: right;
+    font-size: 12px;
+}
+.news-title{
+    margin:10px 5px;
+    display: inline-flex;
+    font-style: italic;
+    font-size: 20px;
+}
+.post-body{
+    padding: 10px
+}
+.latest-news-card{
+    background: #ECF1F2;
+}
+.latest-news-list{
+    margin: 0;
+    border: none;
+    background:linear-gradient(to bottom, #171b22 80%, #FFCA29 100%);;
+}
+.latest-news-list li.active .news-drop-icon{
+    color: #FFCA29 !important;
+    transform: rotate3d(1, 0, 0, 180deg);
+}
+.latest-news-header{
+    background-image: linear-gradient(to bottom, #171b22 80%, #FFCA29 100%);
+    margin: 0;
+    height: 40px;
+    color: #fff;
+}
+.news-drop-icon{
+    color:  #171b22;
+    margin:10px 5px;
+    float: right;
+}
+
 /*********************** esports forms and posts ***********************/
 .epic-form-btn{
     width: 49% !important;

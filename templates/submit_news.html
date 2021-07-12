@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3 class="center-align">Submit News Post</h3>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('submit_news') }}">
+            <div class="card-panel">
+                <div class="row">
+                    <!-- title -->
+					<div class="input-field col s12 m6">
+                        <i class="material-icons prefix">title</i>
+						<input id="title" name="title" type="text" minlength="5" maxlength="50" class="validate" required>
+                        <label for="title">News Post Title</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-50 characters long." data-success=""></span>
+					</div>
+                    <!-- Body -->
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">description</i>
+                        <textarea id="post_body" name="post_body" rows="300" minlength="50" class="materialize-textarea validate" required></textarea>
+                        <label for="post_body">Post Body</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 50-500 characters long." data-success=""></span>
+                    </div>
+                    <!-- image post -->
+					<div class="input-field col s12 m6">
+                        <i class="fas fa-image prefix"></i>
+						<input id="post_image" name="post_image" type="text" minlength="5" maxlength="300" class="validate" required>
+                        <label for="post_image">Post Image</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-300 characters long." data-success=""></span>
+                    </div>
+                </div>
+                <!-- submit -->
+                <div class="row">
+                    <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow epic-form-btn">
+                        Cancel <i class="fas fa-window-close epic-form-icon"></i>
+                    </button>
+                    <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow epic-form-btn">
+                        Submit <i class="fas fa-sign-in-alt epic-form-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

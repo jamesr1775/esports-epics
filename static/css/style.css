@@ -40,8 +40,8 @@ main {
 .float-left{
     float: left;
 }
-.pre-wrap{
-    white-space: pre-wrap;
+.pre-line{
+    white-space: pre-line;
 }
 /*********************** Navbar ***********************/
 .company-logo{

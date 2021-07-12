@@ -138,9 +138,8 @@ def submit_news():
         post_info = {
             "username": session['user'],
             "title": request.form.get("title"),
-            "game": request.form.get("game"),
-            "description": request.form.get("description"),
-            "event_image": request.form.get("event_image"),
+            "post_body": request.form.get("post_body"),
+            "post_image": request.form.get("post_image"),
         }
         mongo.db.news.insert_one(post_info)
         flash("Submission Successful!")

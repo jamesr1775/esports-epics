@@ -45,6 +45,7 @@ def register():
         }
         mongo.db.users.insert_one(register)
         session["user"] = request.form.get("username").lower()
+        session["is_journalist"] = False
         flash("Registration Successful!")
         return redirect( url_for("profile", username=session["user"]))
     return render_template("register.html")

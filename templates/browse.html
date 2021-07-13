@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Hero Image -->
+    <div class="row">
+        <div class="s12">
+            <span class="hero-image" role="img" aria-label="Esports Tournament Arena"></span>
+        </div>
+    </div>
+    <div class="row card-panel grey lighten-5">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Epics</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_epics') }}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+                        <i class="fas fa-search left"></i> Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <h3 class="center-align">Browse Esports Epics</h3>
+        {% if epics|length > 0 %}
+            {% for epic in epics %}
+                <div class="col s12 m6 l4">
+                    <div class="card-panel">
+                        <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn modal-trigger" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}" >{{ epic.title }}</a>
+                        <p>{{ epic.description }}</p>                        
+                        <img src="{{ epic.image }}" alt="{{ epic.short_description }}" class="epic-image">
+                        <p><em>submitted by: {{ epic.username }}</em></p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col s12">
+                <div class="card-panel">
+                    <h3 class="text-darken-4 center-align">No Results Found.</h3>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <!-- Modal Code obtained from [3] in Readme-->
+    <div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+        <div class="modal-content">
+            <div>
+                <iframe width="100%" height="500px" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <button type="button" class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
+        </div>
+    </div>
+{% endblock %}

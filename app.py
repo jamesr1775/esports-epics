@@ -26,6 +26,22 @@ def home():
     news = list(mongo.db.news.find())
     return render_template("index.html", epics=epics, events=events, news=news)
 
+@app.route("/browse")
+def browse():
+    epics = list(mongo.db.epics.find())
+    return render_template("browse.html", epics=epics)
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    epics = list(mongo.db.epics.find({"$text": {"$search": query}}))
+    return render_template("browse.html", epics=epics)
+
+@app.route("/get_epics")
+def get_epics():
+    epics = list(mongo.db.epics.find())
+    return render_template("browse.html", epics=epics)
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

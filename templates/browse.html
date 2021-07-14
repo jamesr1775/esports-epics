@@ -1,34 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
+    <!-- Hero Image -->
     <div class="row">
-        <h3 class="center-align">Profile</h3>
-        <div class="col s12">
-            <div class="card-panel">
-                <h3 class="center">Account Information</h3>
-                <div class="row">
-                    <div class="col s6">
-                        <p class="center">Username</p>
-                        <p class="center">{{ username }}</p>
-                        <p class="center">Email</p>
-                        <p class="center">{{ username }}</p>
-                        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                            Delete Account
-                            <i class="fas fa-user-slash"></i>
-                        </button>
-                    </div>
-                    <div class="col s6">
-                        <img src="" alt="Profile Image">
-                    </div>
-                </div>
-            </div>
+        <div class="s12">
+            <span class="hero-image" role="img" aria-label="Esports Tournament Arena"></span>
         </div>
     </div>
+    <div class="row card-panel grey lighten-5">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Epics</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_epics') }}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+                        <i class="fas fa-search left"></i> Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
     <div class="row">
-        <h3 class="center-align">My Esports Posts</h3>
+        <h3 class="center-align">Browse Esports Epics</h3>
         <div class="col s12">
             <div class="card-panel">
                 <div class="row">
-                    {% if epics|length > 0 %}
+                    {% if epics|length > 0 %}                    
                         {% for epic in epics %}
                             <div class="col s12 m6 l4">
                                 <div class="card-panel epic-card">
@@ -43,22 +43,14 @@
                     {% else %}
                         <div class="col s12">
                             <div class="card-panel">
-                                <h3 class="text-darken-4 center-align">You have no posts.</h3>
+                                <h3 class="text-darken-4 center-align">No Results Found.</h3>
                             </div>
-                        </div>
+                        </div>                    
                     {% endif %}
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <h3 class="center-align">Favourites</h3>
-        <div class="col s12">
-            <div class="card-panel">
-            </div>
-        </div>
-    </div>
-
     <!-- Modal Code obtained from [3] in Readme-->
     <div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
         <div class="modal-content">

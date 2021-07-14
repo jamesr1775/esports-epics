@@ -200,6 +200,10 @@ nav {
     border-radius: 10%;
 }
 
+.epic-card{
+    max-height: 500px;
+    min-height: 500px;
+}
 /*********************** manage site ***********************/
 .journalist-status{
     margin-left: 10px;

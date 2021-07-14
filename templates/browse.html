@@ -25,25 +25,31 @@
     </div>
     <div class="row">
         <h3 class="center-align">Browse Esports Epics</h3>
-        {% if epics|length > 0 %}
-            {% for epic in epics %}
-                <div class="col s12 m6 l4">
-                    <div class="card-panel">
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}" >{{ epic.title }}</a>
-                        <p>{{ epic.description }}</p>                        
-                        <img src="{{ epic.image }}" alt="{{ epic.short_description }}" class="epic-image">
-                        <p><em>submitted by: {{ epic.username }}</em></p>
-                    </div>
-                </div>
-            {% endfor %}
-        {% else %}
-            <div class="col s12">
-                <div class="card-panel">
-                    <h3 class="text-darken-4 center-align">No Results Found.</h3>
+        <div class="col s12">
+            <div class="card-panel">
+                <div class="row">
+                    {% if epics|length > 0 %}                    
+                        {% for epic in epics %}
+                            <div class="col s12 m6 l4">
+                                <div class="card-panel epic-card">
+                                    <!-- Modal Trigger -->
+                                    <a class="waves-effect waves-light btn modal-trigger" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}" >{{ epic.title }}</a>
+                                    <p>{{ epic.description }}</p>                        
+                                    <img src="{{ epic.image }}" alt="{{ epic.short_description }}" class="epic-image">
+                                    <p><em>submitted by: {{ epic.username }}</em></p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col s12">
+                            <div class="card-panel">
+                                <h3 class="text-darken-4 center-align">No Results Found.</h3>
+                            </div>
+                        </div>                    
+                    {% endif %}
                 </div>
             </div>
-        {% endif %}
+        </div>
     </div>
     <!-- Modal Code obtained from [3] in Readme-->
     <div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">

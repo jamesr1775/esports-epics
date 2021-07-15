@@ -43,6 +43,7 @@ main {
 .pre-line{
     white-space: pre-line;
 }
+
 /*********************** Navbar ***********************/
 .company-logo{
     min-height: 75px;
@@ -53,7 +54,6 @@ main {
     background-repeat: no-repeat;
     background-size:contain;
 }
-
 nav li a{
     height: auto !important;
     line-height: normal !important;
@@ -62,11 +62,9 @@ nav li a{
     font-weight: 700;
     font-family: "Roboto", sans-serif;
 }
-
 nav {
     height: 80px !important;
 }
-
 .hero-image{
     min-height: 400px;
     width: 100%;
@@ -113,6 +111,7 @@ nav {
     position: relative;
     top: -15px;
 }
+
 /*********************** current events ***********************/
 .current-events-header{
     background-image: linear-gradient(to bottom, #171b22 80%, #FFCA29 100%);
@@ -137,6 +136,7 @@ nav {
     margin:20px 5px 0px;
     width: 40%;
 }
+
 /*********************** latest news ***********************/
 .news-image{
     height: 400px !important;
@@ -204,12 +204,13 @@ nav {
     max-height: 500px;
     min-height: 500px;
 }
+
 /*********************** manage site ***********************/
 .journalist-status{
     margin-left: 10px;
 }
-/*********************** Footer ***********************/
 
+/*********************** Footer ***********************/
 .social-media-links{
     margin: 0;
     text-align: center;
@@ -241,6 +242,7 @@ nav {
     min-height: 25px !important;
     margin-left: 10px;
 }
+
 /*********** Smart Phones Only ***********/
 @media screen and (max-width:767px){
     .company-logo{

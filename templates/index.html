@@ -20,14 +20,14 @@
                                     <img src="{{ epic.image }}" alt="{{ epic.short_description }}" class="epic-image activator">
                                 </div>
                                 <div class="card-content">
-                                    <span class="card-title activator white-text text-darken-4 recent-post-title">{{ epic.title }}</span>
-                                    <i class="material-icons activator right white-text text-darken-4 recent-post-info">info</i>
+                                    <span class="card-title activator white-text recent-post-title">{{ epic.title }}</span>
+                                    <i class="material-icons activator right white-text recent-post-info">info</i>
                                 </div>
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4 recent-post-title">{{ epic.title }}<i class="material-icons right">close</i></span>
+                                <div class="card-reveal recent-post-card-reveal">
+                                    <span class="card-title recent-post-title">{{ epic.title }}<i class="material-icons right">cancel</i></span>
                                     <div class="divider"></div>
                                     <p class="recent-post-description">{{ epic.description }}</p>
-                                    <a class="waves-effect waves-light btn modal-trigger" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}">VOD Here!</a>
+                                    <a class="waves-effect waves-light btn modal-trigger recent-card-vod-btn" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}">VOD Here!</a>
                                 </div>
                             </div>
                         {% endfor %}

@@ -99,19 +99,28 @@ nav {
     background-color: #FFCA29 !important;
 }
 .recent-post-title{
-    font-size: 20px;
-    font-weight: 500;
+    color: #fff;
+    font-size: 20px !important;
+    font-weight: 600 !important;
 }
 .recent-post-description{
+    color: #fff;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
 }
 .recent-post-info{
     font-size: 30px;
     position: relative;
     top: -15px;
 }
-
+.recent-post-card-reveal{
+    background-image: linear-gradient(to bottom, #171b22 80%, #FFCA29 100%);
+}
+.recent-card-vod-btn{
+    width: 100%;
+    font-weight: 600;
+    /* background-image: linear-gradient(to bottom right, #FFCA29 90%, #171b22 100%); */
+}
 /*********************** current events ***********************/
 .current-events-header{
     background-image: linear-gradient(to bottom, #171b22 80%, #FFCA29 100%);

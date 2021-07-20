@@ -51,7 +51,7 @@ function resizeEpicCards() {
     $('.epic-card').each(function() {
         var heightVodBtn = $(this).find('.vod-modal-btn').height();
         var heightDescription = $(this).find('.epic-description').height();
-        $(this).find('.epic-image').height(maxHeight - heightDescription - heightVodBtn - 0.15*maxHeight);
+        $(this).find('.epic-image').height(maxHeight - heightDescription - heightVodBtn - 20 -  0.15*maxHeight);
         $(this).height(maxHeight);
     });
 

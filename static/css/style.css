@@ -260,6 +260,11 @@ nav {
     margin-top: 10px;
     margin-left: calc(50% - 50px);
 }
+.browse-search{
+    margin-top: 0;
+    color: #fff;
+    background-color: rgba(23, 27, 34, 0.9);
+}
 /*********************** manage site ***********************/
 .journalist-status{
     margin-left: 10px;

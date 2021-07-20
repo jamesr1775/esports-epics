@@ -11,9 +11,12 @@ $(document).ready(function(){
     $('.timepicker').timepicker();
     $("#flash-message-block").delay(2000).slideUp(300);
     $('.collapsible').collapsible();
-
+    resizeEpicCards();
 });
 
+window.onresize = function(event) {
+    resizeEpicCards();
+};
 
 // Verify Password Code, Obtained from [1] in readme acknowledgements.
 $("#pwconfirm").on("keyup", function (e) {
@@ -36,3 +39,20 @@ $('.modal-trigger').on("click", function() {
     });
     $('#' + theModal).modal();
 })
+
+function resizeEpicCards() {
+    var maxHeight = 0
+    $('.epic-card').each(function() {
+        var height = $(this).height();
+        if(height > maxHeight){
+            maxHeight = height
+        }
+    });
+    $('.epic-card').each(function() {
+        var heightVodBtn = $(this).find('.vod-modal-btn').height();
+        var heightDescription = $(this).find('.epic-description').height();
+        $(this).find('.epic-image').height(maxHeight - heightDescription - heightVodBtn - 0.15*maxHeight);
+        $(this).height(maxHeight);
+    });
+
+}

@@ -188,6 +188,28 @@ def manage_user(username):
     return render_template("manage_site.html", username=username, epics=epics, users=users)
 
 
+@app.route("/edit_epic/<epic_id>", methods=["GET", "POST"])
+def edit_epic(epic_id):
+    if request.method == "POST":
+        epic_info = {
+            "username": session['user'],
+            "title": request.form.get("title"),
+            "game": request.form.get("game"),
+            "game_category": request.form.get("game_category"),
+            "featured_player": request.form.get("featured_player"),
+            "description": request.form.get("description"),
+            "short_description": request.form.get("short_description"),
+            "tournament": request.form.get("tournament"),
+            "tournament_year": request.form.get("tournament_year"),
+            "video": request.form.get("video"),
+            "image": request.form.get("image"),
+        }
+        mongo.db.epics.update({"_id": ObjectId(epic_id)}, epic_info)
+        flash("Epic Successfully Updated")
+        return redirect( url_for("profile", username=session["user"]))
+    epic = mongo.db.epics.find_one({"_id": ObjectId(epic_id)})
+    return render_template("edit_epic.html", epic=epic)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

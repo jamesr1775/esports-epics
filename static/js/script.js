@@ -32,7 +32,9 @@ $("#pwconfirm").on("keyup", function (e) {
 $('.modal-trigger').on("click", function() { 
     var theModal = $(this).data( "target" ),
     videoSRC = $(this).attr( "data-video" ), 
+    epicTitle = $(this).attr( "data-epic" ),
     videoSRCauto = videoSRC+"?autoplay=1" ;
+    $("#vod-modal-title").html(epicTitle)
     $('#' +theModal+' iframe').attr('src', videoSRCauto);
     $('#' +theModal+' .modal-close').click(function () {
         $('#' + theModal+' iframe').attr('src', videoSRC);

@@ -27,7 +27,7 @@
                                     <span class="card-title recent-post-title">{{ epic.title }}<i class="material-icons right">cancel</i></span>
                                     <div class="divider"></div>
                                     <p class="recent-post-description">{{ epic.description }}</p>
-                                    <a class="waves-effect waves-light btn modal-trigger recent-card-vod-btn" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}">VOD Here!</a>
+                                    <a class="waves-effect waves-light btn modal-trigger recent-card-vod-btn" data-target="videoModal" data-epic="{{ epic.title }}" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}">VOD Here!</a>
                                 </div>
                             </div>
                         {% endfor %}

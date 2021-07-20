@@ -40,9 +40,12 @@
                         <div class="col s12 m6 l4">
                             <div class="card-panel epic-card">
                                 <!-- Modal Trigger -->
-                                <a class="waves-effect waves-light btn modal-trigger vod-modal-btn" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}" >{{ epic.title }}</a>
+                                <div class="epic-title-container">
+                                    <a class="waves-effect waves-light btn modal-trigger vod-modal-btn" data-target="videoModal" data-epic="{{ epic.title }}" 
+                                data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}" >{{ epic.title }}</a>
+                                </div>
                                 <p class="epic-description">{{ epic.description }}</p>
-                                <a class="modal-trigger" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}">
+                                <a class="modal-trigger" data-target="videoModal" data-epic="{{ epic.title }}" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}">
                                     <div class="post-image-container">
                                         <img src="{{ epic.image }}" alt="{{ epic.short_description }}" class="epic-image"> 
                                         <i class="material-icons play-button">play_circle_outline</i>

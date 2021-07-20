@@ -223,7 +223,12 @@ nav {
 .vod-modal-btn{
     width: 100%;
     font-weight: 600;
-    background-color: #53565A;
+    text-overflow: ellipsis;
+}
+#vod-modal-title{
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
 }
 .post-user-text{
     position:absolute;
@@ -248,10 +253,19 @@ nav {
 .epic-description{
     /* min-height: 100px; */
 }
+.epic-title-container{
+    overflow: hidden;
+    white-space: nowrap;
+}
+.edit-icon{
+    font-size: 15px !important;
+    margin-right: 3px;
+}
 .browse-card-container{
     background-image: linear-gradient(to bottom, rgba(23, 27, 34, 0.9) 70%, #FFCA29 100%);
 }
 .browse-video-modal{
+    max-height: none !important;
     background-image: linear-gradient(to bottom right, #171b22 40%, #FFCA29 50%, #171b22 60%)
 }
 .browse-modal-close-btn{

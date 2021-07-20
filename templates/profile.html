@@ -66,6 +66,50 @@
             </div>
         </div>
     </div>
+    {% if session.is_journalist == True %}
+        <div class="container">
+            <div class="row">
+                <h3 class="center-align">Edit News Posts</h3>
+                <div class="col s12">
+                    <div class="card-panel epic-card-container">
+                        <div class="row">                            
+                            <ul class="collapsible latest-news-list popout">
+                                {% if news|length > 0 %}
+                                    {% for story in news %}
+                                        <li class="hoverable">
+                                            <div class="collapsible-header no-padding news-div">
+                                                <div class="center-align">
+                                                    <h6 class="news-title">{{ story.title}}</h6>                                                    
+                                                    <i class="material-icons news-drop-icon">arrow_drop_down_circle</i>
+                                                    <a href="{{ url_for('edit_news', story_id=story._id) }}" class="waves-effect waves-light float-right btn edit-btn">
+                                                        <i class="material-icons edit-icon">edit</i>
+                                                        Edit
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="collapsible-body latest-news-card no-padding">
+                                                <span>
+                                                    <img src="{{ story.post_image }}" alt="{{ story.title }}" class="news-image">
+                                                    <div class="pre-line post-body">
+                                                        {{ story.post_body }}
+                                                        <p class="author-text">written by: {{ story.username }}</p>
+                                                    </div>                                            
+                                                </span>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="card-panel ">
+                                        <h3 class="text-darken-4 center-align">No Upcoming Events</h3>
+                                    </div>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <div class="container">
         <div class="row">
             <h3 class="center-align">Favourites</h3>

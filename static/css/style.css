@@ -40,6 +40,9 @@ main {
 .float-left{
     float: left;
 }
+.float-right{
+    float: right;
+}
 .pre-line{
     white-space: pre-line;
 }
@@ -192,6 +195,9 @@ nav {
     color:  #171b22;
     margin:10px 5px;
     float: right;
+}
+.edit-btn{
+    margin:5px 5px;
 }
 
 /*********************** esports forms and posts ***********************/

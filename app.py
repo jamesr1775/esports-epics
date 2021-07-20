@@ -95,7 +95,8 @@ def login():
 def profile(username):
     if session["user"]:
         epics = list(mongo.db.epics.find({"username": username}))
-        return render_template("profile.html", username=username, epics=epics)
+        news = list(mongo.db.news.find({"username": username}))
+        return render_template("profile.html", username=username, epics=epics,news=news)
     return redirect(url_for("login"))
 
 @app.route("/logout")
@@ -209,6 +210,23 @@ def edit_epic(epic_id):
         return redirect( url_for("profile", username=session["user"]))
     epic = mongo.db.epics.find_one({"_id": ObjectId(epic_id)})
     return render_template("edit_epic.html", epic=epic)
+
+@app.route("/edit_news/<story_id>", methods=["GET", "POST"])
+def edit_news(story_id):
+    if request.method == "POST":
+        post_info = {
+            "username": session['user'],
+            "title": request.form.get("title"),
+            "post_body": request.form.get("post_body"),
+            "post_image": request.form.get("post_image"),
+        }
+        mongo.db.news.update({"_id": ObjectId(story_id)}, post_info)
+        flash("News Post Successfully Updated")
+        return redirect( url_for("profile", username=session["user"]))
+    story = mongo.db.news.find_one({"_id": ObjectId(story_id)})
+    return render_template("edit_news.html", story=story)
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

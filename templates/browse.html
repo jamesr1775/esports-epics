@@ -61,13 +61,5 @@
             </div>
         </div>
     </div>
-    <!-- Modal Code obtained from [3] in Readme-->
-    <div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
-        <div class="modal-content">
-            <div>
-                <iframe width="100%" height="500px" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <button type="button" class="modal-action modal-close waves-effect waves-green btn-flat">Close</button>
-        </div>
-    </div>
+    {% include "vod-modal.html" %}
 {% endblock %}

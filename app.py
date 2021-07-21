@@ -97,7 +97,7 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     if session["user"]:
-        user = list(mongo.db.users.find({"username": username}))
+        user = mongo.db.users.find_one({"username": username})
         epics = list(mongo.db.epics.find({"username": username}))
         news = list(mongo.db.news.find({"username": username}))
         events = list(mongo.db.events.find())

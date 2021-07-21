@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3 class="center-align">Submit Upcoming/Ongoing Event</h3>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_events', event_id=event._id) }}">
+            <div class="card-panel">
+                <div class="row">
+                    <!-- title -->
+					<div class="input-field col s12 m6">
+                        <i class="material-icons prefix">title</i>
+						<input id="title" name="title" value="{{ event.title }}" type="text" minlength="5" maxlength="50" class="validate" required>
+                        <label for="title">Event Title</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-50 characters long." data-success=""></span>
+					</div>
+                    <!-- game -->
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">videogame_asset</i>
+                        <input id="game" name="game" value="{{ event.game }}" type="text" minlength="5" maxlength="50" class="validate" required>
+                        <label for="game">Game</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-50 characters long." data-success=""></span>
+                    </div>
+                    <!-- description -->
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">description</i>
+                        <textarea id="description" name="description" rows="5" minlength="50" maxlength="500" class="materialize-textarea validate" required>
+                            {{- event.description -}}
+                        </textarea>
+                        <label for="description">Event Description</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 50-500 characters long." data-success=""></span>
+                    </div>
+                    <!-- start date -->
+					<div class="input-field col s12 m6">
+                        <i class="material-icons prefix">date_range</i>
+						<input id="start_date" name="start_date" value="{{ event.start_date }}" type="text" class="validate datepicker" required>
+                        <label for="start_date">Tournament Start Date</label>
+                        <span class="helper-text" data-error="Year incorrect." data-success=""></span>
+                    </div>
+                    <!-- start time -->
+					<div class="input-field col s12 m6">
+                        <i class="material-icons prefix">access_time</i>
+						<input id="start_time" name="start_time" value="{{ event.start_time }}" type="text" class="validate timepicker" required>
+                        <label for="start_time">Broadcast Start Time (UTC )</label>
+                        <span class="helper-text" data-error="Time incorrect." data-success=""></span>
+                    </div>
+                    <!-- end date -->
+					<div class="input-field col s12 m6">
+                        <i class="material-icons prefix">date_range</i>
+						<input id="end_date" name="end_date" value="{{ event.end_date }}" type="text" class="validate datepicker" required>
+                        <label for="end_date">Tournament End Date</label>
+                        <span class="helper-text" data-error="Date incorrect." data-success=""></span>
+                    </div><br>
+                    <!-- location -->
+                    <div class="input-field col s12 m6">
+                        <i class="material-icons prefix">map</i>
+                        <input id="location" name="location" value="{{ event.location }}" type="text" minlength="5" maxlength="100" class="validate" required>
+                        <label for="location">Location</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-100 characters long." data-success=""></span>
+                    </div>
+                    <!-- event link -->
+					<div class="input-field col s12 m6">
+                        <i class="material-icons prefix">web</i>
+						<input id="event_website" name="event_website" value="{{ event.event_website }}" type="text" minlength="5" maxlength="100" class="validate" required>
+                        <label for="event_website">Event Website</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-100 characters long." data-success=""></span>
+                    </div>
+                    <!-- image post -->
+					<div class="input-field col s12 m6">
+                        <i class="fas fa-image prefix"></i>
+						<input id="event_image" name="event_image" value="{{ event.event_image }}" type="text" minlength="5" maxlength="300" class="validate" required>
+                        <label for="event_image">Event Image</label>
+                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-300 characters long." data-success=""></span>
+                    </div>
+                </div>
+                <!-- submit -->
+                <div class="row">
+                    <a href="{{ url_for('home') }}" class="col s6 btn-large light-blue darken-4 text-shadow epic-form-btn">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow epic-form-btn">
+                        Edit Event <i class="fas fa-sign-in-alt epic-form-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

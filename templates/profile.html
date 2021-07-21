@@ -100,6 +100,41 @@
                                     {% endfor %}
                                 {% else %}
                                     <div class="card-panel ">
+                                        <h3 class="text-darken-4 center-align">No News</h3>
+                                    </div>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% if session.is_moderator == True %}
+        <div class="container">
+            <div class="row">
+                <h3 class="center-align">Edit Events</h3>
+                <div class="col s12">
+                    <div class="card-panel">
+                        <div class="row">                            
+                            <h4 class="current-events-header center-align">Current Events</h4>
+                            <ul class="collapsible current-events-list">
+                                {% if events|length > 0 %}
+                                    {% for event in events %}
+                                        <li class="hoverable">
+                                            <div class="collapsible-header no-padding">
+                                                <img src="{{ event.event_image }}" alt="{{ event.title }}" class="event-image">
+                                                <h6 class="event-title-text width-30">{{ event.title}}</h6>
+                                                <p class="event-date-text width-30">{{ event.start_date|replace(', 2021', '') }} - {{ event.end_date|replace(', 2021', ' 2021') }}</p>
+                                                <a href="{{ url_for('edit_events', event_id=event._id) }}" class="waves-effect waves-light float-right btn edit-btn">
+                                                    <i class="material-icons edit-icon">edit</i> Edit
+                                                </a>
+                                            </div>
+                                            <div class="collapsible-body"><span>{{ event.description }}</span></div>
+                                        </li>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="card-panel ">
                                         <h3 class="text-darken-4 center-align">No Upcoming Events</h3>
                                     </div>
                                 {% endif %}

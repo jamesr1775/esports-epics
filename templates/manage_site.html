@@ -33,6 +33,7 @@
                           <tr>
                               <th>Username</th>
                               <th>Journalist</th>
+                              <th>Moderator</th>
                           </tr>
                         </thead>
                         {% for user in users %}
@@ -42,11 +43,21 @@
                                     <td>
                                         <label class="journalist-status">
                                             {% if user.is_journalist %}
-                                                <input name="{{ user._id }}" type="checkbox" checked="checked"/>
+                                                <input name="{{ user._id }}_is_journalist" type="checkbox" checked="checked"/>
                                             {% else %}
-                                                <input name="{{ user._id }}" type="checkbox"/>
+                                                <input name="{{ user._id }}_is_journalist" type="checkbox"/>
                                             {% endif %}
                                             <span>Journalist Status</span>
+                                        </label>
+                                    </td>                                    
+                                    <td>
+                                        <label class="journalist-status">
+                                            {% if user.is_moderator %}
+                                                <input name="{{ user._id }}_is_moderator" type="checkbox" checked="checked"/>
+                                            {% else %}
+                                                <input name="{{ user._id }}_is_moderator" type="checkbox"/>
+                                            {% endif %}
+                                            <span>Moderator Status</span>
                                         </label>
                                     </td>
                                 </tr>

@@ -148,7 +148,9 @@ nav {
     margin:20px 5px 0px;
     width: 40%;
 }
-
+.width-30{
+    width: 30% !important;
+}
 /*********************** latest news ***********************/
 .news-image{
     height: 400px !important;
@@ -265,7 +267,7 @@ nav {
 }
 .edit-icon{
     font-size: 15px !important;
-    margin-right: 3px;
+    margin-right: 0px !important;
 }
 .browse-card-container{
     background-image: linear-gradient(to bottom, rgba(23, 27, 34, 0.9) 70%, #FFCA29 100%);

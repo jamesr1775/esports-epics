@@ -57,11 +57,13 @@ def register():
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
             "email": request.form.get("email"),
-            "is_journalist": False
+            "is_journalist": False,
+            "is_Moderator":False
         }
         mongo.db.users.insert_one(register)
         session["user"] = request.form.get("username").lower()
         session["is_journalist"] = False
+        session["is_Moderator"] = False
         flash("Registration Successful!")
         return redirect( url_for("profile", username=session["user"]))
     return render_template("register.html")
@@ -79,6 +81,7 @@ def login():
                 existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 session["is_journalist"] = mongo.db.users.find_one({"username": request.form.get("username").lower()})["is_journalist"]
+                session["is_moderator"] = mongo.db.users.find_one({"username": request.form.get("username").lower()})["is_moderator"]
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect( url_for("profile", username=session["user"] ))
             else:
@@ -94,15 +97,18 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     if session["user"]:
+        user = list(mongo.db.users.find({"username": username}))
         epics = list(mongo.db.epics.find({"username": username}))
         news = list(mongo.db.news.find({"username": username}))
-        return render_template("profile.html", username=username, epics=epics,news=news)
+        events = list(mongo.db.events.find())
+        return render_template("profile.html", username=username, epics=epics,news=news, events=events, user=user)
     return redirect(url_for("login"))
 
 @app.route("/logout")
 def logout():
     flash("You have successfully logged out.")
     session.pop("user")
+    session.pop("is_moderator")
     session.pop("is_journalist")
     return redirect(url_for("login"))
 
@@ -180,11 +186,17 @@ def manage_user(username):
     if request.method == "POST":
         data = request.form.to_dict()
         for user in users:
-            if str(user["_id"]) in data.keys():
-                mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist" : True}})
-            else:
-                mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist" : False}})
-        flash("Journalists Successfully Updated")
+            if str(user["_id"]) + '_is_moderator' in data.keys() or str(user["_id"]) + '_is_journalist' in data.keys():
+                if request.form.get(str(user["_id"]) + '_is_journalist') == 'on':
+                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist" : True}})
+                else:
+                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist" : False}})
+                if request.form.get(str(user["_id"]) + '_is_moderator') == 'on':
+                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_moderator" : True}})
+                else:
+                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_moderator" : False}})
+
+        flash("User Permissions Successfully Updated")
     users = list(mongo.db.users.find())
     return render_template("manage_site.html", username=username, epics=epics, users=users)
 
@@ -225,6 +237,28 @@ def edit_news(story_id):
         return redirect( url_for("profile", username=session["user"]))
     story = mongo.db.news.find_one({"_id": ObjectId(story_id)})
     return render_template("edit_news.html", story=story)
+
+
+@app.route("/edit_events/<event_id>", methods=["GET", "POST"])
+def edit_events(event_id):
+    event_info = {
+        "username": session['user'],
+        "title": request.form.get("title"),
+        "game": request.form.get("game"),
+        "description": request.form.get("description"),
+        "start_date": request.form.get("start_date"),
+        "start_time": request.form.get("start_time"),
+        "end_date": request.form.get("end_date"),
+        "location": request.form.get("location"),
+        "event_website": request.form.get("event_website"),
+        "event_image": request.form.get("event_image"),
+    }
+    if request.method == "POST":
+        mongo.db.events.update({"_id": ObjectId(event_id)}, event_info)
+        flash("News Post Successfully Updated")
+        return redirect( url_for("profile", username=session["user"]))
+    event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
+    return render_template("edit_events.html", event=event)
 
 
 

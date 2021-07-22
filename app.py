@@ -24,7 +24,7 @@ def home():
     epics = list(mongo.db.epics.find())
     events = list(mongo.db.events.find())
     news = list(mongo.db.news.find())
-    return render_template("index.html", epics=epics, events=events, news=news)
+    return render_template("index.html", epics=epics[-5:], events=events, news=news)
 
 @app.route("/browse")
 def browse():

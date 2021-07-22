@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('.sidenav').sidenav( {edge: "right"});
     $('.carousel').carousel({
         indicators: true,
+        numVisible: 5, 
     });
     $('.datepicker').datepicker({
         minDate: oneWeekAgo

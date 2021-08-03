@@ -260,6 +260,11 @@ def edit_events(event_id):
     event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
     return render_template("edit_events.html", event=event)
 
+@app.route("/delete_epic/<epic_id>", methods=["GET", "POST"])
+def delete_epic(epic_id):
+    mongo.db.epics.remove({"_id": ObjectId(epic_id)})
+    flash("Post successfully deleted: " + epic_id)
+    return redirect( url_for("profile", username=session["user"]))
 
 
 if __name__ == "__main__":

@@ -30,16 +30,26 @@ $("#pwconfirm").on("keyup", function (e) {
 
 
 // function that will open the youtube video in the modal and autoplay it. The setting src of the iframe was used from [3] in readme file.
-$('.modal-trigger').on("click", function() { 
-    var theModal = $(this).data( "target" ),
-    videoSRC = $(this).attr( "data-video" ), 
-    epicTitle = $(this).attr( "data-epic" ),
-    videoSRCauto = videoSRC+"?autoplay=1" ;
-    $("#vod-modal-title").html(epicTitle)
-    $('#' +theModal+' iframe').attr('src', videoSRCauto);
-    $('#' +theModal+' .modal-close').click(function () {
-        $('#' + theModal+' iframe').attr('src', videoSRC);
-    });
+$('.modal-trigger').on("click", function() {
+    var theModal = $(this).data( "target" );
+    if(theModal == "videoModal"){
+        var videoSRC = $(this).attr( "data-video" ), 
+        epicTitle = $(this).attr( "data-epic" ),
+        videoSRCauto = videoSRC+"?autoplay=1" ;
+        $("#vod-modal-title").html(epicTitle)
+        $('#' +theModal+' iframe').attr('src', videoSRCauto);
+        $('#' +theModal+' .modal-close').click(function () {
+            $('#' + theModal+' iframe').attr('src', videoSRC);
+        });
+    }
+    else if(theModal == "deleteModal"){
+        var epicTitle = $(this).attr( "data-epic" ),
+        epicId = $(this).attr( "data-epic-id" ),
+        htmlTitlePrefix = "Are you sure you want to delete the post:<br>",
+        urlForDeleteTask = "/delete_epic/"+ epicId;
+        $('#delete-modal-confirm-button').prop("href", urlForDeleteTask);
+        $("#delete-modal-title").html(htmlTitlePrefix + epicTitle);
+    }
     $('#' + theModal).modal();
 })
 
@@ -57,5 +67,4 @@ function resizeEpicCards() {
         $(this).find('.epic-image').height(maxHeight - heightDescription - heightVodBtn - 20 -  0.15*maxHeight);
         $(this).height(maxHeight);
     });
-
 }

@@ -1,0 +1,19 @@
+{% block content %}
+    <!-- Modal Code obtained from [3] in Readme-->
+    <div class="modal delete-modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s12">
+                    <h3 id="delete-modal-title"></h3>
+                </div>
+            </div>
+            <div class="delete-cancel-btns-container">
+                <!-- <button type="button" class="modal-action red modal-close waves-effect waves-light btn delete-modal-btn">Confirm Deletion</button> -->
+                <a id="delete-modal-confirm-button" href="" class="modal-action red modal-close waves-effect waves-light btn delete-modal-btn">
+                    Confirm Deletion <i class="fas fa-times-circle right">delete</i>
+                </a>
+                <button type="button" class="modal-action modal-close waves-effect waves-light btn delete-modal-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

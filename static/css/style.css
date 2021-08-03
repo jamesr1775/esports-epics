@@ -46,6 +46,10 @@ main {
 .pre-line{
     white-space: pre-line;
 }
+#deleteModal{
+    top: 40% !important;
+}
+
 
 /*********************** Navbar ***********************/
 .company-logo{
@@ -287,6 +291,39 @@ nav {
     margin-top: 0;
     color: #fff;
     background-color: rgba(23, 27, 34, 0.9);
+}
+
+/*********************** profile ***********************/
+.edit-delete-btn{
+    width: 90% !important;
+    margin-left: 5% !important;
+    margin-top: 5px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    padding: 10px;
+    border-radius: 5px;
+}
+.delete-cancel-btns-container{
+    margin-left: calc(50% - 200px);
+}
+.delete-modal-btn{
+    width: 200px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.profile-epic-card{
+    background-color: #171b22;
+    position: relative;
+    margin: 5px;
+    padding: 10px;
+}
+.delete-modal{
+    background-image: linear-gradient(to bottom right, #171b22 40%, #FFCA29 50%, #171b22 60%)
+}
+#delete-modal-title{
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
 }
 /*********************** manage site ***********************/
 .journalist-status{

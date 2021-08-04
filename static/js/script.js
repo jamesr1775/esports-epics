@@ -42,13 +42,21 @@ $('.modal-trigger').on("click", function() {
             $('#' + theModal+' iframe').attr('src', videoSRC);
         });
     }
-    else if(theModal == "deleteModal"){
+    else if(theModal == "deleteEpicModal"){
         var epicTitle = $(this).attr( "data-epic" ),
         epicId = $(this).attr( "data-epic-id" ),
         htmlTitlePrefix = "Are you sure you want to delete the post:<br>",
         urlForDeleteTask = "/delete_epic/"+ epicId;
-        $('#delete-modal-confirm-button').prop("href", urlForDeleteTask);
-        $("#delete-modal-title").html(htmlTitlePrefix + epicTitle);
+        $('#delete-epic-confirm-button').prop("href", urlForDeleteTask);
+        $("#delete-epic-title").html(htmlTitlePrefix + epicTitle);
+    }
+    else if(theModal == "deleteEventModal"){
+        var epicTitle = $(this).attr( "data-event" ),
+        eventId = $(this).attr( "data-event-id" ),
+        htmlTitlePrefix = "Are you sure you want to delete the event:<br>",
+        urlForDeleteTask = "/delete_event/"+ eventId;
+        $('#delete-event-confirm-button').prop("href", urlForDeleteTask);
+        $("#delete-event-title").html(htmlTitlePrefix + epicTitle);
     }
     $('#' + theModal).modal();
 })

@@ -58,6 +58,14 @@ $('.modal-trigger').on("click", function() {
         $('#delete-event-confirm-button').prop("href", urlForDeleteTask);
         $("#delete-event-title").html(htmlTitlePrefix + epicTitle);
     }
+    else if(theModal == "deleteNewsModal"){
+        var storyTitle = $(this).attr( "data-story" ),
+        storyId = $(this).attr( "data-story-id" ),
+        htmlTitlePrefix = "Are you sure you want to delete the news post:<br>",
+        urlForDeleteTask = "/delete_news/"+ storyId;
+        $('#delete-news-confirm-button').prop("href", urlForDeleteTask);
+        $("#delete-news-title").html(htmlTitlePrefix + storyTitle);
+    }
     $('#' + theModal).modal();
 })
 

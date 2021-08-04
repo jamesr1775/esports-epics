@@ -88,10 +88,16 @@
                                                 <div class="center-align">
                                                     <h6 class="news-title">{{ story.title}}</h6>                                                    
                                                     <i class="material-icons news-drop-icon">arrow_drop_down_circle</i>
-                                                    <a href="{{ url_for('edit_news', story_id=story._id) }}" class="waves-effect waves-light float-right btn edit-btn">
-                                                        <i class="material-icons edit-icon">edit</i>
-                                                        Edit
-                                                    </a>
+                                                    <div class="float-right">
+                                                        <a href="{{ url_for('edit_news', story_id=story._id) }}" class="waves-effect waves-light btn edit-btn">
+                                                            <i class="material-icons edit-icon">edit</i>
+                                                            Edit
+                                                        </a>
+                                                        <a href="" class="modal-trigger red waves-effect waves-light btn edit-btn" data-target="deleteNewsModal" data-toggle="modal" data-story="{{ story.title }}" data-story-id="{{ story._id }}">
+                                                            <i class="small material-icons edit-icon">delete_forever</i>
+                                                            Delete
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="collapsible-body latest-news-card no-padding">

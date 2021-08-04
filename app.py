@@ -266,6 +266,11 @@ def delete_epic(epic_id):
     flash("Post successfully deleted: " + epic_id)
     return redirect( url_for("profile", username=session["user"]))
 
+@app.route("/delete_event/<event_id>", methods=["GET", "POST"])
+def delete_event(event_id):
+    mongo.db.events.remove({"_id": ObjectId(event_id)})
+    flash("Event successfully deleted: " + event_id)
+    return redirect( url_for("profile", username=session["user"]))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

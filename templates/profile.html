@@ -53,7 +53,7 @@
                                                 <i class="small material-icons edit-icon">edit</i>                                                
                                                 Edit Post
                                             </a>
-                                            <a href="" class="modal-trigger col s12 waves-effect waves-light red btn edit-delete-btn" data-target="deleteModal" data-toggle="modal" data-epic="{{ epic.title }}" data-epic-id="{{ epic._id }}">
+                                            <a href="" class="modal-trigger col s12 waves-effect waves-light red btn edit-delete-btn" data-target="deleteEpicModal" data-toggle="modal" data-epic="{{ epic.title }}" data-epic-id="{{ epic._id }}">
                                                 <i class="small material-icons edit-icon">delete_forever</i>
                                                 Delete Post
                                             </a>
@@ -134,7 +134,11 @@
                                                 <h6 class="event-title-text width-30">{{ event.title}}</h6>
                                                 <p class="event-date-text width-30">{{ event.start_date|replace(', 2021', '') }} - {{ event.end_date|replace(', 2021', ' 2021') }}</p>
                                                 <a href="{{ url_for('edit_events', event_id=event._id) }}" class="waves-effect waves-light float-right btn edit-btn">
-                                                    <i class="material-icons edit-icon">edit</i> Edit
+                                                    <i class="material-icons edit-icon">edit</i>Edit
+                                                </a>
+                                                <a href="" class="modal-trigger red waves-effect waves-light float-right btn edit-btn" data-target="deleteEventModal" data-toggle="modal" data-event="{{ event.title }}" data-event-id="{{ event._id }}">
+                                                    <i class="small material-icons edit-icon">delete_forever</i>
+                                                    Delete
                                                 </a>
                                             </div>
                                             <div class="collapsible-body"><span>{{ event.description }}</span></div>

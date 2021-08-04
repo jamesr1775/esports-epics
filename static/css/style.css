@@ -46,7 +46,7 @@ main {
 .pre-line{
     white-space: pre-line;
 }
-#deleteModal{
+#deleteEpicModal, #deleteEventModal{
     top: 40% !important;
 }
 
@@ -320,7 +320,7 @@ nav {
 .delete-modal{
     background-image: linear-gradient(to bottom right, #171b22 40%, #FFCA29 50%, #171b22 60%)
 }
-#delete-modal-title{
+#delete-epic-title, #delete-event-title{
     font-size: 20px;
     color: #fff;
     text-align: center;

@@ -46,7 +46,7 @@ main {
 .pre-line{
     white-space: pre-line;
 }
-#deleteEpicModal, #deleteEventModal, #deleteNewsModal{
+#deleteEpicModal, #deleteEventModal, #deleteNewsModal, #deleteUserModal{
     top: 40% !important;
 }
 
@@ -294,6 +294,11 @@ nav {
 }
 
 /*********************** profile ***********************/
+.account-info-block{
+    background-image: linear-gradient(to bottom, rgba(23, 27, 34, 0.9) 70%, #FFCA29 100%);
+    color: #fff;
+}
+
 .edit-delete-btn{
     width: 90% !important;
     margin-left: 5% !important;
@@ -320,7 +325,7 @@ nav {
 .delete-modal{
     background-image: linear-gradient(to bottom right, #171b22 40%, #FFCA29 50%, #171b22 60%)
 }
-#delete-epic-title, #delete-event-title, #delete-news-title{
+#delete-epic-title, #delete-event-title, #delete-news-title, #delete-user-title{
     font-size: 20px;
     color: #fff;
     text-align: center;

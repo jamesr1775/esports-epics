@@ -66,6 +66,13 @@ $('.modal-trigger').on("click", function() {
         $('#delete-news-confirm-button').prop("href", urlForDeleteTask);
         $("#delete-news-title").html(htmlTitlePrefix + storyTitle);
     }
+    else if(theModal == "deleteUserModal"){
+        var userId = $(this).attr( "data-user-id" ),
+        htmlTitlePrefix = "Are you sure you want to delete your account?",
+        urlForDeleteTask = "/delete_user/"+ userId;
+        $('#delete-user-confirm-button').prop("href", urlForDeleteTask);
+        $("#delete-user-title").html(htmlTitlePrefix);
+    }
     $('#' + theModal).modal();
 })
 

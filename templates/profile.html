@@ -4,19 +4,20 @@
         <div class="row">
             <h3 class="center-align">Profile</h3>
             <div class="col s12">
-                <div class="card-panel">
-                    <h3 class="center">Account Information</h3>
-                    <div class="row">
-                        <div class="col s6">
-                            <p class="center">Username:  {{ username }}</p>                            
-                            <p class="center">Email:  {{ user.email }}</p>                            
-                            <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                                Delete Account
-                                <i class="fas fa-user-slash"></i>
-                            </button>
-                        </div>
-                        <div class="col s6">
-                            <img src="" alt="Profile Image">
+                <div class="card-panel account-info-block">
+                    <div class="card-panel profile-epic-card white-text">
+                        <h3 class="center">Account Information</h3>
+                        <div class="row">
+                            <div class="col s12">
+                                <p class="center">Username:  {{ username }}</p>                            
+                                <p class="center">Email:  {{ user.email }}</p>
+                                {% if session.user|lower != "admin"|lower %}    
+                                    <a href="" class="col s12 modal-trigger light-blue darken-4 text-shadow float-right btn edit-btn" data-target="deleteUserModal" data-toggle="modal" data-user-id="{{ user._id }}">
+                                        <i class="small material-icons edit-icon">delete_forever</i>
+                                        Delete Account
+                                    </a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,7 +64,7 @@
                             {% endfor %}
                         {% else %}
                             <div class="col s12">
-                                <div class="card-panel">
+                                <div class="card-panel profile-epic-card white-text">
                                     <h3 class="text-darken-4 center-align">You have no posts.</h3>
                                 </div>
                             </div>

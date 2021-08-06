@@ -58,12 +58,12 @@ def register():
             "password": generate_password_hash(request.form.get("password")),
             "email": request.form.get("email"),
             "is_journalist": False,
-            "is_Moderator":False
+            "is_moderator":False
         }
         mongo.db.users.insert_one(register)
         session["user"] = request.form.get("username").lower()
         session["is_journalist"] = False
-        session["is_Moderator"] = False
+        session["is_moderator"] = False
         flash("Registration Successful!")
         return redirect( url_for("profile", username=session["user"]))
     return render_template("register.html")
@@ -278,6 +278,14 @@ def delete_news(story_id):
     flash("News Post successfully deleted")
     return redirect( url_for("profile", username=session["user"]))
 
+@app.route("/delete_user/<user_id>", methods=["GET", "POST"])
+def delete_user(user_id):
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    flash("Hope to see you back again")
+    session.pop("user")
+    session.pop("is_moderator")
+    session.pop("is_journalist")
+    return redirect(url_for("home"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

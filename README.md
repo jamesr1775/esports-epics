@@ -50,17 +50,19 @@ As a video game or Esports enthusiast I would like:
 7. View upcoming esports tournaments that so I know when they will be live in order to watch them.
 8. Add upcoming esports tournaments so that other users can benefit from knowing when tournaments are live.
 9. Be able to edit or delete tournament posts that I have added to keep the information reliable and up to date.
-10. The ability to favorite other esports moments posts so that I collect all of my favorite clips for my own enjoyment or be able to share/find them easily.
-11. Find the contact information and social media links easily so I can keep up to date with the website and posts.
+10. Find the contact information and social media links easily so I can keep up to date with the website and posts.
 
 ### Wireframe mock-ups
 - [Home Page](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/home.png)
 - [Create Account](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/create-account.png)
 - [Log In](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/log-in.png)
 - [Profile](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/profile.png)
-- [Add Esports Moment](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/add-esports-moment.png)
-- [Add Event](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/add-event.png)
+- [Profile With News/Events Posted](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/profile-moderator-journalist.png)
+- [Add/Edit Esports Moment](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/add-esports-moment.png)
+- [Add/Edit Event](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/add-event.png)
+- [Add/Edit News](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/add-news.png)
 - [Browse](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/browse.png)
+- [Manage Site](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/manage-site.png)
 
 ### Database Design
 This project required the use of NoSQL and seems fine for the type of data that will be collected the users. There are 3 collections that are required and they are:

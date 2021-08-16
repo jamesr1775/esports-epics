@@ -55,7 +55,7 @@ main {
 .company-logo{
     min-height: 75px;
     margin: 5px 0;
-    padding: 0 5px;
+    padding: 0 10px;
     height: 75px !important;
     width: 140px;
     background-position: center;
@@ -262,9 +262,6 @@ nav {
     transform: translate(-50%, -50%);
     font-size: 50px;
     color: #fff;
-}
-.epic-description{
-    /* min-height: 100px; */
 }
 .epic-title-container{
     overflow: hidden;

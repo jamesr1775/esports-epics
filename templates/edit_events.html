@@ -59,16 +59,16 @@
                     <!-- event link -->
 					<div class="input-field col s12 m6">
                         <i class="material-icons prefix">web</i>
-						<input id="event_website" name="event_website" value="{{ event.event_website }}" type="text" minlength="5" maxlength="100" class="validate" required>
+						<input id="event_website" name="event_website" value="{{ event.event_website }}" type="url" minlength="5" maxlength="100" class="validate" required>
                         <label for="event_website">Event Website</label>
                         <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-100 characters long." data-success=""></span>
                     </div>
                     <!-- image post -->
 					<div class="input-field col s12 m6">
                         <i class="fas fa-image prefix"></i>
-						<input id="event_image" name="event_image" value="{{ event.event_image }}" type="text" minlength="5" maxlength="300" class="validate" required>
+						<input id="event_image" name="event_image" value="{{ event.event_image }}" minlength="5" maxlength="300" class="validate" type="url" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{5,300}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif)" required>
                         <label for="event_image">Event Image</label>
-                        <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-300 characters long." data-success=""></span>
+                        <span class="helper-text" data-error="Image Link should consist of letters and/or numbers and be between 5-300 characters long and end in either jpg, png or gif. (e.g http://i.imgur.com/______.jpg)" data-success=""></span>
                     </div>
                 </div>
                 <!-- submit -->

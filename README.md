@@ -162,4 +162,5 @@ Follow the steps below to deploy my project:
 -[7] The centering of the play icon over the images for the esports post was obtained from [stackoverflow](https://stackoverflow.com/questions/43299877/center-icon-over-img-in-bootstrap/43299938)
 -[8] Found out to use include when creating a block/ template of code to be reused multiple times from [stackoverflow](https://stackoverflow.com/questions/55841442/can-you-create-components-in-flask-jinja-to-insert-in-various-templates).
 -[9] Wanted to resize the the posts cards to be all the same height so I found useful information here to loop through elements by class and apply height changes. [stackoverflow](https://stackoverflow.com/questions/44092012/loop-through-same-class-elements-and-assign-width-and-height).
--[10] [stackoverflow](https://stackoverflow.com/questions/44092012/loop-through-same-class-elements-and-assign-width-and-height).
+-[10] The pattern/ Regex for the images input form was obtained from the following webpage. [stackoverflow](https://stackoverflow.com/questions/40687546/html-input-require-url-to-end-in-specific-filetype).
+-[11] The pattern/ Regex for the video input form was obtained from the following webpage and only allows youtube links. [codegrepper](https://www.codegrepper.com/code-examples/javascript/javascript+validate+url+to+match+youtube+video).

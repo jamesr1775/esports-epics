@@ -1,6 +1,9 @@
-#     <div align="center"><img src="/assets/images/sorting-visualiser-logo.png" alt="Site Mock ups"></div>
-[Esports Epics](https://jamesr1775.github.io/Sorting-Visualiser/.) is a website to share the most nail biting, clutch and incredible competitive moments that occur in a variety of different genres of video games. When your opponents back is against the wall, they are forced to pull off epic feats to turn the odds back in their favour. Esports Epics is a place to capture these feats so that myself and you can learn and enjoy the best moments esports has to offer.
-
+#     <div align="center"><img src="/static/images/company-logo.png" alt="Site Logo"></div>
+[Esports Epics](https://esports-epics.herokuapp.com/) is a website to share the most nail biting, clutch 
+and incredible competitive moments that occur in a variety of different genres of video games. When your opponents back 
+is against the wall, they are forced to pull off epic feats to turn the odds back in their favour. Esports Epics is a 
+place to capture these feats so that myself and you can learn and enjoy the best moments esports has to offer.
+<h2 align="center"><img src="/static/images/readme-images/mock-ups.gif" alt="Site Mock ups"></h2>
 ## Table of Contents
 
 1. [**UX**](#ux)
@@ -117,8 +120,38 @@ tournamentsURL | String | Link to the tournaments website.
 tournamentsImage | String | Image to go with event title.
 
 ## Features
+### NavBar
+* The Nav Bar is a part of the base template and will be present in all webpages of this website. 
+* The navigation bar links are different under certain conditions.
+    - When no user is logged in the links available are:
+        1. Home
+        2. Browse
+        3. Log In
+        4. Register
+    - When a user is logged in the available links are:
+        1. Home
+        2. Browse
+        3. Add Event
+        4. Submit Epic
+        5. Profile
+        6. Log Out
+    - When an admin account is logged in they also get access to:
+        1. Manage Site
+    - When a journalist is logged in they also get access to:
+        1. Submit News
+* The admin account can allow a user to get the Journalist account status using the manage website page. This is to allow for integrity of the story and/or any claims made in the news post.
+* The NavBar becomes a expandable button when the website is accessed on small screens.
 ### Home Page
-### Existing Features
+1. The site logo will be at the top of the page and link back/ refresh the home page.
+2. Underneath the navbar a contrasting colorful hero image is loaded to grasp the visitors interest and attention.
+3. A carousel of the 5 most recent esports video posts is located below the hero image. The user can see what others are watching and if potentially recent tournaments clutch moments occurred.
+    - Each item in the carousel can be clicked to load description of the post
+    - A button to load the modal that contains the embedded video player is also presented.
+4. A materialize collapsible container is used to store all the news stories journalists can write and submit to the website.
+5. A materialize collapsible container is used to store all ongoing and upcoming esports tournaments for users to so they know when to watch livestreams and matches.
+
+### Home Page
+
 ### Features to implement in the future
 
 

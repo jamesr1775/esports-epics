@@ -4,8 +4,8 @@ and incredible competitive moments that occur in a variety of different genres o
 is against the wall, they are forced to pull off epic feats to turn the odds back in their favour. Esports Epics is a 
 place to capture these feats so that myself and you can learn and enjoy the best moments esports has to offer.
 <h2 align="center"><img src="/static/images/readme-images/mock-ups.gif" alt="Site Mock ups"></h2>
-## Table of Contents
 
+## Table of Contents
 1. [**UX**](#ux)
     - [**Project Goals**](#project-goals)
     - [**User Stories**](#user-stories)

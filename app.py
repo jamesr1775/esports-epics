@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from bson.json_util import dumps
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -31,11 +32,12 @@ def browse():
     epics = list(mongo.db.epics.find())
     return render_template("browse.html", epics=epics)
 
-@app.route("/search", methods=["GET", "POST"])
+@app.route("/browse/search", methods=["GET", "POST"])
 def search():
-    query = request.form.get("query")
+    query_request = request.get_json()
+    query = query_request["query"]
     epics = list(mongo.db.epics.find({"$text": {"$search": query}}))
-    return render_template("browse.html", epics=epics)
+    return dumps(epics)
 
 @app.route("/get_epics")
 def get_epics():

@@ -10,7 +10,7 @@
         <div class="col s12">
             <div class="card-panel  browse-search">
                 <h3 class="center-align">Browse Esports Epics</h3>
-                <form action="{{ url_for('search') }}" method="post" class="">
+                <form onsubmit="return search_epics()" method="" class="">
                     <div class="row valign-wrapper center-align">
                         <div class="input-field col s12 m8">
                             <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
@@ -20,7 +20,6 @@
                         <div class="col s12 m4">
                             <div class="row">
                             <a href="{{ url_for('get_epics') }}" class="red btn text-shadow">Reset</a>
-                            
                             <button type="submit" class="light-blue darken-1 btn text-shadow">
                                 <i class="fas fa-search left"></i> Search
                             </button>
@@ -34,7 +33,7 @@
     <div class="row">
         <div class="col s12">
             <div class="card-panel browse-card-container">
-                <div class="row">
+                <div class="row" id="browse-card-container-row">
                     {% if epics|length > 0 %}                    
                         {% for epic in epics %}
                         <div class="col s12 m6 l4">
@@ -67,4 +66,80 @@
         </div>
     </div>
     {% include "vod-modal.html" %}
+{% endblock %}
+
+{% block script %}
+<script>
+    let Results = [];
+
+    function search_epics(){
+        var searchQuery = document.getElementById("query")
+        var entry = {
+            query: searchQuery.value
+        }
+        fetch(`${window.origin}/browse/search`, {
+            method: "POST", 
+            credentials: "include",
+            headers: {
+                    'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(entry)   
+        })
+        .then(function (response){
+            console.log(response)
+            response.json().then(function (data){
+                console.log(data)
+                displayEpics(data)
+                resizeEpicCards() 
+                
+            })
+        })
+        searchQuery.value = ""
+        return false
+    }
+    function displayEpics(data){
+        let epicsContainerHtml = '';
+        for (let i = 0; i < data.length; i++) {
+            let epicCard = epicTemplate(data[i]);
+            epicsContainerHtml += epicCard;
+        }
+        if(epicsContainerHtml === ''){
+            epicsContainerHtml = `<div class="col s12">
+                                    <div class="card-panel">
+                                        <h3 class="text-darken-4 center-align">No Results Found.</h3>
+                                    </div>
+                                </div>`
+        }
+        $('#browse-card-container-row').html(epicsContainerHtml);
+    }
+
+    function epicTemplate(epic) {
+        let epicTitle = epic.title
+        let epicVideo = epic.video
+        let epicDescription = epic.description
+        let epicImage = epic.image
+        let epicShortDesc = epic.short_description
+        let epicPostedBy = epic.username
+
+        const epicCard = `
+                    <div class="col s12 m6 l4">
+                        <div class="card-panel epic-card">
+                            <!-- Modal Trigger -->
+                            <div class="epic-title-container">
+                                <a class="waves-effect waves-light btn modal-trigger vod-modal-btn" data-target="videoModal" data-epic="${epicTitle}" 
+                            data-toggle="modal" data-video="${epicVideo.replace('watch?v=', 'embed/')}" >${epicTitle}</a>
+                            </div>
+                            <p class="epic-description">${epicDescription}</p>
+                            <a class="modal-trigger" data-target="videoModal" data-epic="${epicTitle}" data-toggle="modal" data-video="${epicVideo.replace('watch?v=', 'embed/')}">
+                                <div class="post-image-container">
+                                    <img src="${epicImage}" alt="${epicShortDesc}" class="epic-image"> 
+                                    <i class="material-icons play-button">play_circle_outline</i>
+                                </div>
+                            </a>
+                            <p class="post-user-text"><em>submitted by: ${epicPostedBy}</em></p>
+                        </div>
+                    </div>`;
+        return epicCard;
+    }
+</script>
 {% endblock %}

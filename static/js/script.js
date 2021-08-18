@@ -13,6 +13,8 @@ $(document).ready(function(){
     $("#flash-message-block").delay(2000).slideUp(300);
     $('.collapsible').collapsible();
     resizeEpicCards();
+    $('.modal').modal();
+
 });
 
 window.onresize = function(event) {
@@ -30,8 +32,11 @@ $("#pwconfirm").on("keyup", function (e) {
 
 
 // function that will open the youtube video in the modal and autoplay it. The setting src of the iframe was used from [3] in readme file.
-$('.modal-trigger').on("click", function() {
+// $('.modal-trigger').on("click", function() {
+$(document).on("click", ".modal-trigger", function() {
     var theModal = $(this).data( "target" );
+    var instance = M.Modal.getInstance(theModal);
+
     if(theModal == "videoModal"){
         var videoSRC = $(this).attr( "data-video" ), 
         epicTitle = $(this).attr( "data-epic" ),
@@ -73,7 +78,8 @@ $('.modal-trigger').on("click", function() {
         $('#delete-user-confirm-button').prop("href", urlForDeleteTask);
         $("#delete-user-title").html(htmlTitlePrefix);
     }
-    $('#' + theModal).modal();
+    // $('#' + theModal).modal();
+    instance.open()
 })
 
 function resizeEpicCards() {

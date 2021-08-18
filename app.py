@@ -85,7 +85,7 @@ def login():
                 session["is_journalist"] = mongo.db.users.find_one({"username": request.form.get("username").lower()})["is_journalist"]
                 session["is_moderator"] = mongo.db.users.find_one({"username": request.form.get("username").lower()})["is_moderator"]
                 flash("Welcome, {}".format(request.form.get("username")))
-                return redirect( url_for("profile", username=session["user"] ))
+                return redirect(url_for("home"))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")

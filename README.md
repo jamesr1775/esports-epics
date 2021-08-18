@@ -1,9 +1,9 @@
-#     <div align="center"><img src="/static/images/company-logo.png" alt="Site Logo"></div>
+#     <div align="center"><img src="static/images/company-logo.png" alt="Site Logo"></div>
 [Esports Epics](https://esports-epics.herokuapp.com/) is a website to share the most nail biting, clutch 
 and incredible competitive moments that occur in a variety of different genres of video games. When your opponents back 
 is against the wall, they are forced to pull off epic feats to turn the odds back in their favour. Esports Epics is a 
 place to capture these feats so that myself and you can learn and enjoy the best moments esports has to offer.
-<h2 align="center"><img src="/static/images/readme-images/mock-ups.gif" alt="Site Mock ups"></h2>
+<h2 align="center"><img src="static/images/readme-images/mock-ups.gif" alt="Site Mock ups"></h2>
 
 ## Table of Contents
 1. [**UX**](#ux)
@@ -121,26 +121,27 @@ tournamentsImage | String | Image to go with event title.
 
 ## Features
 ### NavBar
-* The Nav Bar is a part of the base template and will be present in all webpages of this website. 
-* The navigation bar links are different under certain conditions.
+1. The Nav Bar is a part of the base template and will be present in all webpages of this website. 
+2. The navigation bar links are different under certain conditions.
     - When no user is logged in the links available are:
-        1. Home
-        2. Browse
-        3. Log In
-        4. Register
+        - Home
+        - Browse
+        - Log In
+        - Register
     - When a user is logged in the available links are:
-        1. Home
-        2. Browse
-        3. Add Event
-        4. Submit Epic
-        5. Profile
-        6. Log Out
+        - Home
+        - Browse
+        - Add Event
+        - Submit Epic
+        - Profile
+        - Log Out
     - When an admin account is logged in they also get access to:
-        1. Manage Site
+        - Manage Site
     - When a journalist is logged in they also get access to:
-        1. Submit News
-* The admin account can allow a user to get the Journalist account status using the manage website page. This is to allow for integrity of the story and/or any claims made in the news post.
-* The NavBar becomes a expandable button when the website is accessed on small screens.
+        - Submit News
+3. The admin account can allow a user to get the Journalist account status using the manage website page. This is to allow for integrity of the story and/or any claims made in the news post.
+4. The NavBar becomes a expandable button when the website is accessed on small screens.
+
 ### Home Page
 1. The site logo will be at the top of the page and link back/ refresh the home page.
 2. Underneath the navbar a contrasting colorful hero image is loaded to grasp the visitors interest and attention.
@@ -150,7 +151,12 @@ tournamentsImage | String | Image to go with event title.
 4. A materialize collapsible container is used to store all the news stories journalists can write and submit to the website.
 5. A materialize collapsible container is used to store all ongoing and upcoming esports tournaments for users to so they know when to watch livestreams and matches.
 
-### Home Page
+### Browse
+1. The browse page provides access to all the esports epics submitted by the community.
+2. The search bar can be used to filter all the posts.
+3. Each post when submitted required game, game category, player, description, tournament and year which are all indexes used to filter the posts displayed.
+
+### 
 
 ### Features to implement in the future
 
@@ -188,14 +194,14 @@ Follow the steps below to deploy my project:
 ### Media
 
 ### Acknowledgements
--[1] Obtained the javascript for confirming the passwords match from [jsfiddle](http://jsfiddle.net/SirusDoma/ayf832td/).
--[2] Needed a larger input box for the description field for submitting an event. Got information from [w3schools](https://www.w3schools.com/tags/tag_textarea.asp).
--[3] Wanted to have a youtube video in a modal using bootstrap. Bootstrap documentation pointed to [stackoverflow](https://stackoverflow.com/questions/18622508/bootstrap-3-and-youtube-in-modal). Had issues with using both bootstrap and materialize so cut out bootstrap but used the data- tag from this page idea to pass the src url to the iframe.
--[4] Wanted to hide the flashed images after a certain delay. Obtained the information from [stackoverflow](https://stackoverflow.com/questions/31176402/how-to-hide-flash-message-after-few-seconds)
--[5] I needed the manage user forms data in the app.py route and found out I can receive it as a dictionary based off the input names and values here [seanbehan](http://www.seanbehan.com/how-to-get-a-dict-from-flask-request-form/)
--[6] Checkboxes in forms only submit their data when they are checked, so unchecking a user from journalist status does not get sent. Learnt it from here [stackoverflow](https://stackoverflow.com/questions/54972705/sending-checkbox-value-to-flask) which gave me a workaround to just loop through users and any not checked remove their privilege. This is not the most efficient way and may need updates in the future.
--[7] The centering of the play icon over the images for the esports post was obtained from [stackoverflow](https://stackoverflow.com/questions/43299877/center-icon-over-img-in-bootstrap/43299938)
--[8] Found out to use include when creating a block/ template of code to be reused multiple times from [stackoverflow](https://stackoverflow.com/questions/55841442/can-you-create-components-in-flask-jinja-to-insert-in-various-templates).
--[9] Wanted to resize the the posts cards to be all the same height so I found useful information here to loop through elements by class and apply height changes. [stackoverflow](https://stackoverflow.com/questions/44092012/loop-through-same-class-elements-and-assign-width-and-height).
--[10] The pattern/ Regex for the images input form was obtained from the following webpage. [stackoverflow](https://stackoverflow.com/questions/40687546/html-input-require-url-to-end-in-specific-filetype).
--[11] The pattern/ Regex for the video input form was obtained from the following webpage and only allows youtube links. [codegrepper](https://www.codegrepper.com/code-examples/javascript/javascript+validate+url+to+match+youtube+video).
+- [1] Obtained the javascript for confirming the passwords match from [jsfiddle](http://jsfiddle.net/SirusDoma/ayf832td/).
+- [2] Needed a larger input box for the description field for submitting an event. Got information from [w3schools](https://www.w3schools.com/tags/tag_textarea.asp).
+- [3] Wanted to have a youtube video in a modal using bootstrap. Bootstrap documentation pointed to [stackoverflow](https://stackoverflow.com/questions/18622508/bootstrap-3-and-youtube-in-modal). Had issues with using both bootstrap and materialize so cut out bootstrap but used the data- tag from this page idea to pass the src url to the iframe.
+- [4] Wanted to hide the flashed images after a certain delay. Obtained the information from [stackoverflow](https://stackoverflow.com/questions/31176402/how-to-hide-flash-message-after-few-seconds)
+- [5] I needed the manage user forms data in the app.py route and found out I can receive it as a dictionary based off the input names and values here [seanbehan](http://www.seanbehan.com/how-to-get-a-dict-from-flask-request-form/)
+- [6] Checkboxes in forms only submit their data when they are checked, so unchecking a user from journalist status does not get sent. Learnt it from here [stackoverflow](https://stackoverflow.com/questions/54972705/sending-checkbox-value-to-flask) which gave me a workaround to just loop through users and any not checked remove their privilege. This is not the most efficient way and may need updates in the future.
+- [7] The centering of the play icon over the images for the esports post was obtained from [stackoverflow](https://stackoverflow.com/questions/43299877/center-icon-over-img-in-bootstrap/43299938)
+- [8] Found out to use include when creating a block/ template of code to be reused multiple times from [stackoverflow](https://stackoverflow.com/questions/55841442/can-you-create-components-in-flask-jinja-to-insert-in-various-templates).
+- [9] Wanted to resize the the posts cards to be all the same height so I found useful information here to loop through elements by class and apply height changes. [stackoverflow](https://stackoverflow.com/questions/44092012/loop-through-same-class-elements-and-assign-width-and-height).
+- [10] The pattern/ Regex for the images input form was obtained from the following webpage. [stackoverflow](https://stackoverflow.com/questions/40687546/html-input-require-url-to-end-in-specific-filetype).
+- [11] The pattern/ Regex for the video input form was obtained from the following webpage and only allows youtube links. [codegrepper](https://www.codegrepper.com/code-examples/javascript/javascript+validate+url+to+match+youtube+video).

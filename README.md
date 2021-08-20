@@ -258,11 +258,68 @@ tournamentsImage | String | Image to go with event title.
 
 ## Deployment
 
+### Creating your own local copy of the source code
+- To get a copy of this repo, go to [Esports Epics Repo](https://github.com/jamesr1775/esports-epics), make sure your logged in. You can either 
+    - Click the fork button which will create a copy of the repo into your account which is located in the top right hand corner of the link above.
+    - If you have git installed on your machine, you can clone the repo with the command
+        - git clone https://github.com/jamesr1775/esports-epics
+    - Download the zip file of the source code by clicking on the "Code" drop down button located in the top right and clicking "Download Zip"
+### Running locally
+- In order to run this application locally you must have the following installed on your machine.
+    - An Integrated Development Environment such as [Pycharm](https://www.jetbrains.com/pycharm/) or [Visual Studio Code](https://code.visualstudio.com/)
+    - [Python3](https://www.python.org/downloads/)
+    - [MongoDB](https://www.mongodb.com/)
+    - [Git](https://github.com/git-guides/install-git)
+    - [PIP](https://pip.pypa.io/en/stable/installation/)
+- The next step is to install everything listed in the requirements.txt document of the repo. To do that run the command in terminal of the IDE with the project opened:
+    - pip -r requirements.txt.
+- If you do not already have a mongoDB account go and create one [here](https://www.mongodb.com/)
+    - Create a database named esports_epics and create the collections events, users, epics and news.
+    - Create an env.py file in the repository.
+    - This file should never be pushed to the repo and is already added to the gitignore file!
+    - Inside the env.py file put the following information below.
+    ```
+    import os
+    os.environ.setdefault("IP", "0.0.0.0")
+    os.environ.setdefault("PORT", "5000")
+    os.environ.setdefault("SECRET_KEY", "<secret_key>")
+    os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:<password>@<cluster_name>.vcsxb.mongodb.net/esports_epics?retryWrites=true&w=majority")
+    os.environ.setdefault("MONGO_DBNAME", "esports_epics")
+    ``` 
+    - Replace the following with your correct values:    
+        - `<secret_key>` (a key you create youself in order to use session and flash functionality in flask)
+        - `<username>` (your mongodb username)
+        - `<password>` (your mongodb database password)
+        - `<cluster_name>` (cluster name to the esports_epics database)
+    - Refer to [mongodb's documentation](https://docs.atlas.mongodb.com/getting-started/) for more information.
+
+### Using Heroku to deploy an application
+1. A requirements.txt file should be created and kept updated, you can use the terminal command 
+    - pip3 freeze > requirements.txt.
+2. A Procfile is also required and can be create with the terminal command 
+    - echo web: python app.py > Procfile.
+3. Commit these files to your repo if they are not already committed.
+4. Log in to your [Heroku](https://www.heroku.com/) account
+5. Select New button and then select to create a new app.
+6. Give your application a name and choose a region located nearest to you.
+7. Make sure the is linked and is selecting the correct branch on your git repository.
+8. Click the settings button of the app and click the reveal convig vars button.
+9. Enter the following config varaibles:
+
+| Key | Value |
+ --- | ---
+DEBUG | FALSE
+IP | 0.0.0.0
+PORT | 5000
+MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>.vcsxb.mongodb.net/esports_epics?retryWrites=true&w=majority"`
+10. Your app should be ready for deployment now so click on Deploy button.
+11. Enable automatic deployment so new changes get deployed automatically.
 
 ## Bugs and Issues Resolved
 
 - The logout button sometimes caused the site to crash because the session variables I created did not exist and I was trying to remove them from the session. I solved this by making sure the session variables such as is_journalist is set properly and removed.
 - When I fixed the searching to not refresh the page, the dynamic elements could not trigger the modal as they were newly generated. I found to change the jquery for the modal trigger from [stackoverflow](https://stackoverflow.com/questions/12690142/jquery-on-not-registering-in-dynamically-generated-modal-popup)
+
 ## Current Bugs 
 - Clicking off the modal, the video keeps playing audio. 
 

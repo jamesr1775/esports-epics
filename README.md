@@ -67,58 +67,6 @@ As a video game or Esports enthusiast I would like:
 - [Browse](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/browse.png)
 - [Manage Site](https://github.com/jamesr1775/esports-epics/blob/master/assets/wireframes/manage-site.png)
 
-### Database Design
-This project required the use of NoSQL and seems fine for the type of data that will be collected the users. There are 3 collections that are required and they are:
-1. User Account information
-2. Esports Posts Information/Content
-3. Upcoming Esports Events & Tournaments
-
-The type of data for each of these collections are detailed below.
-
-#### User Account information
-
-Data Base Key | Data Type | Description
-:----:|:-----------:|:-------:
-_id | ObjectId | MongoDB generated
-username | String | Account login username.
-email | String | The email for this account.
-password | String | Users password.
-submittedPosts | Array | User submitted esports posts.
-submittedEvents | Array | User submitted esports events/tournaments.
-favoritePosts | Array | User favorited esports posts.
-
-
-#### Esports Posts Information/Content
-
-Data Base Key | Data Type | Description
-:----:|:-----------:|:-------:
-_id | ObjectId | MongoDB generated
-username | String | User who created post.
-postTitle | String | Title to be displayed for post.
-game | String | Name of the video game.
-gameCategory | String | Game genre. (FPS, Moba, Fighting etc.)
-featuredPlayer | String | Name of the pro player in the clip.
-description | String | Descriptive text for other readers for context.
-shortDescription | String | Shorter Descriptive text for mobile users.
-tournamentName | String | Name of the tournament.
-tournamentDate | TimeStamp | Date the esports game occured.
-video | String | Link to the video or clip to embed in post.
-postImage | String | Image to go with description for post.
-
-#### Upcoming Esports Events & Tournaments
-
-Data Base Key | Data Type | Description
-:----:|:-----------:|:-------:
-_id | ObjectId | MongoDB generated
-username | String | User who created event.
-eventTitle | String | Event title to be displayed.
-game | String | Name of the video game.
-startDate | TimeStamp | Starting date of the tournament.
-endDate | TimeStamp | Ending date of the tournament.
-broadcastStartTime | TimeStamp | Starting time of the live broadcast.
-tournamentsURL | String | Link to the tournaments website.
-tournamentsImage | String | Image to go with event title.
-
 ## Features
 ### NavBar
 1. The Nav Bar is a part of the base template and will be present in all webpages of this website. 
@@ -215,37 +163,109 @@ tournamentsImage | String | Image to go with event title.
 </div>
 
 ### Features to implement in the future
+1. Make a comment section for each esports post so that more discussion and community engagement can occur.
+2. Allow the users the ability to favourite clips and store their favourites in a section in their profile page or browse page.
+3. Have an upvote and downvote system so good, enjoyable content is easier to find. 
+4. If required have moderators remove / delete content that is negatively down voted, written poorly or potential duplicate that provides no new value.
+5. Have an online merch shop that could put some epic moments in to images for t-shirts or other goods.
+
+### Database Design
+This project required the use of NoSQL and seems fine for the type of data that will be collected the users. There are 3 collections that are required and they are:
+1. User Account information
+2. Esports Posts Information/Content
+3. Upcoming Esports Events & Tournaments
+
+The type of data for each of these collections are detailed below.
+
+#### User Account information
+
+Data Base Key | Data Type | Description
+:----:|:-----------:|:-------:
+_id | ObjectId | MongoDB generated
+username | String | Account login username.
+email | String | The email for this account.
+password | String | Users password.
+submittedPosts | Array | User submitted esports posts.
+submittedEvents | Array | User submitted esports events/tournaments.
+favoritePosts | Array | User favorited esports posts.
+
+
+#### Esports Posts Information/Content
+
+Data Base Key | Data Type | Description
+:----:|:-----------:|:-------:
+_id | ObjectId | MongoDB generated
+username | String | User who created post.
+postTitle | String | Title to be displayed for post.
+game | String | Name of the video game.
+gameCategory | String | Game genre. (FPS, Moba, Fighting etc.)
+featuredPlayer | String | Name of the pro player in the clip.
+description | String | Descriptive text for other readers for context.
+shortDescription | String | Shorter Descriptive text for mobile users.
+tournamentName | String | Name of the tournament.
+tournamentDate | TimeStamp | Date the esports game occured.
+video | String | Link to the video or clip to embed in post.
+postImage | String | Image to go with description for post.
+
+#### Upcoming Esports Events & Tournaments
+
+Data Base Key | Data Type | Description
+:----:|:-----------:|:-------:
+_id | ObjectId | MongoDB generated
+username | String | User who created event.
+eventTitle | String | Event title to be displayed.
+game | String | Name of the video game.
+startDate | TimeStamp | Starting date of the tournament.
+endDate | TimeStamp | Ending date of the tournament.
+broadcastStartTime | TimeStamp | Starting time of the live broadcast.
+tournamentsURL | String | Link to the tournaments website.
+tournamentsImage | String | Image to go with event title.
 
 
 ## Technologies Used
-The Technologies used in this project are the following:
-1. [Balsamiq:](https://balsamiq.com/)
+* [Materializecss:](https://materializecss.com/)
+    - Materialize was used to assist with the responsiveness and styling of the website.
+* [MongoDB:](https://www.mongodb.com/)
+    - Database used for this project.
+* [Heroku:](https://www.heroku.com/)
+    - Cloud platform service used to deploy and host the website.
+* [Flask:](https://flask.palletsprojects.com/en/1.0.x/)
+    - Use templates and rendering webpages in response to user interaction.
+* [Pip:](https://pip.pypa.io/en/stable/installation/)
+    - Used to install packages and libraries to run/build the project.
+* [Pymongo:](https://pymongo.readthedocs.io/en/stable/)
+    - Interact with a mongo database in python.
+* [Jinja:](https://jinja.palletsprojects.com/en/3.0.x/)
+    - Jinja is used to simplify displaying dynamic data / elements in a html element / webpage.
+* [Balsamiq:](https://balsamiq.com/)
     - Balsamiq was used to create the wireframes.
-2. [GitPod:](https://gitpod.io/)
+* [Google Fonts:](https://fonts.google.com/)
+    - Google fonts were used to import the 'Roboto' and the 'Merienda' font into the style.css.
+* [jQuery:](https://jquery.com/)
+    - jQuery came with Bootstrap to make the navbar responsive.
+* [GitPod:](https://gitpod.io/)
     - GitPod was used as my Editor/ Development Environment.
-3. [GitHub:](https://github.com/)
+* [GitHub:](https://github.com/)
     - GitHub is used to store the projects code with version control.
-
+* [responsivedesign](http://ami.responsivedesign.is/#)
+    - Used to generate the mockups.
+* [ezgif](https://ezgif.com/video-to-gif)
+    - Used to generate gifs used throughout testing, readme and tutorial.
+* [Font Awesome:](https://fontawesome.com/)
+    - Font Awesome was used throughout to add icons for a more pleasing UX.
 
 ## Testing
 
 ## Deployment
-### GitHub Pages
-Follow the steps below to deploy my project:
-1. Go to [GitHub](https://github.com). 
-2. Click on your projects repository and then click the settings tab.
-3. Locate the GitHub pages sections in the settings page
-4. Select the branch you want to deploy your code from under the source drop down tab.
-5. Now if you go back to the GitHub pages section your project should be deployed and you should see the link it was deployed to.
 
-### Creating your own local copy
-1. To get a copy of this repo, go to [Esports Epics Repo](https://github.com/jamesr1775/esports-epics), make sure your logged in. 
-2. In the top right hand corner, click the fork button which will create a copy of the repo into your account.
 
 ## Bugs and Issues Resolved
 
 - The logout button sometimes caused the site to crash because the session variables I created did not exist and I was trying to remove them from the session. I solved this by making sure the session variables such as is_journalist is set properly and removed.
 - When I fixed the searching to not refresh the page, the dynamic elements could not trigger the modal as they were newly generated. I found to change the jquery for the modal trigger from [stackoverflow](https://stackoverflow.com/questions/12690142/jquery-on-not-registering-in-dynamically-generated-modal-popup)
+## Current Bugs 
+- Clicking off the modal, the video keeps playing audio. 
+
 ## Credits
 ### Media
 

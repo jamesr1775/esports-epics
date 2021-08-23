@@ -73,6 +73,33 @@ nav li a{
 nav {
     height: 80px !important;
 }
+/*********************** Hero Image / Text ***********************/
+.hero-container{
+    position: relative;
+}
+@keyframes shine{
+0%{
+  background-position: 0}
+60%{
+  background-position: calc(50vw)}
+100%{
+  background-position: calc(100vw)}
+}
+.hero-text{
+    width: 100%;
+    text-align: center;
+    color: #FFCA29;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(to right, white 0, #FFCA29 35%, white 50%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 7s infinite forwards;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+}
 .hero-image{
     min-height: 400px;
     width: 100%;
@@ -84,6 +111,21 @@ nav {
     transition: all 2s ease-in;
     -moz-transition: all 1.5s ease-in;
     -webkit-transition: all 1.5s ease-in; 
+}
+.hero-text-container{
+    width: 100%;
+    position: absolute !important;
+    top: 30%;
+    position: relative;
+    animation: 3s slidein-right forwards;
+}
+@keyframes slidein-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(50%), translate(50%, 50%);
+    }
 }
 
 /*********************** Recently Added Carousel ***********************/

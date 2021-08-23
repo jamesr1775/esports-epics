@@ -18,8 +18,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-@app.route("/")
 
+@app.route("/")
 @app.route("/home")
 def home():
     epics = list(mongo.db.epics.find())
@@ -27,10 +27,12 @@ def home():
     news = list(mongo.db.news.find())
     return render_template("index.html", epics=epics[-5:], events=events, news=news)
 
+
 @app.route("/browse")
 def browse():
     epics = list(mongo.db.epics.find())
     return render_template("browse.html", epics=epics)
+
 
 @app.route("/browse/search", methods=["GET", "POST"])
 def search():
@@ -39,16 +41,18 @@ def search():
     epics = list(mongo.db.epics.find({"$text": {"$search": query}}))
     return dumps(epics)
 
+
 @app.route("/get_epics")
 def get_epics():
     epics = list(mongo.db.epics.find())
     return render_template("browse.html", epics=epics)
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         user_exists = mongo.db.users.find_one({"username": request.form.get("username").lower()})
-        password_match =  request.form.get("password").lower() == request.form.get("pwconfirm").lower()
+        password_match = request.form.get("password").lower() == request.form.get("pwconfirm").lower()
         if user_exists:
             flash("Invalid Username: That username already exists!")
             return redirect(url_for("register"))
@@ -60,27 +64,26 @@ def register():
             "password": generate_password_hash(request.form.get("password")),
             "email": request.form.get("email"),
             "is_journalist": False,
-            "is_moderator":False
+            "is_moderator": False
         }
         mongo.db.users.insert_one(register)
         session["user"] = request.form.get("username").lower()
         session["is_journalist"] = False
         session["is_moderator"] = False
         flash("Registration Successful!")
-        return redirect( url_for("profile", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-    # check if username exists in db
+        # check if username exists in db
         existing_user = mongo.db.users.find_one(
-        {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()})
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 session["is_journalist"] = mongo.db.users.find_one({"username": request.form.get("username").lower()})["is_journalist"]
                 session["is_moderator"] = mongo.db.users.find_one({"username": request.form.get("username").lower()})["is_moderator"]
@@ -96,6 +99,7 @@ def login():
             return redirect(url_for("login"))
     return render_template("login.html")
 
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     if session["user"]:
@@ -103,8 +107,9 @@ def profile(username):
         epics = list(mongo.db.epics.find({"username": username}))
         news = list(mongo.db.news.find({"username": username}))
         events = list(mongo.db.events.find())
-        return render_template("profile.html", username=username, epics=epics,news=news, events=events, user=user)
+        return render_template("profile.html", username=username, epics=epics, news=news, events=events, user=user)
     return redirect(url_for("login"))
+
 
 @app.route("/logout")
 def logout():
@@ -113,6 +118,7 @@ def logout():
     session.pop("is_moderator")
     session.pop("is_journalist")
     return redirect(url_for("login"))
+
 
 @app.route("/submit_epic", methods=["GET", "POST"])
 def submit_epic():
@@ -136,6 +142,7 @@ def submit_epic():
     else:
         return render_template("submit_epic.html")
 
+
 @app.route("/submit_event", methods=["GET", "POST"])
 def submit_event():
     if request.method == "POST":
@@ -158,6 +165,7 @@ def submit_event():
     else:
         return render_template("submit_event.html")
 
+
 @app.route("/submit_news", methods=["GET", "POST"])
 def submit_news():
     if request.method == "POST":
@@ -173,6 +181,7 @@ def submit_news():
     else:
         return render_template("submit_news.html")
 
+
 @app.route("/manage_site/<username>", methods=["GET", "POST"])
 def manage_site(username):
     if session["user"]:
@@ -180,6 +189,7 @@ def manage_site(username):
         users = list(mongo.db.users.find())
         return render_template("manage_site.html", username=username, epics=epics, users=users)
     return redirect(url_for("login"))
+
 
 @app.route("/manage_user/<username>", methods=["GET", "POST"])
 def manage_user(username):
@@ -190,13 +200,13 @@ def manage_user(username):
         for user in users:
             if str(user["_id"]) + '_is_moderator' in data.keys() or str(user["_id"]) + '_is_journalist' in data.keys():
                 if request.form.get(str(user["_id"]) + '_is_journalist') == 'on':
-                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist" : True}})
+                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist": True}})
                 else:
-                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist" : False}})
+                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist": False}})
                 if request.form.get(str(user["_id"]) + '_is_moderator') == 'on':
-                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_moderator" : True}})
+                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_moderator": True}})
                 else:
-                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_moderator" : False}})
+                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_moderator": False}})
 
         flash("User Permissions Successfully Updated")
     users = list(mongo.db.users.find())
@@ -221,9 +231,10 @@ def edit_epic(epic_id):
         }
         mongo.db.epics.update({"_id": ObjectId(epic_id)}, epic_info)
         flash("Epic Successfully Updated")
-        return redirect( url_for("profile", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
     epic = mongo.db.epics.find_one({"_id": ObjectId(epic_id)})
     return render_template("edit_epic.html", epic=epic)
+
 
 @app.route("/edit_news/<story_id>", methods=["GET", "POST"])
 def edit_news(story_id):
@@ -236,7 +247,7 @@ def edit_news(story_id):
         }
         mongo.db.news.update({"_id": ObjectId(story_id)}, post_info)
         flash("News Post Successfully Updated")
-        return redirect( url_for("profile", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
     story = mongo.db.news.find_one({"_id": ObjectId(story_id)})
     return render_template("edit_news.html", story=story)
 
@@ -258,27 +269,31 @@ def edit_events(event_id):
     if request.method == "POST":
         mongo.db.events.update({"_id": ObjectId(event_id)}, event_info)
         flash("News Post Successfully Updated")
-        return redirect( url_for("profile", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"]))
     event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
     return render_template("edit_events.html", event=event)
+
 
 @app.route("/delete_epic/<epic_id>", methods=["GET", "POST"])
 def delete_epic(epic_id):
     mongo.db.epics.remove({"_id": ObjectId(epic_id)})
     flash("Post successfully deleted")
-    return redirect( url_for("profile", username=session["user"]))
+    return redirect(url_for("profile", username=session["user"]))
+
 
 @app.route("/delete_event/<event_id>", methods=["GET", "POST"])
 def delete_event(event_id):
     mongo.db.events.remove({"_id": ObjectId(event_id)})
     flash("Event successfully deleted")
-    return redirect( url_for("profile", username=session["user"]))
+    return redirect(url_for("profile", username=session["user"]))
+
 
 @app.route("/delete_news/<story_id>", methods=["GET", "POST"])
 def delete_news(story_id):
     mongo.db.news.remove({"_id": ObjectId(story_id)})
     flash("News Post successfully deleted")
-    return redirect( url_for("profile", username=session["user"]))
+    return redirect(url_for("profile", username=session["user"]))
+
 
 @app.route("/delete_user/<user_id>", methods=["GET", "POST"])
 def delete_user(user_id):

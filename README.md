@@ -255,6 +255,7 @@ tournamentsImage | String | Image to go with event title.
     - Font Awesome was used throughout to add icons for a more pleasing UX.
 
 ## Testing
+Testing details can be viewed here [Testing.md](https://github.com/jamesr1775/esports-epics/blob/master/Testing.md)
 
 ## Deployment
 
@@ -310,6 +311,7 @@ tournamentsImage | String | Image to go with event title.
  --- | ---
 DEBUG | FALSE
 IP | 0.0.0.0
+SECRET KEY | `<secret_key>`
 PORT | 5000
 MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>.vcsxb.mongodb.net/esports_epics?retryWrites=true&w=majority"`
 10. Your app should be ready for deployment now so click on Deploy button.
@@ -339,3 +341,5 @@ MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>.vcsxb.mongodb.ne
 - [10] The pattern/ Regex for the images input form was obtained from the following webpage. [stackoverflow](https://stackoverflow.com/questions/40687546/html-input-require-url-to-end-in-specific-filetype).
 - [11] The pattern/ Regex for the video input form was obtained from the following webpage and only allows youtube links. [codegrepper](https://www.codegrepper.com/code-examples/javascript/javascript+validate+url+to+match+youtube+video).
 - [12] In order to not have the search refresh the page this youtube video helped me use flask, javascript and fetch to pass data to my webpage to display. [Julian Nash Youtube](https://www.youtube.com/watch?v=QKcVjdLEX_s).
+- [13] Wanted the hero text to be animated and slide in from left to right. Got some information here [stackoverflow](https://stackoverflow.com/questions/16989585/css-3-slide-in-from-left-transition)
+- [14] Obtained the hero text color animation from [SHINE by Andreas Storm](https://freefrontend.com/css-text-animations/). 

@@ -17,8 +17,7 @@ place to capture these feats so that myself and you can learn and enjoy the best
 3. [**Technologies Used**](#technologies-used)
 4. [**Testing**](#testing)
 5. [**Deployment**](#deployment)
-6. [**Bugs and Issues Resolved**](#bugs-and-issues-resolved)
-7. [**Credits**](#credits)
+6. [**Credits**](#credits)
     - [**Media**](#media)
     - [**Acknowledgements**](#acknowledgements)
     
@@ -316,14 +315,6 @@ PORT | 5000
 MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>.vcsxb.mongodb.net/esports_epics?retryWrites=true&w=majority"`
 10. Your app should be ready for deployment now so click on Deploy button.
 11. Enable automatic deployment so new changes get deployed automatically.
-
-## Bugs and Issues Resolved
-
-- The logout button sometimes caused the site to crash because the session variables I created did not exist and I was trying to remove them from the session. I solved this by making sure the session variables such as is_journalist is set properly and removed.
-- When I fixed the searching to not refresh the page, the dynamic elements could not trigger the modal as they were newly generated. I found to change the jquery for the modal trigger from [stackoverflow](https://stackoverflow.com/questions/12690142/jquery-on-not-registering-in-dynamically-generated-modal-popup)
-
-## Current Bugs 
-- Clicking off the modal, the video keeps playing audio. 
 
 ## Credits
 ### Media

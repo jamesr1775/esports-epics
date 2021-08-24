@@ -13,7 +13,12 @@ $(document).ready(function(){
     $("#flash-message-block").delay(2000).slideUp(300);
     $('.collapsible').collapsible();
     resizeEpicCards();
-    $('.modal').modal();
+    $('.modal').modal({
+        onCloseEnd(){
+            console.log($("#videoModal iframe").attr("src"))
+            $("#videoModal iframe").attr("src", $("#videoModal iframe").attr("src").replace("?autoplay=1", ''));
+        }
+    });
 
 });
 

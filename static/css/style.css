@@ -195,8 +195,8 @@ nav {
     margin:20px 5px 0px;
     width: 40%;
 }
-.width-30{
-    width: 30% !important;
+.width-40{
+    width: 40% !important;
 }
 /*********************** latest news ***********************/
 .news-image{
@@ -446,5 +446,8 @@ nav {
     }
     .post-image-container{
         margin: 0px 10px 25px;
+    }
+    .recent-post-carousel-item{
+        width: 240px !important;
     }
 }

@@ -138,8 +138,7 @@
                                         <li class="hoverable">
                                             <div class="collapsible-header no-padding">
                                                 <img src="{{ event.event_image }}" alt="{{ event.title }}" class="event-image">
-                                                <h6 class="event-title-text width-30">{{ event.title}}</h6>
-                                                <p class="event-date-text width-30">{{ event.start_date|replace(', 2021', '') }} - {{ event.end_date|replace(', 2021', ' 2021') }}</p>
+                                                <h6 class="event-title-text width-40">{{ event.title}}</h6>
                                                 <a href="{{ url_for('edit_events', event_id=event._id) }}" class="waves-effect waves-light float-right btn edit-btn">
                                                     <i class="material-icons edit-icon">edit</i>Edit
                                                 </a>

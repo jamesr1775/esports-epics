@@ -84,11 +84,14 @@ The source code for the project can be viewed at [github](https://github.com/jam
     - were ran on chrome and firefox.
     - were repeated on various screen resolutions using the chrome and firefox developer tools that include desktops, ipad, ipad pro, iphone X, 5, 6 ,7 , 8 and the plus models.
     - were repeated on the developers own smartphone (samsung) and tablet (ipad), desktop and laptop.
+
 #### Site Header
-##### Device Specific Layout Changes
+
+##### Device Specific Layout Checks
 - The Header responsiveness was tested by varying the screen size to see that the logo and navbar were responsive and also that the navbar becomes an expandable burger icon on smartphones and tablets.
 - The logo stays to the left of the header on tablets and desktops but moves to the center for small and extra small screen sizes.
-##### Site Header Behaviour
+
+##### Site Header Tests
 - The logo was tested that when it is pressed it returns / refreshes to the home page.
 - Each link was tested to make sure it brings the user to the correct page or logs them in or out.
 - Make sure that submit epic, add event, profile, log out pages only appear after a user is logged in.
@@ -96,12 +99,35 @@ The source code for the project can be viewed at [github](https://github.com/jam
 - The logout button correctly hides the links shown to logged in users and shows the register and log in buttons.
 
 #### Esports Video Modal
-
+- The video modal should be shown when a user clicks on the VOD here button or the play button in the browse and profile page cards of epics.
+- The title of the esports post should be above the video iframe.
+- The video should autoplay when the iframe loads.
+- Video controls to pause or mute the video are available to the user.
+- Upon clicking the close button or dismissing the modal by clicking out of it, the modal should close and the video / audio should stop.
+- The video should restart upon closing and reopening the modal.
 #### Profile
-##### Device Specific Layout Changes
+##### Device Specific Layout Checks
+- The number of esports posts per row should be 3 for laptops and desktops, 2 per row for tablets and 1 per row on smart phones.
+- The images and cards scale to the device width.
+##### Profile Tests
+- The user information is displayed in a card at the top of the page under the navbar.
+- The delete account button pops up a modal that asks the user to confirm the deletion of the account
+    - If the user presses cancel the modal should close and the user remains on the profile page.
+    - If the user confirms account deletion, their account is removed from the data base and they are returned to the default home page with no `session['user']`.
+- The esports posts card titles and images all open up the video modal.
+- The edit button brings the user to the edit esports epic page. 
+    - The form should load all the posts information into the input fields for convenience.
+- The delete button for a post pops up a modal that asks the user to confirm the deletion of the post.
+    - If the user presses cancel the modal should close and the post should remain in the database.
+    - If the user confirms post deletion, their post is removed from the data base and they are returned to updated profile page.
 
 #### Browse Page
 ##### Device Specific Layout Changes
+- The number of esports posts per row should be 3 for laptops and desktops, 2 per row for tablets and 1 per row on smart phones.
+- The images and cards scale to the device width.
+##### Profile Tests
+- The reset and search button remain centered on the screen under the input search field.
+- 
 
 #### Footer
 - The social media icons opens up the relevant social media platforms in a new tab.

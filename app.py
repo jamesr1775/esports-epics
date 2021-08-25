@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, jsonify)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from bson.json_util import dumps
@@ -36,10 +36,13 @@ def browse():
 
 @app.route("/browse/search", methods=["GET", "POST"])
 def search():
-    query_request = request.get_json()
-    query = query_request["query"]
-    epics = list(mongo.db.epics.find({"$text": {"$search": query}}))
-    return dumps(epics)
+    if request.method == 'POST':
+        query_request = request.get_json()
+        query = query_request["query"]
+        epics = list(mongo.db.epics.find({"$text": {"$search": query}})) if query != '' else list(mongo.db.epics.find())
+        return dumps(epics)
+    epics = list(mongo.db.epics.find())
+    return render_template("browse.html", epics=epics)
 
 
 @app.route("/get_epics")

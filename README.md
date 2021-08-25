@@ -334,3 +334,6 @@ MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>.vcsxb.mongodb.ne
 - [12] In order to not have the search refresh the page this youtube video helped me use flask, javascript and fetch to pass data to my webpage to display. [Julian Nash Youtube](https://www.youtube.com/watch?v=QKcVjdLEX_s).
 - [13] Wanted the hero text to be animated and slide in from left to right. Got some information here [stackoverflow](https://stackoverflow.com/questions/16989585/css-3-slide-in-from-left-transition)
 - [14] Obtained the hero text color animation from [SHINE by Andreas Storm](https://freefrontend.com/css-text-animations/). 
+- [15] Got a reminder for putting text over an image from [stackoverflow](https://stackoverflow.com/questions/5758642/how-to-put-text-over-images-in-html)
+- [16] Got some information on pagination from these youtube  video [Pretty Printed Youtube](https://www.youtube.com/watch?v=Lnt6JqtzM7I)   [Corey Schafer Youtube](https://www.youtube.com/watch?v=PSWf2TjTGNY)
+- [17] Got the scrolling up code from [stackoverflow](https://stackoverflow.com/questions/12125883/jquery-pagination-scroll-to-top)

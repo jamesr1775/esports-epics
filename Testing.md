@@ -13,6 +13,8 @@ The source code for the project can be viewed at [github](https://github.com/jam
     - [**Esports Video Modal**](#esports-video-modal)
     - [**Profile**](#profile)
     - [**Browse Page**](#browse-page)
+    - [**Submit and Edit Forms**](#submit-and-edit-forms)
+    - [**Manage Site**](#manage-site)
     - [**Footer**](#footer)
 4. [**Further Testing**](#further-testing)
 5. [**Bugs and Issues Resolved**](#bugs-and-issues-resolved)
@@ -85,18 +87,22 @@ The source code for the project can be viewed at [github](https://github.com/jam
     - were repeated on various screen resolutions using the chrome and firefox developer tools that include desktops, ipad, ipad pro, iphone X, 5, 6 ,7 , 8 and the plus models.
     - were repeated on the developers own smartphone (samsung) and tablet (ipad), desktop and laptop.
 
-#### Site Header
-
+#### Site Header & Hero Image
 ##### Device Specific Layout Checks
 - The Header responsiveness was tested by varying the screen size to see that the logo and navbar were responsive and also that the navbar becomes an expandable burger icon on smartphones and tablets.
 - The logo stays to the left of the header on tablets and desktops but moves to the center for small and extra small screen sizes.
-
 ##### Site Header Tests
 - The logo was tested that when it is pressed it returns / refreshes to the home page.
 - Each link was tested to make sure it brings the user to the correct page or logs them in or out.
 - Make sure that submit epic, add event, profile, log out pages only appear after a user is logged in.
 - Make sure the register and log in buttons disappear when logged in and that the log out button appears.
 - The logout button correctly hides the links shown to logged in users and shows the register and log in buttons.
+##### Hero Image Tests
+- The image should be responsive across multiple devices.
+- The image should have a sliding animation upon reaching the home page.
+- The hero text should slide in from the left to the right center of the screen on top of the image.
+- The hero text should have a color changing animation.
+
 
 #### Esports Video Modal
 - The video modal should be shown when a user clicks on the VOD here button or the play button in the browse and profile page cards of epics.
@@ -105,6 +111,7 @@ The source code for the project can be viewed at [github](https://github.com/jam
 - Video controls to pause or mute the video are available to the user.
 - Upon clicking the close button or dismissing the modal by clicking out of it, the modal should close and the video / audio should stop.
 - The video should restart upon closing and reopening the modal.
+
 #### Profile
 ##### Device Specific Layout Checks
 - The number of esports posts per row should be 3 for laptops and desktops, 2 per row for tablets and 1 per row on smart phones.
@@ -117,17 +124,63 @@ The source code for the project can be viewed at [github](https://github.com/jam
 - The esports posts card titles and images all open up the video modal.
 - The edit button brings the user to the edit esports epic page. 
     - The form should load all the posts information into the input fields for convenience.
+    - Upon editing the user should be returned to the profile page with their updated posts.
 - The delete button for a post pops up a modal that asks the user to confirm the deletion of the post.
     - If the user presses cancel the modal should close and the post should remain in the database.
     - If the user confirms post deletion, their post is removed from the data base and they are returned to updated profile page.
+    - Upon deleting the user should be returned to the profile page with their updated posts.
 
 #### Browse Page
 ##### Device Specific Layout Changes
 - The number of esports posts per row should be 3 for laptops and desktops, 2 per row for tablets and 1 per row on smart phones.
 - The images and cards scale to the device width.
-##### Profile Tests
+##### Browse Tests
 - The reset and search button remain centered on the screen under the input search field.
-- 
+- Pagination is used to display the posts in the browse page.
+    - The number of posts per page at most should be 6.
+    - All the posts retrieved from the data base should be split between pages.
+    - The page links displays the correct posts when clicked through.
+    - The carrot navigation arrows increments or decrements the current page appropiately and displays the correct posts.
+    - When the page number is at the minimum or the maximum the correct carrot navigation arrows get disabled and don't do anything when pressed.
+    - Upon navigating to a new page of posts the body of html should scroll up. 
+- The input search field should be tested for the indexes and combinations of:
+    - Game
+    - Game Category
+    - Player
+    - Description
+    - Tournament
+    - Tournament Year
+    - Title
+- The correct posts is retrieved when a search is made and should also be displayed with pagination.
+- The cards that contain the posts have the correct title, description and image submitted by the user to the database.
+- Upon clicking the image or the title button the video modal pops up with the correct video link from the database.
+- If no search results are returned, the card countainer should indicate that to the user.
+
+#### Submit and Edit Forms
+The four forms for creating or editing esports epics, esports news, tournament events and registering are tested as follows.
+##### Device Specific Layout Changes
+- The form should be the same across desktops, laptops and computers. 
+- When their are two input fields per row, these should become separate rows on 
+smartphones
+- The submit and cancel button will always be on the same row and be the same width across all platforms. 
+
+##### Submit & Edit Forms Tests
+- The input fields all require either a maximum or a minimum number of characters.
+- The input fields for images should require links that end in certain image file types such as gif, png  or jpg. Test incorrect and correct links.
+- The input fields for video links should be of a certain youtube link. (i.e clicking the share button on youtube will give the right link for this input field). Test incorrect and correct links.
+- If the input field is incorrect the user receives feedback as to what input is expected.
+- Upon clicking cancel the user should be returned the Home page.
+- Upon clicking submit the new user post should 
+- When editing a event, epic or news, all of the previous submitted information stored in the database should be loaded back into the form so users can easily edit their submissions.
+
+#### Manage Site
+##### Device Specific Layout Changes
+- The form and checkboxes should be the same across all devices.
+##### Manage Site Tests
+- The manage site link is only availble to an admin account.
+- The page should display all users of the website and the current status of whether they are moderators or journalists for the website.
+- Unchecking or checking a account status checkbox and clicking update should either add or remove the correct account status stored in the database for a given user.
+- Clicking the cancel button should do nothing to the user accounts and return the admin account to its profile page.
 
 #### Footer
 - The social media icons opens up the relevant social media platforms in a new tab.
@@ -139,6 +192,7 @@ The source code for the project can be viewed at [github](https://github.com/jam
 
 ### Bugs and Issues Resolved
 - The logout button sometimes caused the site to crash because the session variables I created did not exist and I was trying to remove them from the session. I solved this by making sure the session variables such as is_journalist is set properly and removed.
+- Checkboxes in forms only submit their data when they are checked, so unchecking a user from journalist status does not get sent. Learnt it from here [stackoverflow](https://stackoverflow.com/questions/54972705/sending-checkbox-value-to-flask) which gave me a workaround to just loop through users and any not checked remove their privilege. This is not the most efficient way and may need updates in the future.
 - When I fixed the searching to not refresh the page, the dynamic elements could not trigger the modal as they were newly generated. I found to change the jquery for the modal trigger from [stackoverflow](https://stackoverflow.com/questions/12690142/jquery-on-not-registering-in-dynamically-generated-modal-popup)
 - Fixed the issue when dismissing the video modal, the video / audio would continue to play in the background. Found information here [stackoverflow](https://stackoverflow.com/questions/37037223/bootstrap-how-to-stop-video-from-playing-after-the-modal-has-been-closed?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) to stop the video from playing but I also needed to get rid of the autoplay in the `src` of the iframe. Also found out about the onCloseEnd from [stackoverflow](https://stackoverflow.com/questions/52877745/materializecss-modal-events-not-firing) that allowed me to replace the `src` when dismissing / closing the modal.
 - The pagination navigation buttons were not triggering on click events. Found a fix for this from [stackoverflow](https://stackoverflow.com/questions/17936242/dynamically-created-buttons-not-firing-onclick-event)

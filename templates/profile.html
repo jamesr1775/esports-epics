@@ -109,12 +109,12 @@
                                             </div>
                                             <div class="collapsible-body latest-news-card no-padding">
                                                 <span>
-                                                    <img src="{{ story.post_image }}" alt="{{ story.title }}" class="news-image">
-                                                    <div class="pre-line post-body">
-                                                        {{ story.post_body }}
-                                                        <p class="author-text">written by: {{ story.username }}</p>
-                                                    </div>                                            
+                                                    <img src="{{ story.post_image }}" alt="{{ story.title }}" class="news-image">                                         
                                                 </span>
+                                                <div class="pre-line post-body">
+                                                    {{ story.post_body }}
+                                                    <p class="author-text">written by: {{ story.username }}</p>
+                                                </div>
                                             </div>
                                         </li>
                                     {% endfor %}

@@ -185,7 +185,7 @@ def submit_epic():
         flash("Submission Successful!")
         return redirect(url_for("profile", username=session['user']))
     else:
-        return render_template("submit_epic.html")
+        return render_template("submit-epic.html")
 
 
 @app.route("/submit_event", methods=["GET", "POST"])
@@ -211,7 +211,7 @@ def submit_event():
         epics = list(mongo.db.epics.find())
         return redirect(url_for("home", epics=epics))
     else:
-        return render_template("submit_event.html")
+        return render_template("submit-event.html")
 
 
 @app.route("/submit_news", methods=["GET", "POST"])
@@ -230,7 +230,7 @@ def submit_news():
         flash("Submission Successful!")
         return redirect(url_for("home"))
     else:
-        return render_template("submit_news.html")
+        return render_template("submit-news.html")
 
 
 @app.route("/manage_site/<username>", methods=["GET", "POST"])
@@ -242,7 +242,7 @@ def manage_site(username):
         epics = list(mongo.db.epics.find())
         users = list(mongo.db.users.find())
         return render_template(
-            "manage_site.html", username=username, epics=epics, users=users)
+            "manage-site.html", username=username, epics=epics, users=users)
     return redirect(url_for("login"))
 
 
@@ -277,7 +277,7 @@ def manage_user(username):
         flash("User Permissions Successfully Updated")
     users = list(mongo.db.users.find())
     return render_template(
-        "manage_site.html", username=username, epics=epics, users=users)
+        "manage-site.html", username=username, epics=epics, users=users)
 
 
 @app.route("/edit_epic/<epic_id>", methods=["GET", "POST"])
@@ -303,7 +303,7 @@ def edit_epic(epic_id):
         flash("Epic Successfully Updated")
         return redirect(url_for("profile", username=session["user"]))
     epic = mongo.db.epics.find_one({"_id": ObjectId(epic_id)})
-    return render_template("edit_epic.html", epic=epic)
+    return render_template("edit-epic.html", epic=epic)
 
 
 @app.route("/edit_news/<story_id>", methods=["GET", "POST"])
@@ -322,7 +322,7 @@ def edit_news(story_id):
         flash("News Post Successfully Updated")
         return redirect(url_for("profile", username=session["user"]))
     story = mongo.db.news.find_one({"_id": ObjectId(story_id)})
-    return render_template("edit_news.html", story=story)
+    return render_template("edit-news.html", story=story)
 
 
 @app.route("/edit_events/<event_id>", methods=["GET", "POST"])
@@ -347,7 +347,7 @@ def edit_events(event_id):
         flash("News Post Successfully Updated")
         return redirect(url_for("profile", username=session["user"]))
     event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
-    return render_template("edit_events.html", event=event)
+    return render_template("edit-events.html", event=event)
 
 
 @app.route("/delete_epic/<epic_id>", methods=["GET", "POST"])

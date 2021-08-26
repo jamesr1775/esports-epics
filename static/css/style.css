@@ -35,7 +35,7 @@ main {
     background-color: #171b22;   
 }
 .no-padding{
-    padding: none !important;
+    padding: 0 !important;
 }
 .float-left{
     float: left;
@@ -124,7 +124,7 @@ nav {
         transform: translateX(-50%);
     }
     100% {
-        transform: translateX(50%), translate(50%, 50%);
+        transform: translate(0%, 50%);
     }
 }
 

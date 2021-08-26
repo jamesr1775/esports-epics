@@ -450,4 +450,10 @@ nav {
     .recent-post-carousel-item{
         width: 240px !important;
     }
+    .delete-modal-btn{
+        width: 100px;
+    }
+    .delete-cancel-btns-container {
+        margin-left: calc(50% - 100px);
+    }
 }

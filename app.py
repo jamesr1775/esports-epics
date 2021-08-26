@@ -201,16 +201,13 @@ def manage_user(username):
     if request.method == "POST":
         data = request.form.to_dict()
         for user in users:
+            mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_moderator": False}})
+            mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist": False}})
             if str(user["_id"]) + '_is_moderator' in data.keys() or str(user["_id"]) + '_is_journalist' in data.keys():
                 if request.form.get(str(user["_id"]) + '_is_journalist') == 'on':
                     mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist": True}})
-                else:
-                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_journalist": False}})
                 if request.form.get(str(user["_id"]) + '_is_moderator') == 'on':
                     mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_moderator": True}})
-                else:
-                    mongo.db.users.update({"_id": ObjectId(user["_id"])}, {'$set': {"is_moderator": False}})
-
         flash("User Permissions Successfully Updated")
     users = list(mongo.db.users.find())
     return render_template("manage_site.html", username=username, epics=epics, users=users)

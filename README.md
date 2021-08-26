@@ -336,3 +336,4 @@ MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>.vcsxb.mongodb.ne
 - [14] Got a reminder for putting text over an image from [stackoverflow](https://stackoverflow.com/questions/5758642/how-to-put-text-over-images-in-html)
 - [15] Got some information on pagination from these youtube  video [Pretty Printed Youtube](https://www.youtube.com/watch?v=Lnt6JqtzM7I)   [Corey Schafer Youtube](https://www.youtube.com/watch?v=PSWf2TjTGNY)
 - [16] Got the scrolling up code from [stackoverflow](https://stackoverflow.com/questions/12125883/jquery-pagination-scroll-to-top)
+- [17] Fixed a html validator error where src="" in an iframe was invalid so instead it need to be src="about:blank". Found this fix from  [stackoverflow](https://stackoverflow.com/questions/5946607/is-an-empty-iframe-src-valid)

@@ -19,6 +19,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+"""
+Home Page Route that retrieves the 5 most recent epic posts
+for the recent submissions carousel, the events and the news posts
+and renders the home page.
+"""
 @app.route("/")
 @app.route("/home")
 def home():
@@ -27,13 +32,18 @@ def home():
     news = list(mongo.db.news.find())
     return render_template("index.html", epics=epics[-5:], events=events, news=news)
 
-
+"""
+Browse Page Route will initially display all posts with pagination.
+"""
 @app.route("/browse")
 def browse():
     epics = list(mongo.db.epics.find())
     return render_template("browse.html", epics=epics)
 
 
+"""
+Search Function that will retrieve data based on the search query and return json data if it has any.
+"""
 @app.route("/browse/search", methods=["GET", "POST"])
 def search():
     if request.method == 'POST':
@@ -44,13 +54,17 @@ def search():
     epics = list(mongo.db.epics.find())
     return render_template("browse.html", epics=epics)
 
-
+"""
+Retrieves epics and renders the browse template
+"""
 @app.route("/get_epics")
 def get_epics():
     epics = list(mongo.db.epics.find())
     return render_template("browse.html", epics=epics)
 
-
+"""
+User Registration
+"""
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -77,7 +91,9 @@ def register():
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
-
+"""
+User Log In Route
+"""
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -102,7 +118,9 @@ def login():
             return redirect(url_for("login"))
     return render_template("login.html")
 
-
+"""
+Profile Page with user information and submissions they have made.
+"""
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     if session["user"]:
@@ -113,7 +131,9 @@ def profile(username):
         return render_template("profile.html", username=username, epics=epics, news=news, events=events, user=user)
     return redirect(url_for("login"))
 
-
+"""
+User Log Out Route
+"""
 @app.route("/logout")
 def logout():
     flash("You have successfully logged out.")
@@ -122,7 +142,9 @@ def logout():
     session.pop("is_journalist")
     return redirect(url_for("login"))
 
-
+"""
+Submits an Esports Epic to the database
+"""
 @app.route("/submit_epic", methods=["GET", "POST"])
 def submit_epic():
     if request.method == "POST":
@@ -145,7 +167,9 @@ def submit_epic():
     else:
         return render_template("submit_epic.html")
 
-
+"""
+Submits an Esports Event to the database
+"""
 @app.route("/submit_event", methods=["GET", "POST"])
 def submit_event():
     if request.method == "POST":
@@ -168,7 +192,9 @@ def submit_event():
     else:
         return render_template("submit_event.html")
 
-
+"""
+Submits an Esports News Post to the database
+"""
 @app.route("/submit_news", methods=["GET", "POST"])
 def submit_news():
     if request.method == "POST":
@@ -184,7 +210,9 @@ def submit_news():
     else:
         return render_template("submit_news.html")
 
-
+"""
+Manage Site Admin Page
+"""
 @app.route("/manage_site/<username>", methods=["GET", "POST"])
 def manage_site(username):
     if session["user"]:
@@ -193,7 +221,9 @@ def manage_site(username):
         return render_template("manage_site.html", username=username, epics=epics, users=users)
     return redirect(url_for("login"))
 
-
+"""
+Manage User Accounts Permissions for being a moderator or journalist
+"""
 @app.route("/manage_user/<username>", methods=["GET", "POST"])
 def manage_user(username):
     epics = list(mongo.db.epics.find())
@@ -212,7 +242,9 @@ def manage_user(username):
     users = list(mongo.db.users.find())
     return render_template("manage_site.html", username=username, epics=epics, users=users)
 
-
+"""
+Edits an Esports Epic Post and update the database
+"""
 @app.route("/edit_epic/<epic_id>", methods=["GET", "POST"])
 def edit_epic(epic_id):
     if request.method == "POST":
@@ -235,7 +267,9 @@ def edit_epic(epic_id):
     epic = mongo.db.epics.find_one({"_id": ObjectId(epic_id)})
     return render_template("edit_epic.html", epic=epic)
 
-
+"""
+Edits an Esports News Post and update the database
+"""
 @app.route("/edit_news/<story_id>", methods=["GET", "POST"])
 def edit_news(story_id):
     if request.method == "POST":
@@ -251,7 +285,9 @@ def edit_news(story_id):
     story = mongo.db.news.find_one({"_id": ObjectId(story_id)})
     return render_template("edit_news.html", story=story)
 
-
+"""
+Edits an Esports Event and update the database
+"""
 @app.route("/edit_events/<event_id>", methods=["GET", "POST"])
 def edit_events(event_id):
     event_info = {
@@ -273,28 +309,36 @@ def edit_events(event_id):
     event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
     return render_template("edit_events.html", event=event)
 
-
+"""
+Delete an Esports Epic Post and remove it from the database
+"""
 @app.route("/delete_epic/<epic_id>", methods=["GET", "POST"])
 def delete_epic(epic_id):
     mongo.db.epics.remove({"_id": ObjectId(epic_id)})
     flash("Post successfully deleted")
     return redirect(url_for("profile", username=session["user"]))
 
-
+"""
+Delete an Esports Event and remove it from the database
+"""
 @app.route("/delete_event/<event_id>", methods=["GET", "POST"])
 def delete_event(event_id):
     mongo.db.events.remove({"_id": ObjectId(event_id)})
     flash("Event successfully deleted")
     return redirect(url_for("profile", username=session["user"]))
 
-
+"""
+Delete an Esports News Post and remove it from the database
+"""
 @app.route("/delete_news/<story_id>", methods=["GET", "POST"])
 def delete_news(story_id):
     mongo.db.news.remove({"_id": ObjectId(story_id)})
     flash("News Post successfully deleted")
     return redirect(url_for("profile", username=session["user"]))
 
-
+"""
+Delete a users account and remove it from the database
+"""
 @app.route("/delete_user/<user_id>", methods=["GET", "POST"])
 def delete_user(user_id):
     mongo.db.users.remove({"_id": ObjectId(user_id)})

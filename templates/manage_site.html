@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <!-- Manage Site -->
     <div class="container">
         <div class="row">
             <h3 class="center-align">Users</h3>
@@ -17,6 +18,7 @@
                             <tbody>
                                 <tr>
                                     <td><em>{{ user.username }}</em></td>
+                                    <!-- Journalist Status -->
                                     <td>
                                         <label class="journalist-status">
                                             {% if user.is_journalist %}
@@ -27,6 +29,7 @@
                                             <span>Journalist Status</span>
                                         </label>
                                     </td>                                    
+                                    <!-- Moderator Status -->
                                     <td>
                                         <label class="journalist-status">
                                             {% if user.is_moderator %}

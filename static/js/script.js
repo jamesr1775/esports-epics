@@ -1,6 +1,8 @@
 $(document).ready(function(){
     var oneWeekAgo = new Date();
     oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+    
+    // Materialize Intialisation of Components
     $('.sidenav').sidenav( {edge: "right"});
     $('.carousel').carousel({
         indicators: true,
@@ -22,6 +24,7 @@ $(document).ready(function(){
 
 });
 
+// Upon resizing the window this will update all the esports cards so they are the same height.
 window.onresize = function(event) {
     resizeEpicCards();
 };
@@ -36,8 +39,8 @@ $("#pwconfirm").on("keyup", function (e) {
 });
 
 
-// function that will open the youtube video in the modal and autoplay it. The setting src of the iframe was used from [3] in readme file.
-// $('.modal-trigger').on("click", function() {
+// Function will open the youtube video in the modal and autoplay it. The setting src of the iframe was used from [3] in readme file.
+// Function will handle all modal popup types.
 $(document).on("click", ".modal-trigger", function() {
     var theModal = $(this).data( "target" );
     var instance = M.Modal.getInstance(theModal);
@@ -83,10 +86,10 @@ $(document).on("click", ".modal-trigger", function() {
         $('#delete-user-confirm-button').prop("href", urlForDeleteTask);
         $("#delete-user-title").html(htmlTitlePrefix);
     }
-    // $('#' + theModal).modal();
     instance.open()
 })
 
+// Function makes esports cards same height.
 function resizeEpicCards() {
     var maxHeight = 0
     $('.epic-card').each(function() {

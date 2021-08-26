@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+    <!-- Profile Information -->
     <div class="container">
         <div class="row">
             <h3 class="center-align">Profile</h3>
@@ -11,6 +12,8 @@
                             <div class="col s12">
                                 <p class="center">Username:  {{ username }}</p>                            
                                 <p class="center">Email:  {{ user.email }}</p>
+
+                                <!-- Delete Account Button -->
                                 {% if session.user|lower != "admin"|lower %}    
                                     <a href="" class="col s12 modal-trigger light-blue darken-4 text-shadow float-right btn edit-btn" data-target="deleteUserModal" data-toggle="modal" data-user-id="{{ user._id }}">
                                         <i class="small material-icons edit-icon">delete_forever</i>
@@ -24,6 +27,7 @@
             </div>
         </div>
     </div>
+    <!-- Users Submitted Epics Section -->
     <div class="container">
         <div class="row">
             <h3 class="center-align">Edit Esports Posts</h3>
@@ -74,6 +78,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Users Submitted News Section -->
     {% if session.is_journalist == True %}
         <div class="container">
             <div class="row">
@@ -124,6 +130,7 @@
             </div>
         </div>
     {% endif %}
+    <!-- Users/Moderators Events Edit & Deletion Section -->
     {% if session.is_moderator == True %}
         <div class="container">
             <div class="row">

@@ -6,6 +6,7 @@
             <span class="hero-image" role="img" aria-label="Esports Tournament Arena"></span>
         </div>
     </div>
+    <!-- User Search Functionality -->
     <div class="row">
         <div class="col s12">
             <div class="card-panel  browse-search">
@@ -30,6 +31,7 @@
             </div>
         </div>
     </div>
+    <!-- Esports Epics Cards Container & Pagination -->
     <div class="row">
         <div class="col s12">
             <div class="card-panel browse-card-container">
@@ -43,10 +45,16 @@
 
 {% block script %}
 <script>
+
+    // Global Variables for pagination
     let epicsToDisplay = [];
     var numPostsPerPage = 6
     let maxNumPages = 1
     let currentPage = 0
+
+    /** 
+        Function to retrieve Esports Epics data depending on the search query.
+    **/
     function search_epics(){
         var searchQuery = document.getElementById("query")
         var entry = {
@@ -72,6 +80,9 @@
         searchQuery.value = ""
         return false
     }
+    /** 
+        Creates the pagination navigation elements depending on how much data is to be displayed
+    **/
     function createPagination(data){
         let numPages = Math.ceil((1.0*data.length) / numPostsPerPage)
         maxNumPages = numPages
@@ -88,6 +99,9 @@
         $('#browse-pagination').html(pagination);
     }
 
+    /** 
+        Function that creates the esports cards html so it can be set to the container element.
+    **/
     function displayEpics(data){
         createPagination(data)
         if(maxNumPages == 1){
@@ -97,6 +111,10 @@
         $('#browse-card-container-row').html(epicsContainerHtml);
     }
 
+    /** 
+        Function that gets called when a pagination link is pressed.
+        It will retrieve the maximum amount of data to be displayed per page and return the html.
+    **/
     function getPage(pagenumber, data){
         let epicsContainerHtml = '';
         let counter = 0
@@ -117,7 +135,9 @@
         }
         return epicsContainerHtml
     }
-
+    /** 
+        Function that creates the esports epic card template html
+    **/
     function epicTemplate(epic) {
         let epicTitle = epic.title
         let epicVideo = epic.video
@@ -146,9 +166,17 @@
                     </div>`;
         return epicCard;
     }
+    /** 
+        Document ready function
+        calls search_epics to display all data by default upon loading the page.
+    **/
     $( document ).ready(function() {
         search_epics()
-
+        
+        /** 
+            Upon clicking the page numbers in the pagination nav bar,
+            this will update the current page and the data displayed
+        **/
         var pageLinkClass=".page-link";   
         $(document).on('click', pageLinkClass, function(e){
             let parentElement = this.parentElement.id
@@ -174,6 +202,10 @@
             }
         });
 
+        /** 
+            Upon clicking the carrot arrow navigation in the pagination nav bar,
+            this will update the current page and the data displayed
+        **/
         var pageNavArrowClass=".page-nav-arrow";   
         $(document).on('click', pageNavArrowClass, function(e){
             let parentElement = this.parentElement.id

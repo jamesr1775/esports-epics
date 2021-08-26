@@ -220,6 +220,16 @@ broadcastStartTime | TimeStamp | Starting time of the live broadcast.
 tournamentsURL | String | Link to the tournaments website.
 tournamentsImage | String | Image to go with event title.
 
+#### News Stories
+
+Data Base Key | Data Type | Description
+:----:|:-----------:|:-------:
+_id | ObjectId | MongoDB generated
+username | String | User who created event.
+title | String | News title to be displayed.
+postBody | String | News story body of text.
+postImage | String | Image to go with news title.
+
 
 ## Technologies Used
 * [Materializecss:](https://materializecss.com/)

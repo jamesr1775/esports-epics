@@ -26,6 +26,10 @@ $(document).ready(function(){
 // Upon resizing the window this will update all the esports cards so they are the same height.
 window.onresize = function(event) {
     resizeEpicCards();
+    $('.carousel').carousel({
+        indicators: true,
+        numVisible: 5, 
+    });
 };
 
 // Verify Password Code, Obtained from [1] in readme acknowledgements.

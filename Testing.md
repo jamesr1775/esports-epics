@@ -103,6 +103,10 @@ The source code for the project can be viewed at [github](https://github.com/jam
 - The hero text should slide in from the left to the right center of the screen on top of the image.
 - The hero text should have a color changing animation.
 
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;"  src="static/images/readme-images/test-header.gif" alt="Test Header">
+    </div>
 
 #### Esports Video Modal
 - The video modal should be shown when a user clicks on the VOD here button or the play button in the browse and profile page cards of epics.
@@ -111,6 +115,10 @@ The source code for the project can be viewed at [github](https://github.com/jam
 - Video controls to pause or mute the video are available to the user.
 - Upon clicking the close button or dismissing the modal by clicking out of it, the modal should close and the video / audio should stop.
 - The video should restart upon closing and reopening the modal.
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;"  src="static/images/readme-images/test-video-modal.gif" alt="Test Video Modal">
+    </div>
 
 #### Profile
 ##### Device Specific Layout Checks
@@ -129,6 +137,12 @@ The source code for the project can be viewed at [github](https://github.com/jam
     - If the user presses cancel the modal should close and the post should remain in the database.
     - If the user confirms post deletion, their post is removed from the data base and they are returned to updated profile page.
     - Upon deleting the user should be returned to the profile page with their updated posts.
+- The news posts created by the user should be displayed along with an edit and delete button.
+- The events created by the user should be displayed along with an edit and delete button.
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;"  src="static/images/readme-images/test-video-modal.gif" alt="Test Profile">
+    </div>
 
 #### Browse Page
 ##### Device Specific Layout Changes
@@ -155,6 +169,11 @@ The source code for the project can be viewed at [github](https://github.com/jam
 - The cards that contain the posts have the correct title, description and image submitted by the user to the database.
 - Upon clicking the image or the title button the video modal pops up with the correct video link from the database.
 - If no search results are returned, the card countainer should indicate that to the user.
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;"  src="static/images/readme-images/test-browse.gif" alt="Test Browse Page">
+    </div>
+
 
 #### Submit and Edit Forms
 The four forms for creating or editing esports epics, esports news, tournament events and registering are tested as follows.
@@ -172,6 +191,10 @@ smartphones
 - Upon clicking cancel the user should be returned the Home page.
 - Upon clicking submit the new user post should 
 - When editing a event, epic or news, all of the previous submitted information stored in the database should be loaded back into the form so users can easily edit their submissions.
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;"  src="static/images/readme-images/test-forms.gif" alt="Test Forms">
+    </div>
 
 #### Manage Site
 ##### Device Specific Layout Changes
@@ -181,10 +204,17 @@ smartphones
 - The page should display all users of the website and the current status of whether they are moderators or journalists for the website.
 - Unchecking or checking a account status checkbox and clicking update should either add or remove the correct account status stored in the database for a given user.
 - Clicking the cancel button should do nothing to the user accounts and return the admin account to its profile page.
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;"  src="static/images/readme-images/test-manage-site.gif" alt="Test Manage Site">
+    </div>
 
 #### Footer
 - The social media icons opens up the relevant social media platforms in a new tab.
-
+    <div><br/></div>
+    <div align="center">
+    <img style="width:70%;"  src="static/images/readme-images/test-footer.gif" alt="Test Footer">
+    </div>
 #### Further Testing
 - I asked friends and family to test and interact with the site on their own devices which included ipads, iphones and samsung phones.
 - Tested myself on physical devices laptop, desktop, ipad, samsung phone, iphone.

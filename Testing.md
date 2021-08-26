@@ -32,7 +32,7 @@ The source code for the project can be viewed at [github](https://github.com/jam
     - The site navigation bar is at the top of the screen and contains links to create content or browse posts by all users.
     - The home page contains hero image and a carousel of recent posts to capture the users attention and get them wanting to browse other content.
     - The text inside the hero image immediately tells the user what the site is about.
-    - User account creation and logging in/out are located in the navbar and the navbar updates appropiate links to show a certain user account if they are logged in.
+    - User account creation and logging in/out are located in the navbar and the navbar updates appropriate links to show a certain user account if they are logged in.
     <div><br/></div>
     <div align="center">
     <img style="width:70%;"  src="static/images/readme-images/log-in-out-register.gif" alt="User Story 1">
@@ -154,7 +154,7 @@ The source code for the project can be viewed at [github](https://github.com/jam
     - The number of posts per page at most should be 6.
     - All the posts retrieved from the data base should be split between pages.
     - The page links displays the correct posts when clicked through.
-    - The carrot navigation arrows increments or decrements the current page appropiately and displays the correct posts.
+    - The carrot navigation arrows increments or decrements the current page appropriately and displays the correct posts.
     - When the page number is at the minimum or the maximum the correct carrot navigation arrows get disabled and don't do anything when pressed.
     - Upon navigating to a new page of posts the body of html should scroll up. 
 - The input search field should be tested for the indexes and combinations of:
@@ -168,7 +168,7 @@ The source code for the project can be viewed at [github](https://github.com/jam
 - The correct posts is retrieved when a search is made and should also be displayed with pagination.
 - The cards that contain the posts have the correct title, description and image submitted by the user to the database.
 - Upon clicking the image or the title button the video modal pops up with the correct video link from the database.
-- If no search results are returned, the card countainer should indicate that to the user.
+- If no search results are returned, the card container should indicate that to the user.
     <div><br/></div>
     <div align="center">
     <img style="width:70%;"  src="static/images/readme-images/test-browse.gif" alt="Test Browse Page">
@@ -200,7 +200,7 @@ smartphones
 ##### Device Specific Layout Changes
 - The form and checkboxes should be the same across all devices.
 ##### Manage Site Tests
-- The manage site link is only availble to an admin account.
+- The manage site link is only available to an admin account.
 - The page should display all users of the website and the current status of whether they are moderators or journalists for the website.
 - Unchecking or checking a account status checkbox and clicking update should either add or remove the correct account status stored in the database for a given user.
 - Clicking the cancel button should do nothing to the user accounts and return the admin account to its profile page.

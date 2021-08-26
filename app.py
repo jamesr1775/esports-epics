@@ -262,15 +262,15 @@ def manage_user(username):
             mongo.db.users.update(
                 {"_id": ObjectId(user["_id"])},
                 {'$set': {"is_journalist": False}})
-            if str(user["_id"]) + '_is_moderator' in data.keys()
-            or str(user["_id"]) + '_is_journalist' in data.keys():
-                if request.form.get(str(user["_id"]) + '_is_journalist') ==
-                'on':
+            if str(user["_id"]) + '_is_moderator' in data.keys() or str(
+                  user["_id"]) + '_is_journalist' in data.keys():
+                if request.form.get(
+                  str(user["_id"]) + '_is_journalist') == 'on':
                     mongo.db.users.update(
                         {"_id": ObjectId(user["_id"])}, {
                             '$set': {"is_journalist": True}})
-                if request.form.get(str(user["_id"]) + '_is_moderator') ==
-                'on':
+                if request.form.get(
+                  str(user["_id"]) + '_is_moderator') == 'on':
                     mongo.db.users.update(
                         {"_id": ObjectId(user["_id"])}, {
                             '$set': {"is_moderator": True}})

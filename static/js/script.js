@@ -17,7 +17,6 @@ $(document).ready(function(){
     resizeEpicCards();
     $('.modal').modal({
         onCloseEnd(){
-            console.log($("#videoModal iframe").attr("src"))
             $("#videoModal iframe").attr("src", $("#videoModal iframe").attr("src").replace("?autoplay=1", ''));
         }
     });
@@ -49,7 +48,7 @@ $(document).on("click", ".modal-trigger", function() {
         var videoSRC = $(this).attr( "data-video" ), 
         epicTitle = $(this).attr( "data-epic" ),
         videoSRCauto = videoSRC+"?autoplay=1" ;
-        $("#vod-modal-title").html(epicTitle)
+        $("#vod-modal-title").html(epicTitle);
         $('#' +theModal+' iframe').attr('src', videoSRCauto);
         $('#' +theModal+' .modal-close').click(function () {
             $('#' + theModal+' iframe').attr('src', videoSRC);
@@ -86,16 +85,16 @@ $(document).on("click", ".modal-trigger", function() {
         $('#delete-user-confirm-button').prop("href", urlForDeleteTask);
         $("#delete-user-title").html(htmlTitlePrefix);
     }
-    instance.open()
-})
+    instance.open();
+});
 
 // Function makes esports cards same height.
 function resizeEpicCards() {
-    var maxHeight = 0
+    var maxHeight = 0;
     $('.epic-card').each(function() {
         var height = $(this).height();
         if(height > maxHeight){
-            maxHeight = height
+            maxHeight = height;
         }
     });
     $('.epic-card').each(function() {

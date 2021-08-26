@@ -5,7 +5,6 @@ body{
     background-color: #ECF1F2;
 }
 .bg-navbar{
-    /* background: linear-gradient(to bottom right, #171b22 40%, #FFCA29 80%); */
     background: linear-gradient(to bottom right, #FFCA29 30%, #171b22 70%);
 }
 .bg-footer{
@@ -169,7 +168,6 @@ nav {
 .recent-card-vod-btn{
     width: 100%;
     font-weight: 600;
-    /* background-image: linear-gradient(to bottom right, #FFCA29 90%, #171b22 100%); */
 }
 /*********************** current events ***********************/
 .current-events-header{
@@ -185,7 +183,6 @@ nav {
 .event-image{
     height: 70px !important;
     width: 20% !important;
-    /* border-radius: 10%; */
 }
 .event-title-text{
     margin:20px 5px 0px;
@@ -202,7 +199,6 @@ nav {
 .news-image{
     height: 400px !important;
     width: 100% !important;
-    /* border-radius: 10%; */
 }
 .news-div{
     flex-direction: column;
@@ -267,7 +263,6 @@ nav {
     background-image: linear-gradient(to bottom, rgba(23, 27, 34, 0.9) 70%, #FFCA29 100%);
 }
 .epic-card{
-    /* max-height: 400px; */
     min-height: 400px;
     background-color: #171b22;
     color: #fff;
@@ -438,7 +433,6 @@ nav {
         border-radius: 50%;
     }
     .epic-card{
-        /* max-height: 300px; */
         min-height: 300px;
     }
     .epic-image{

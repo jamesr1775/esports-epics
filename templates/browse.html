@@ -45,21 +45,20 @@
 
 {% block script %}
 <script>
-
     // Global Variables for pagination
     let epicsToDisplay = [];
-    var numPostsPerPage = 6
-    let maxNumPages = 1
-    let currentPage = 0
+    var numPostsPerPage = 6;
+    let maxNumPages = 1;
+    let currentPage = 0;
 
     /** 
         Function to retrieve Esports Epics data depending on the search query.
     **/
     function search_epics(){
-        var searchQuery = document.getElementById("query")
+        var searchQuery = document.getElementById("query");
         var entry = {
             query: searchQuery.value
-        }
+        };
         fetch(`${window.origin}/browse/search`, {
             method: "POST", 
             credentials: "include",
@@ -69,33 +68,31 @@
             body: JSON.stringify(entry)   
         })
         .then(function (response){
-            console.log(response)
             response.json().then(function (data){
-                console.log(data)
-                epicsToDisplay = data
-                displayEpics(data)
-                resizeEpicCards() 
-            })
-        })
-        searchQuery.value = ""
-        return false
+                epicsToDisplay = data;
+                displayEpics(data);
+                resizeEpicCards();
+            });
+        });
+        searchQuery.value = "";
+        return false;
     }
     /** 
         Creates the pagination navigation elements depending on how much data is to be displayed
     **/
     function createPagination(data){
-        let numPages = Math.ceil((1.0*data.length) / numPostsPerPage)
-        maxNumPages = numPages
-        let pageLinks = ''
+        let numPages = Math.ceil((1.0*data.length) / numPostsPerPage);
+        maxNumPages = numPages;
+        let pageLinks = '';
         for(let i=2; i<=numPages; i++){
-            pageLinks += `<li id=epic-${i} class="waves-effect"><a href="#!" class="page-link">${i}</a></li>`
+            pageLinks += `<li id=epic-${i} class="waves-effect"><a href="#!" class="page-link">${i}</a></li>`;
         }
         let pagination = `<ul class="pagination">
                             <li id="page-nav-left" class="disabled waves-effect"><a href="#!" class="page-nav-arrow"><i class="material-icons">chevron_left</i></a></li>
                             <li id=epic-1 class="active"><a href="#!" class="page-link">1</a></li>
                             ${pageLinks}
                             <li id="page-nav-right" class="waves-effect"><a href="#!" class="page-nav-arrow"><i class="material-icons">chevron_right</i></a></li>
-                        </ul>`
+                        </ul>`;
         $('#browse-pagination').html(pagination);
     }
 
@@ -103,11 +100,11 @@
         Function that creates the esports cards html so it can be set to the container element.
     **/
     function displayEpics(data){
-        createPagination(data)
+        createPagination(data);
         if(maxNumPages == 1){
             $('#page-nav-right').addClass('disabled');
         }
-        epicsContainerHtml = getPage(0, data)
+        let epicsContainerHtml = getPage(0, data);
         $('#browse-card-container-row').html(epicsContainerHtml);
     }
 
@@ -117,13 +114,13 @@
     **/
     function getPage(pagenumber, data){
         let epicsContainerHtml = '';
-        let counter = 0
+        let counter = 0;
         for (let i = pagenumber*numPostsPerPage; i < data.length; i++) {
             let epicCard = epicTemplate(data[i]);
             epicsContainerHtml += epicCard;
-            counter += 1
+            counter += 1;
             if (counter == numPostsPerPage){
-                break
+                break;
             }
         }
         if(epicsContainerHtml === ''){
@@ -131,20 +128,20 @@
                                     <div class="card-panel">
                                         <h3 class="text-darken-4 center-align">No Results Found.</h3>
                                     </div>
-                                </div>`
+                                </div>`;
         }
-        return epicsContainerHtml
+        return epicsContainerHtml;
     }
     /** 
         Function that creates the esports epic card template html
     **/
     function epicTemplate(epic) {
-        let epicTitle = epic.title
-        let epicVideo = epic.video
-        let epicDescription = epic.description
-        let epicImage = epic.image
-        let epicShortDesc = epic.short_description
-        let epicPostedBy = epic.username
+        let epicTitle = epic.title;
+        let epicVideo = epic.video;
+        let epicDescription = epic.description;
+        let epicImage = epic.image;
+        let epicShortDesc = epic.short_description;
+        let epicPostedBy = epic.username;
 
         const epicCard = `
                     <div class="col s12 m6 l4">
@@ -171,7 +168,7 @@
         calls search_epics to display all data by default upon loading the page.
     **/
     $( document ).ready(function() {
-        search_epics()
+        search_epics();
         
         /** 
             Upon clicking the page numbers in the pagination nav bar,
@@ -179,14 +176,13 @@
         **/
         var pageLinkClass=".page-link";   
         $(document).on('click', pageLinkClass, function(e){
-            let parentElement = this.parentElement.id
+            let parentElement = this.parentElement.id;
             $('.page-link').parent().removeClass('active');
             $('#' + parentElement).addClass('active');
-            console.log("Someting is pressed")
             currentPage = parseInt(this.innerHTML) - 1;
-            epicsContainerHtml = getPage(currentPage, epicsToDisplay)
+            let epicsContainerHtml = getPage(currentPage, epicsToDisplay);
             $('#browse-card-container-row').html(epicsContainerHtml);
-            resizeEpicCards()
+            resizeEpicCards();
             $('body,html').animate({scrollTop: 400}, 600);
             if(currentPage == 0){
                 $('#page-nav-left').addClass('disabled');
@@ -208,34 +204,33 @@
         **/
         var pageNavArrowClass=".page-nav-arrow";   
         $(document).on('click', pageNavArrowClass, function(e){
-            let parentElement = this.parentElement.id
+            let parentElement = this.parentElement.id;
             if(parentElement == "page-nav-left"){
                 if(currentPage == 0){
-                    return
+                    return;
                 }
                 $('#page-nav-right').removeClass('disabled');
                 if(currentPage == 1){
                     $('#' + parentElement).addClass('disabled');
                 }
-                currentPage -= 1
+                currentPage -= 1;
             }else{
                 if(currentPage == maxNumPages - 1){
-                    return
+                    return;
                 }
                 $('#page-nav-left').removeClass('disabled');
                 if(currentPage + 1 == maxNumPages - 1){
                     $('#' + parentElement).addClass('disabled');
                 }
-                currentPage += 1
+                currentPage += 1;
             }
             $('.page-link').parent().removeClass('active');
             $('#epic-' + (currentPage + 1)).addClass('active');
-            console.log("Someting is pressed")            
-            epicsContainerHtml = getPage(currentPage, epicsToDisplay)
+            let epicsContainerHtml = getPage(currentPage, epicsToDisplay);
             $('#browse-card-container-row').html(epicsContainerHtml);
-            resizeEpicCards()
+            resizeEpicCards();
             $('body,html').animate({scrollTop: 400}, 600);
         });
-    })
+    });
 </script>
 {% endblock %}

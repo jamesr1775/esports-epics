@@ -226,6 +226,7 @@ smartphones
 - When I fixed the searching to not refresh the page, the dynamic elements could not trigger the modal as they were newly generated. I found to change the jquery for the modal trigger from [stackoverflow](https://stackoverflow.com/questions/12690142/jquery-on-not-registering-in-dynamically-generated-modal-popup)
 - Fixed the issue when dismissing the video modal, the video / audio would continue to play in the background. Found information here [stackoverflow](https://stackoverflow.com/questions/37037223/bootstrap-how-to-stop-video-from-playing-after-the-modal-has-been-closed?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) to stop the video from playing but I also needed to get rid of the autoplay in the `src` of the iframe. Also found out about the onCloseEnd from [stackoverflow](https://stackoverflow.com/questions/52877745/materializecss-modal-events-not-firing) that allowed me to replace the `src` when dismissing / closing the modal.
 - The pagination navigation buttons were not triggering on click events. Found a fix for this from [stackoverflow](https://stackoverflow.com/questions/17936242/dynamically-created-buttons-not-firing-onclick-event)
+- Needed to put the carousel initializer in the document load other wise it was completely misaligned.
 
 ### Unsolved Bugs
 Currently there are no known bugs.

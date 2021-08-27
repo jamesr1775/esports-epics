@@ -108,3 +108,13 @@ function resizeEpicCards() {
         $(this).height(maxHeight);
     });
 }
+
+// loader obtained from [18] in readme acknowledgements
+$(window).on('load', function(){
+    $(".se-pre-con").fadeOut();
+    $(".site-content").show();
+    $('.carousel').carousel({
+        indicators: true,
+        numVisible: 5, 
+    });
+ });

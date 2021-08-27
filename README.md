@@ -262,7 +262,8 @@ postImage | String | Image to go with news title.
     - Used to generate gifs used throughout testing, readme and tutorial.
 * [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used throughout to add icons for a more pleasing UX.
-
+* [loading.io](https://loading.io/)
+    - 
 ## Testing
 Testing details can be viewed here [Testing.md](https://github.com/jamesr1775/esports-epics/blob/master/Testing.md)
 
@@ -347,3 +348,4 @@ MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>.vcsxb.mongodb.ne
 - [15] Got some information on pagination from these youtube  video [Pretty Printed Youtube](https://www.youtube.com/watch?v=Lnt6JqtzM7I)   [Corey Schafer Youtube](https://www.youtube.com/watch?v=PSWf2TjTGNY)
 - [16] Got the scrolling up code from [stackoverflow](https://stackoverflow.com/questions/12125883/jquery-pagination-scroll-to-top)
 - [17] Fixed a html validator error where src="" in an iframe was invalid so instead it need to be src="about:blank". Found this fix from  [stackoverflow](https://stackoverflow.com/questions/5946607/is-an-empty-iframe-src-valid)
+- [18] The site pre loader code was obtained from [stackoverflow](https://stackoverflow.com/questions/30478549/pre-loader-image-at-page-load-issue) and [smallenvelop](https://smallenvelop.com/display-loading-icon-page-loads-completely/).

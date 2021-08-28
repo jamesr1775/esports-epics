@@ -45,7 +45,6 @@ $("#pwconfirm").on("keyup", function (e) {
 // Function will handle all modal popup types.
 $(document).on("click", ".modal-trigger", function() {
     var theModal = $(this).data( "target" );
-    var instance = M.Modal.getInstance(theModal);
 
     if(theModal == "videoModal"){
         var videoSRC = $(this).attr( "data-video" ), 
@@ -115,5 +114,5 @@ $(window).on('load', function(){
         indicators: true,
         numVisible: 5, 
     });
-    resizeEpicCards()
+    resizeEpicCards();
  });

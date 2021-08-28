@@ -23,7 +23,7 @@ The source code for the project can be viewed at [github](https://github.com/jam
 ## Testing
 ### Code Validation
 * The HTML passed and showed no errors in the [W3C Markup Validation](https://validator.w3.org/)
-* The CSS passed and showed no errors in the [W3C CSS validation ](https://jigsaw.w3.org/css-validator/validator)
+* The CSS passed and showed no errors in the [W3C CSS validation ](https://jigsaw.w3.org/css-validator)
 * The Java Script was tested and no errors were found using [JSHint](https://jshint.com/)
 * The python Pep8 standard was checked with the IDE and also [pep8online](http://pep8online.com/) 
 

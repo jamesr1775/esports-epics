@@ -263,7 +263,8 @@ postImage | String | Image to go with news title.
 * [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used throughout to add icons for a more pleasing UX.
 * [loading.io](https://loading.io/)
-    - 
+    - Used to create loader.gif
+
 ## Testing
 Testing details can be viewed here [Testing.md](https://github.com/jamesr1775/esports-epics/blob/master/Testing.md)
 
@@ -328,7 +329,9 @@ MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>.vcsxb.mongodb.ne
 11. Enable automatic deployment so new changes get deployed automatically.
 
 ## Credits
-### Media
+
+Big thanks to my mentor Miguel Martinez with great feedback and help throughout the project. He always motivates me to learn new things and do a little more improvements that
+go a long way to my learning and to raising the quality of my projects.
 
 ### Acknowledgements
 - [1] Obtained the javascript for confirming the passwords match from [jsfiddle](http://jsfiddle.net/SirusDoma/ayf832td/).

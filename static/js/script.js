@@ -20,7 +20,6 @@ $(document).ready(function(){
             $("#videoModal iframe").attr("src", $("#videoModal iframe").attr("src").replace("?autoplay=1", ''));
         }
     });
-
 });
 
 // Upon resizing the window this will update all the esports cards so they are the same height.
@@ -89,7 +88,6 @@ $(document).on("click", ".modal-trigger", function() {
         $('#delete-user-confirm-button').prop("href", urlForDeleteTask);
         $("#delete-user-title").html(htmlTitlePrefix);
     }
-    instance.open();
 });
 
 // Function makes esports cards same height.
@@ -117,4 +115,5 @@ $(window).on('load', function(){
         indicators: true,
         numVisible: 5, 
     });
+    resizeEpicCards()
  });

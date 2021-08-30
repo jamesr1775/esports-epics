@@ -63,6 +63,10 @@ main {
     display: none;
 }
 
+/* materialize creating this unused hidden div which messes up resizing window */
+.hiddendiv {
+    display: none !important;
+}
 /*********************** Navbar ***********************/
 .company-logo{
     min-height: 75px;
@@ -164,11 +168,13 @@ nav {
     color: #fff;
     font-size: 20px !important;
     font-weight: 600 !important;
+    overflow: hidden;
 }
 .recent-post-description{
     color: #fff;
     font-size: 20px;
     font-weight: 400;
+    overflow-wrap: break-word;
 }
 .recent-post-info{
     font-size: 30px;
@@ -200,6 +206,7 @@ nav {
 .event-title-text{
     margin:20px 5px 0px;
     width: 40%;
+    overflow: hidden;
 }
 .event-date-text{
     margin:20px 5px 0px;
@@ -207,6 +214,9 @@ nav {
 }
 .width-40{
     width: 40% !important;
+}
+.event-description{
+    overflow-wrap: break-word;
 }
 /*********************** latest news ***********************/
 .news-image{
@@ -276,12 +286,13 @@ nav {
     background-image: linear-gradient(to bottom, rgba(23, 27, 34, 0.9) 70%, #FFCA29 100%);
 }
 .epic-card{
-    min-height: 400px;
+    min-height: 540px;
     background-color: #171b22;
     color: #fff;
     position: relative;
     margin: 5px;
     padding: 10px;
+    font-size: 14px;
 }
 .vod-modal-btn{
     width: 100%;
@@ -338,6 +349,9 @@ nav {
     margin-top: 0;
     color: #fff;
     background-color: rgba(23, 27, 34, 0.9);
+}
+.epic-description{
+    overflow-wrap: break-word;
 }
 
 /*********************** profile ***********************/
@@ -445,11 +459,11 @@ nav {
         width: 45px !important;
         border-radius: 50%;
     }
-    .epic-card{
-        min-height: 300px;
-    }
     .epic-image{
         height: 150px;
+    }
+    .epic-description{
+        font-size: 13px;
     }
     .post-image-container{
         margin: 0px 10px 25px;
@@ -465,5 +479,11 @@ nav {
     }
     .collapsible-header i{
         width: auto;
+    }
+    .profile-account-header{
+        font-size: 20px;
+    }
+    .news-image{
+        height: 250px !important;
     }
 }

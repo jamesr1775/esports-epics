@@ -92,6 +92,15 @@ $(document).on("click", ".modal-trigger", function() {
 // Function makes esports cards same height.
 function resizeEpicCards() {
     var maxHeight = 0;
+
+    $('.epic-image').each(function() {
+        $(this).find('.epic-image').height($(this).find('.epic-image').width());    
+    });
+
+    $('.epic-card').each(function() {
+        $(this).find('.epic-image').height($(this).find('.epic-image').width());    
+        $(this).height('auto');
+    });
     $('.epic-card').each(function() {
         var height = $(this).height();
         if(height > maxHeight){
@@ -99,9 +108,6 @@ function resizeEpicCards() {
         }
     });
     $('.epic-card').each(function() {
-        var heightVodBtn = $(this).find('.vod-modal-btn').height();
-        var heightDescription = $(this).find('.epic-description').height();
-        $(this).find('.epic-image').height(maxHeight - heightDescription - heightVodBtn - 20 -  0.15*maxHeight);
         $(this).height(maxHeight);
     });
 }

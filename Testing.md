@@ -185,6 +185,17 @@ smartphones
 
 ##### Submit & Edit Forms Tests
 - The input fields all require either a maximum or a minimum number of characters.
+- These should be tested to see if the javascript can change heights and widths of the cards to fit the elements and keep the cards the same height.
+    - Test the maximum and minimum acceptable lengths for all form inputs that will become text or headers in the html. Make sure they fit the cards in the browse page and the profile page.
+            <div><br/></div>
+            <div align="center">
+            <img style="width:70%;"  src="static/images/readme-images/test-forms-input-lengths.png" alt="Test Forms">
+            </div>
+    - Also make sure the text fits the carousel cards for the recent submissions section also.
+        <div><br/></div>
+        <div align="center">
+        <img style="width:70%;"  src="static/images/readme-images/test-forms-carousel.png" alt="Test Forms">
+        </div>
 - The input fields for images should require links that end in certain image file types such as gif, png  or jpg. Test incorrect and correct links.
 - The input fields for video links should be of a certain youtube link. (i.e clicking the share button on youtube will give the right link for this input field). Test incorrect and correct links.
 - If the input field is incorrect the user receives feedback as to what input is expected.

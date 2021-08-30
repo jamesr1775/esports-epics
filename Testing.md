@@ -86,6 +86,10 @@ The source code for the project can be viewed at [github](https://github.com/jam
     - were ran on chrome and firefox.
     - were repeated on various screen resolutions using the chrome and firefox developer tools that include desktops, ipad, ipad pro, iphone X, 5, 6 ,7 , 8 and the plus models.
     - were repeated on the developers own smartphone (samsung) and tablet (ipad), desktop and laptop.
+        <div><br/></div>
+        <div align="center">
+        <img style="width:70%;"  src="static/images/readme-images/test-devices.png" alt="Test iphone, Samsung and Ipad">
+        </div>    
 
 #### Site Header & Hero Image
 ##### Device Specific Layout Checks

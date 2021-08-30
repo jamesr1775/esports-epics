@@ -7,7 +7,7 @@
             <div class="col s12">
                 <div class="card-panel account-info-block">
                     <div class="card-panel profile-epic-card white-text">
-                        <h3 class="center">Account Information</h3>
+                        <h3 class="center profile-account-header">Account Information</h3>
                         <div class="row">
                             <div class="col s12">
                                 <p class="center">Username:  {{ username }}</p>                            
@@ -32,37 +32,35 @@
         <div class="row">
             <h3 class="center-align">Edit Esports Posts</h3>
             <div class="col s12">
-                <div class="card-panel epic-card-container">
+                <div class="epic-card-container">
                     <div class="row">
                         {% if epics|length > 0 %}
                             {% for epic in epics %}
-                                <div class="col s12 m6 l4">
-                                    <div class="card-panel profile-epic-card">
-                                        <div class="card-panel epic-card">
-                                            <div class="epic-title-container">
-                                                <a class="waves-effect waves-light btn modal-trigger vod-modal-btn" data-target="videoModal" data-epic="{{ epic.title }}" 
-                                            data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}" >{{ epic.title }}</a>
-                                            </div>
-                                            <p class="epic-description">{{ epic.description }}</p>
-                                            <a class="modal-trigger" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}" data-epic="{{ epic.title }}">
-                                            <div class="post-image-container">
-                                                <img src="{{ epic.image }}" alt="{{ epic.short_description }}" class="epic-image"> 
-                                                <i class="material-icons play-button">play_circle_outline</i>
-                                            </div>
-                                            </a>
-                                            <p class="post-user-text"><em>submitted by: {{ epic.username }}</em></p>
+                                <div class="col s12 m6 l4">                                    
+                                    <div class="card-panel epic-card">
+                                        <div class="epic-title-container">
+                                            <a class="waves-effect waves-light btn modal-trigger vod-modal-btn" data-target="videoModal" data-epic="{{ epic.title }}" 
+                                        data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}" >{{ epic.title }}</a>
                                         </div>
-                                        <!-- Modal Trigger -->
-                                        <div class="epic-title-container row">
-                                            <a href="{{ url_for('edit_epic', epic_id=epic._id) }}" class="col s12 waves-effect waves-light btn edit-delete-btn">
-                                                <i class="small material-icons edit-icon">edit</i>                                                
-                                                Edit Post
-                                            </a>
-                                            <a href="" class="modal-trigger col s12 waves-effect waves-light red btn edit-delete-btn" data-target="deleteEpicModal" data-toggle="modal" data-epic="{{ epic.title }}" data-epic-id="{{ epic._id }}">
-                                                <i class="small material-icons edit-icon">delete_forever</i>
-                                                Delete Post
-                                            </a>
+                                        <p class="epic-description">{{ epic.description }}</p>
+                                        <a class="modal-trigger" data-target="videoModal" data-toggle="modal" data-video="{{ epic.video|replace('watch?v=', 'embed/')}}" data-epic="{{ epic.title }}">
+                                        <div class="post-image-container">
+                                            <img src="{{ epic.image }}" alt="{{ epic.short_description }}" class="epic-image"> 
+                                            <i class="material-icons play-button">play_circle_outline</i>
                                         </div>
+                                        </a>
+                                        <p class="post-user-text"><em>submitted by: {{ epic.username }}</em></p>
+                                    </div>
+                                    <!-- Modal Trigger -->
+                                    <div class="epic-title-container row">
+                                        <a href="{{ url_for('edit_epic', epic_id=epic._id) }}" class="col s12 waves-effect waves-light btn edit-delete-btn">
+                                            <i class="small material-icons edit-icon">edit</i>                                                
+                                            Edit Post
+                                        </a>
+                                        <a href="" class="modal-trigger col s12 waves-effect waves-light red btn edit-delete-btn" data-target="deleteEpicModal" data-toggle="modal" data-epic="{{ epic.title }}" data-epic-id="{{ epic._id }}">
+                                            <i class="small material-icons edit-icon">delete_forever</i>
+                                            Delete Post
+                                        </a>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -154,7 +152,7 @@
                                                     Delete
                                                 </a>
                                             </div>
-                                            <div class="collapsible-body"><span>{{ event.description }}</span></div>
+                                            <div class="collapsible-body event-description"><span>{{ event.description }}</span></div>
                                         </li>
                                     {% endfor %}
                                 {% else %}

@@ -94,7 +94,7 @@
                                         <h6 class="event-title-text">{{ event.title}}</h6>
                                         <p class="event-date-text">{{ event.start_date|replace(', 2021', '') }} - {{ event.end_date|replace(', 2021', ' 2021') }}</p>
                                     </div>
-                                    <div class="collapsible-body"><span>{{ event.description }}</span></div>
+                                    <div class="collapsible-body event-description"><span>{{ event.description }}</span></div>
                                 </li>
                             {% endfor %}
                         {% else %}

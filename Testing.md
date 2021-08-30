@@ -232,5 +232,6 @@ smartphones
     <div align="center">
     <img style="width:70%;"  src="static/images/readme-images/adblock-errors.png" alt="Test Footer">
     </div>
+- Found materialize creating a hidden div for textarea inputs thats not used upon window resizing but this cause white space to be generated and the site content to be smaller. Got information from [stackoverflow](https://stackoverflow.com/questions/30609388/why-my-meteor-app-create-hiddendiv-common-div-tags) and then came up with making the div display none to fix this.
 ### Unsolved Bugs
 Currently there are no known bugs.

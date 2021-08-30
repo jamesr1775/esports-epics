@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3 class="center-align">Submit Upcoming/Ongoing Event</h3>
+    <h3 class="center-align">Submit Event</h3>
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('submit_event') }}">
             <div class="card-panel">
@@ -37,7 +37,7 @@
 					<div class="input-field col s12 m6">
                         <i class="material-icons prefix">access_time</i>
 						<input id="start_time" name="start_time" type="text" class="validate timepicker" required>
-                        <label for="start_time">Start Time (UTC )</label>
+                        <label for="start_time">Start Time (UTC)</label>
                         <span class="helper-text" data-error="Time incorrect." data-success=""></span>
                     </div>
                     <!-- end date -->

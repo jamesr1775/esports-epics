@@ -29,7 +29,7 @@
                     <!-- featured player -->
                     <div class="input-field col s12 m6">
                         <i class="material-icons prefix">person</i>
-                        <input id="featured_player" name="featured_player" value="{{ epic.featured_player }}" type="text" minlength="5" maxlength="30" class="validate" required>
+                        <input id="featured_player" name="featured_player" value="{{ epic.featured_player }}" type="text" minlength="2" maxlength="30" class="validate" required>
                         <label for="featured_player">Featured Player</label>
                         <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-30 characters long." data-success=""></span>
                     </div>
@@ -53,22 +53,22 @@
 					<div class="input-field col s12 m6">
                         <i class="fas fa-trophy prefix"></i>
 						<input id="tournament" name="tournament" value="{{ epic.tournament }}" type="text" minlength="5" maxlength="30" class="validate" required>
-                        <label for="tournament">Tournament Name</label>
+                        <label for="tournament">Tournament</label>
                         <span class="helper-text" data-error="Field should consist of letters and/or numbers and be between 5-30 characters long." data-success=""></span>
                     </div>
                     <!-- tournament year -->
 					<div class="input-field col s12 m6">
                         <i class="material-icons prefix">date_range</i>
 						<input id="tournament_year" name="tournament_year" value="{{ epic.tournament_year }}" type="text" minlength="4" maxlength="4" pattern="^[0-9]{4,4}$" class="validate" required>
-                        <label for="tournament_year">Year of Tournament</label>
+                        <label for="tournament_year">Year</label>
                         <span class="helper-text" data-error="Year incorrect." data-success=""></span>
                     </div>
                     <!-- video link -->
 					<div class="input-field col s12 m6">
                         <i class="fas fa-video prefix"></i>
 						<input id="video" name="video" value="{{ epic.video }}" type="text" minlength="5" maxlength="100" class="validate" pattern="(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$" required>
-                        <label for="video">Video of Epic</label>
-                        <span class="helper-text" data-error="Field should consist of valid youtube link" data-success=""></span>
+                        <label for="video">Video Link</label>
+                        <span class="helper-text" data-error="Field should consist of valid youtube link." data-success=""></span>
                     </div>
                     <!-- image post -->
 					<div class="input-field col s12 m6">

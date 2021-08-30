@@ -436,6 +436,11 @@ nav {
         padding:4%;
     }
 }
+@media screen and (max-width: 1144px){
+    .form-btns-container{
+        margin-top: 75px;
+    }
+}
 @media screen and (max-width: 992px){
     .post-image-container{
         margin-bottom: 20px;
